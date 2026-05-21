@@ -260,10 +260,11 @@ section { padding: var(--section-py) 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.28), transparent 50%),
-    radial-gradient(circle at 82% 72%, rgba(201,168,76,0.18), transparent 55%),
-    radial-gradient(circle at 50% 110%, rgba(37,99,235,0.18), transparent 60%);
+    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.35), transparent 55%),
+    radial-gradient(circle at 82% 72%, rgba(96,165,250,0.22), transparent 55%),
+    radial-gradient(circle at 50% 110%, rgba(59,130,246,0.28), transparent 60%);
   animation: heroPulse 16s ease-in-out infinite alternate;
+  filter: blur(2px);
   pointer-events: none;
 }
 .hero::after {
@@ -290,30 +291,34 @@ section { padding: var(--section-py) 0; }
   width: 100%;
 }
 .hero .label {
-  color: #C9A84C;
+  color: rgba(255,255,255,0.85);
   position: relative;
-  padding: 6px 16px;
-  border: 1px solid rgba(201,168,76,0.35);
+  padding: 7px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 999px;
-  background: rgba(201,168,76,0.06);
+  background: rgba(255,255,255,0.05);
   margin-bottom: 28px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+  font-size: 12px;
+  letter-spacing: 0.18em;
 }
 .hero h1 {
-  font-size: clamp(44px, 6.8vw, 76px);
+  font-size: clamp(46px, 7.4vw, 84px);
   color: var(--white);
   margin-bottom: 28px;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
 }
 .hero h1 .line { display: block; }
 .hero h1 .line.accent {
-  background: linear-gradient(120deg, #ffffff 0%, #E8D89A 45%, #C9A84C 60%, #ffffff 100%);
+  background: linear-gradient(120deg, #ffffff 0%, #BFD4FF 45%, #60A5FA 60%, #ffffff 100%);
   background-size: 220% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   font-style: italic;
-  animation: shimmer 8s linear infinite;
+  font-weight: 400;
+  animation: shimmer 9s linear infinite;
 }
 @keyframes shimmer {
   0% { background-position: 0% center; }
@@ -322,7 +327,7 @@ section { padding: var(--section-py) 0; }
 .hero-divider {
   width: 80px; height: 1px;
   margin: 0 auto 28px;
-  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
 }
 .hero-sub {
   font-size: clamp(16px, 1.5vw, 19px);
