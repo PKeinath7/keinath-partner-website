@@ -89,6 +89,51 @@
   .lang-toggle button.active{background:var(--pure);color:var(--abyss)}
   @media(max-width:900px){.nav-links{display:none}}
 
+  /* ---------- HAMBURGER / MENU ---------- */
+  .menu-btn{
+    background:transparent;border:1px solid var(--line);
+    width:46px;height:46px;border-radius:999px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:all .3s;padding:0;
+  }
+  .menu-btn:hover{border-color:var(--mist);background:rgba(255,255,255,.04)}
+  .menu-btn .bars{display:flex;flex-direction:column;gap:5px;width:18px}
+  .menu-btn .bars span{
+    display:block;height:1px;background:var(--pure);
+    transition:transform .35s ease, opacity .35s ease;
+  }
+  .menu-btn .bars span:nth-child(1){width:100%}
+  .menu-btn .bars span:nth-child(2){width:70%;margin-left:auto}
+  .menu-btn .bars span:nth-child(3){width:100%}
+  body.menu-open .menu-btn .bars span:nth-child(1){transform:translateY(6px) rotate(45deg);width:100%}
+  body.menu-open .menu-btn .bars span:nth-child(2){opacity:0}
+  body.menu-open .menu-btn .bars span:nth-child(3){transform:translateY(-6px) rotate(-45deg);width:100%}
+
+  .menu-overlay{
+    position:fixed;inset:0;z-index:49;
+    background:rgba(3,17,31,.96);backdrop-filter:blur(20px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .5s ease;
+  }
+  body.menu-open .menu-overlay{opacity:1;pointer-events:auto}
+  .menu-overlay ul{list-style:none;text-align:center}
+  .menu-overlay li{margin:18px 0;overflow:hidden}
+  .menu-overlay a{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(36px,6vw,68px);font-weight:300;
+    color:var(--pure);letter-spacing:-.01em;line-height:1;
+    display:inline-block;transition:color .3s;
+    transform:translateY(40px);opacity:0;transition:transform .6s ease, opacity .6s ease, color .3s;
+  }
+  body.menu-open .menu-overlay a{transform:translateY(0);opacity:1}
+  body.menu-open .menu-overlay li:nth-child(1) a{transition-delay:.08s}
+  body.menu-open .menu-overlay li:nth-child(2) a{transition-delay:.14s}
+  body.menu-open .menu-overlay li:nth-child(3) a{transition-delay:.2s}
+  body.menu-open .menu-overlay li:nth-child(4) a{transition-delay:.26s}
+  body.menu-open .menu-overlay li:nth-child(5) a{transition-delay:.32s}
+  body.menu-open .menu-overlay li:nth-child(6) a{transition-delay:.38s}
+  .menu-overlay a:hover{color:var(--mist);font-style:italic}
+
   /* ---------- HERO ---------- */
   .hero{
     position:relative;min-height:100vh;
