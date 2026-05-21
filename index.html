@@ -239,8 +239,8 @@
   .expertise{background:linear-gradient(180deg,var(--abyss),var(--deep))}
   .exp-grid{margin-top:96px;border-top:1px solid var(--line)}
   .exp-row{
-    display:grid;grid-template-columns:120px 1fr 1fr 60px;
-    gap:40px;align-items:baseline;
+    display:grid;grid-template-columns:120px 1fr 1fr;
+    gap:40px;align-items:center;
     padding:38px 24px;border-bottom:1px solid var(--line);
     position:relative;overflow:hidden;
     transition:padding .5s;
@@ -260,7 +260,7 @@
   }
   .exp-name{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--pure);font-weight:400;letter-spacing:-.005em;line-height:1}
   .exp-desc{color:var(--soft);font-size:14px;line-height:1.65}
-  .exp-arrow{font-size:20px;color:var(--mist);text-align:right}
+  .exp-arrow{display:none}
   @media(max-width:820px){
     .exp-row{grid-template-columns:80px 1fr;gap:18px;padding:28px 16px}
     .exp-desc,.exp-arrow{display:none}
@@ -576,8 +576,8 @@
       </div>
       <div class="about-text">
         <div class="section-tag"><span data-lang="de">Die Kanzlei</span><span data-lang="en">The Firm</span></div>
-        <h2 class="section-title" data-lang="de">Nah am Mandanten. <em>Schnell</em> in der Reaktion.</h2>
-        <h2 class="section-title" data-lang="en">Close to the client. <em>Fast</em> in response.</h2>
+        <h2 class="section-title" data-lang="de">Nah am Mandanten.<br><em>Schnell</em> in der Reaktion.</h2>
+        <h2 class="section-title" data-lang="en">Close to the client.<br><em>Fast</em> in response.</h2>
 
         <div data-lang="de">
           <p>Keinath Rechtsanwaltsgesellschaft mbH ist eine Münchner M&amp;A-Boutique. Wir verstehen uns als Partner unserer Mandanten — nicht als Apparat. Persönliche Verbundenheit, kompromisslose Erreichbarkeit und gegenseitiges Vertrauen sind die Grundlage jedes Mandats.</p>
@@ -609,8 +609,8 @@
 <section class="deals" id="deals">
   <div class="wrap">
     <div class="section-tag"><span data-lang="de">Referenzen</span><span data-lang="en">References</span></div>
-    <h2 class="section-title reveal" data-lang="de">Ausgewählte <em>Transaktionen</em>.</h2>
-    <h2 class="section-title reveal" data-lang="en">Selected <em>Transactions</em>.</h2>
+    <h2 class="section-title reveal" data-lang="de">Ausgewählte<br><em>Transaktionen</em>.</h2>
+    <h2 class="section-title reveal" data-lang="en">Selected<br><em>Transactions</em>.</h2>
 
     <div class="deal-list section-block">
       <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Verkauf eines Industrieautomatisierers</span><span data-lang="en">Sale of an industrial automation group</span></div><div class="deal-meta">Sell-Side · DACH</div><div class="deal-meta"><span data-lang="de">PE-Investor</span><span data-lang="en">PE Investor</span></div><div class="deal-vol">€ 420 Mio.</div></div>
