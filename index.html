@@ -166,12 +166,49 @@ section { padding: var(--section-py) 0; }
   gap: 32px;
 }
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 600;
   color: var(--white);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
 }
+.wordmark:hover { opacity: 0.85; }
+.wordmark .monogram {
+  width: 34px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #C9A84C;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(37,99,235,0.05));
+  box-shadow: 0 0 18px rgba(201,168,76,0.18);
+}
+.wordmark .wm-text { display: inline-flex; align-items: baseline; gap: 6px; }
+.wordmark .wm-amp {
+  font-style: italic;
+  color: #C9A84C;
+  font-weight: 500;
+}
+.wordmark .wm-sub {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-left: 10px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+@media (min-width: 720px) { .wordmark .wm-sub { display: inline-block; } }
 .nav-links {
   display: flex;
   gap: 32px;
@@ -236,32 +273,74 @@ section { padding: var(--section-py) 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 30%, rgba(37,99,235,0.22), transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(30,58,95,0.45), transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(37,99,235,0.15), transparent 60%);
-  animation: heroPulse 14s ease-in-out infinite alternate;
+    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.28), transparent 50%),
+    radial-gradient(circle at 82% 72%, rgba(201,168,76,0.18), transparent 55%),
+    radial-gradient(circle at 50% 110%, rgba(37,99,235,0.18), transparent 60%);
+  animation: heroPulse 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+  opacity: 0.5;
   pointer-events: none;
 }
 @keyframes heroPulse {
   0%   { opacity: 0.7; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1.12); }
 }
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 880px;
+  max-width: 900px;
   width: 100%;
 }
+.hero .label {
+  color: #C9A84C;
+  position: relative;
+  padding: 6px 16px;
+  border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 999px;
+  background: rgba(201,168,76,0.06);
+  margin-bottom: 28px;
+  backdrop-filter: blur(6px);
+}
 .hero h1 {
-  font-size: clamp(44px, 6.5vw, 72px);
+  font-size: clamp(44px, 6.8vw, 76px);
   color: var(--white);
   margin-bottom: 28px;
+  letter-spacing: -0.025em;
 }
 .hero h1 .line { display: block; }
+.hero h1 .line.accent {
+  background: linear-gradient(120deg, #ffffff 0%, #E8D89A 45%, #C9A84C 60%, #ffffff 100%);
+  background-size: 220% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-style: italic;
+  animation: shimmer 8s linear infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+.hero-divider {
+  width: 80px; height: 1px;
+  margin: 0 auto 28px;
+  background: linear-gradient(90deg, transparent, rgba(201,168,76,0.7), transparent);
+}
 .hero-sub {
-  font-size: clamp(16px, 1.5vw, 18px);
+  font-size: clamp(16px, 1.5vw, 19px);
   color: var(--white-muted);
-  max-width: 600px;
+  max-width: 640px;
   margin: 0 auto 40px;
 }
 .hero-cta {
@@ -826,6 +905,11 @@ section { padding: var(--section-py) 0; }
     gap: 18px;
     border-top: 1px solid var(--navy-border);
   }
+  .nav.menu-open .nav-links a {
+    font-size: 18px;
+    padding: 8px 0;
+    color: var(--white);
+  }
   .services-grid,
   .deals-grid { grid-template-columns: repeat(2, 1fr); }
   .feature-inner,
@@ -843,6 +927,8 @@ section { padding: var(--section-py) 0; }
   .container { padding: 0 20px; }
   .nav-inner { gap: 12px; }
   .lang-toggle { font-size: 12px; }
+  .wordmark { font-size: 18px; gap: 8px; }
+  .wordmark .monogram { width: 30px; height: 30px; font-size: 12px; }
 }
 </style>
 </head>
@@ -853,12 +939,16 @@ section { padding: var(--section-py) 0; }
      ============================================================ -->
 <nav class="nav" id="nav" aria-label="Hauptnavigation">
   <div class="container nav-inner">
-    <a href="#" class="wordmark">Keinath &amp; Partner</a>
+    <a href="#top" class="wordmark" aria-label="Keinath und Partner — Startseite">
+      <span class="monogram" aria-hidden="true">K<span class="wm-amp">&amp;</span>P</span>
+      <span class="wm-text">Keinath<span class="wm-amp">&amp;</span>Partner</span>
+      <span class="wm-sub" data-de="M&amp;A BOUTIQUE" data-en="M&amp;A BOUTIQUE">M&amp;A BOUTIQUE</span>
+    </a>
 
     <ul class="nav-links">
-      <li><a href="#services" data-de="Leistungen" data-en="Services">Leistungen</a></li>
+      <li><a href="#top" data-de="Home" data-en="Home">Home</a></li>
+      <li><a href="#services" data-de="Tätigkeiten" data-en="Practice">Tätigkeiten</a></li>
       <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
-      <li><a href="#track" data-de="Referenzen" data-en="Track Record">Referenzen</a></li>
       <li><a href="#careers" data-de="Karriere" data-en="Careers">Karriere</a></li>
       <li><a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a></li>
     </ul>
@@ -869,8 +959,8 @@ section { padding: var(--section-py) 0; }
         <span class="lang-sep">|</span>
         <button id="lang-en" aria-label="English">EN</button>
       </div>
-      <a href="#contact" class="btn btn-primary" data-de="Mandat anfragen" data-en="Request Mandate">Mandat anfragen</a>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen">
+      <a href="#contact" class="btn btn-primary" data-de="Kontakt aufnehmen" data-en="Get in Touch">Kontakt aufnehmen</a>
+      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
@@ -882,18 +972,19 @@ section { padding: var(--section-py) 0; }
      ============================================================ -->
 <header class="hero on-dark" id="top">
   <div class="hero-content">
-    <span class="label" data-de="M&amp;A ADVISORY · MÜNCHEN" data-en="M&amp;A ADVISORY · MUNICH">M&amp;A ADVISORY · MÜNCHEN</span>
+    <span class="label" data-de="M&amp;A BOUTIQUE · MIT SITZ IN MÜNCHEN" data-en="M&amp;A BOUTIQUE · BASED IN MUNICH">M&amp;A BOUTIQUE · MIT SITZ IN MÜNCHEN</span>
     <h1>
       <span class="line" data-de="Präzise Beratung." data-en="Precise Counsel.">Präzise Beratung.</span>
-      <span class="line" data-de="Strategische Transaktionen." data-en="Strategic Transactions.">Strategische Transaktionen.</span>
+      <span class="line accent" data-de="Strategische Transaktionen." data-en="Strategic Transactions.">Strategische Transaktionen.</span>
     </h1>
+    <div class="hero-divider" aria-hidden="true"></div>
     <p class="hero-sub" data-de="Keinath &amp; Partner berät Unternehmen und Investoren bei komplexen M&amp;A-Transaktionen — mit juristischer Präzision und KI-gestützter Dealanalyse." data-en="Keinath &amp; Partner advises companies and investors on complex M&amp;A transactions — combining legal rigour with AI-driven deal intelligence.">
       Keinath &amp; Partner berät Unternehmen und Investoren bei komplexen M&amp;A-Transaktionen — mit juristischer Präzision und KI-gestützter Dealanalyse.
     </p>
 
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary" data-de="Mandat anfragen" data-en="Request Mandate">Mandat anfragen</a>
-      <a href="#services" class="btn btn-outline" data-de="Leistungen entdecken" data-en="Explore Services">Leistungen entdecken</a>
+      <a href="#contact" class="btn btn-primary" data-de="Kontakt aufnehmen" data-en="Get in Touch">Kontakt aufnehmen</a>
+      <a href="#services" class="btn btn-outline" data-de="Tätigkeiten entdecken" data-en="Explore Practice">Tätigkeiten entdecken</a>
     </div>
 
     <div class="stat-pills">
@@ -1317,11 +1408,17 @@ section { padding: var(--section-py) 0; }
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---------- Mobile menu ---------- */
-  document.getElementById('hamburger').addEventListener('click', () => {
-    nav.classList.toggle('menu-open');
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    const open = nav.classList.toggle('menu-open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
   });
   document.querySelectorAll('.nav-links a').forEach(a =>
-    a.addEventListener('click', () => nav.classList.remove('menu-open'))
+    a.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    })
   );
 
   /* ---------- Language toggle ---------- */
