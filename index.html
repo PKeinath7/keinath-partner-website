@@ -3,1458 +3,561 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Keinath & Partner — M&A Advisory München</title>
-<meta name="description" content="Keinath & Partner: M&A Advisory Boutique in München. Juristische Präzision trifft KI-gestützte Dealanalyse." />
+<title>Keinath & Partner — M&A Boutique | Rechtsanwälte München</title>
+<meta name="description" content="Keinath & Partner ist eine M&A-Boutique mit Sitz in München. Spezialisierte Rechtsberatung bei Unternehmenstransaktionen, Private Equity und Venture Capital." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
-/* ============================================================
-   DESIGN TOKENS
-   ============================================================ */
-:root {
-  --navy: #0A1628;
-  --navy-card: #0F2040;
-  --navy-border: #1E3A5F;
-  --blue-accent: #2563EB;
-  --blue-accent-hover: #1D4ED8;
-  --blue-light: #EFF6FF;
-  --white: #FFFFFF;
-  --white-muted: rgba(255,255,255,0.65);
-  --text-dark: #0A1628;
-  --text-muted: #4B5563;
-
-  --font-serif: 'Cormorant Garamond', Georgia, serif;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-
-  --radius-card: 16px;
-  --radius-btn: 8px;
-  --max-w: 1200px;
-
-  --section-py: clamp(64px, 8vw, 96px);
+:root{
+  --bg:#F7F6F2;
+  --paper:#FBFAF6;
+  --ink:#0B1B2B;
+  --ink-soft:#324558;
+  --ink-mute:#6B7A8A;
+  --line:rgba(11,27,43,0.12);
+  --line-soft:rgba(11,27,43,0.07);
+  --navy:#0B1B2B;
+  --navy-2:#102B45;
+  --blue:#1E3A8A;
+  --blue-hover:#162E6E;
+  --accent:#C9A24B; /* discreet brass for hairlines only */
+  --serif:'Cormorant Garamond', 'Times New Roman', serif;
+  --sans:'Inter', system-ui, sans-serif;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+  font-weight:400;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 28px}
+.serif{font-family:var(--serif);font-weight:500;letter-spacing:-0.01em}
+.eyebrow{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:500;
+  text-transform:uppercase;
+  letter-spacing:0.22em;
+  color:var(--ink-mute);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{
+  content:"";width:24px;height:1px;background:var(--ink-mute);
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-body {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  color: var(--text-dark);
-  background: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+/* =========== NAV =========== */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  padding:18px 0;
+  transition:background .3s ease, border-color .3s ease, padding .3s ease;
+  border-bottom:1px solid transparent;
 }
-img, svg { display: block; max-width: 100%; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; }
-ul { list-style: none; }
+.nav.scrolled{
+  background:rgba(247,246,242,0.85);
+  backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line-soft);
+  padding:12px 0;
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:22px;font-weight:600;letter-spacing:-0.01em;color:var(--ink)}
+.brand small{font-family:var(--sans);font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--ink-mute);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:36px}
+.nav-links a{
+  font-size:13.5px;color:var(--ink-soft);font-weight:400;
+  position:relative;transition:color .2s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--ink);transition:width .3s ease;
+}
+.nav-links a:hover::after{width:100%}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 22px;border-radius:2px;
+  font-size:13px;font-weight:500;letter-spacing:0.04em;
+  background:var(--navy);color:#fff;border:1px solid var(--navy);
+  transition:all .25s ease;cursor:pointer;
+}
+.btn:hover{background:transparent;color:var(--navy)}
+.btn .arr{transition:transform .25s ease}
+.btn:hover .arr{transform:translateX(4px)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn-ghost:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 
-h1, h2, h3, h4 {
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  color: var(--text-dark);
-}
-.on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4 { color: var(--white); }
+.burger{display:none;background:none;border:0;cursor:pointer;width:32px;height:32px;position:relative}
+.burger span{position:absolute;left:4px;right:4px;height:1px;background:var(--ink);transition:.3s}
+.burger span:nth-child(1){top:11px}
+.burger span:nth-child(2){top:20px}
+.burger.open span:nth-child(1){top:15px;transform:rotate(45deg)}
+.burger.open span:nth-child(2){top:15px;transform:rotate(-45deg)}
 
-.container {
-  width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-section { padding: var(--section-py) 0; }
-
-.label {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue-accent);
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.section-heading {
-  font-size: clamp(32px, 4.5vw, 52px);
-  margin-bottom: 24px;
-  max-width: 760px;
-}
-.section-sub {
-  font-size: clamp(16px, 1.4vw, 18px);
-  color: var(--text-muted);
-  max-width: 640px;
-  margin-bottom: 56px;
-}
-.on-dark .section-sub { color: var(--white-muted); }
-
-/* ============================================================
-   BUTTONS
-   ============================================================ */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 14px 24px;
-  border-radius: var(--radius-btn);
-  font-size: 15px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-  cursor: pointer;
-}
-.btn-primary {
-  background: var(--blue-accent);
-  color: var(--white);
-}
-.btn-primary:hover { background: var(--blue-accent-hover); transform: translateY(-1px); }
-.btn-outline {
-  background: transparent;
-  color: var(--white);
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
-.btn-outline-dark {
-  background: transparent;
-  color: var(--text-dark);
-  border: 1px solid var(--navy-border);
-}
-.btn-outline-dark:hover { background: var(--blue-light); }
-
-.link-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--blue-accent);
-  font-weight: 500;
-  font-size: 15px;
-  transition: gap 0.2s ease;
-}
-.link-arrow:hover { gap: 10px; }
-
-/* ============================================================
-   NAVIGATION
-   ============================================================ */
-.nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  padding: 18px 0;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
-}
-.nav.scrolled {
-  background: rgba(10, 22, 40, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.nav-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
-}
-.wordmark {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: 0.01em;
-  transition: opacity 0.2s ease;
-}
-.wordmark:hover { opacity: 0.85; }
-.wordmark .wm-text { display: inline-flex; align-items: baseline; gap: 6px; }
-.wordmark .wm-amp {
-  font-style: italic;
-  color: var(--white);
-  font-weight: 500;
-}
-.wordmark .wm-sub {
-  display: none;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.5);
-  margin-left: 10px;
-  padding-left: 12px;
-  border-left: 1px solid rgba(255,255,255,0.15);
-}
-@media (min-width: 720px) { .wordmark .wm-sub { display: inline-block; } }
-.nav-links {
-  display: flex;
-  gap: 32px;
-}
-.nav-links a {
-  color: var(--white-muted);
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--white); }
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.lang-toggle {
-  display: flex;
-  gap: 4px;
-  color: var(--white-muted);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
-.lang-toggle button {
-  color: var(--white-muted);
-  padding: 4px 6px;
-  font-weight: 600;
-  font-size: 13px;
-  transition: color 0.2s;
-}
-.lang-toggle button.active { color: var(--white); }
-.lang-toggle button:hover { color: var(--white); }
-.lang-sep { color: rgba(255,255,255,0.3); }
-
-.nav .btn-primary { padding: 10px 18px; font-size: 14px; }
-
-.hamburger {
-  display: none;
-  width: 40px; height: 40px;
-  align-items: center; justify-content: center;
-  color: var(--white);
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.hero {
-  min-height: 100vh;
-  background: var(--navy);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  padding: 140px 24px 80px;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.35), transparent 55%),
-    radial-gradient(circle at 82% 72%, rgba(96,165,250,0.22), transparent 55%),
-    radial-gradient(circle at 50% 110%, rgba(59,130,246,0.28), transparent 60%);
-  animation: heroPulse 16s ease-in-out infinite alternate;
-  filter: blur(2px);
-  pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
-  opacity: 0.5;
-  pointer-events: none;
-}
-@keyframes heroPulse {
-  0%   { opacity: 0.7; transform: scale(1); }
-  100% { opacity: 1; transform: scale(1.12); }
-}
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 900px;
-  width: 100%;
-}
-.hero .label {
-  color: rgba(255,255,255,0.85);
-  position: relative;
-  padding: 7px 18px;
-  border: 1px solid rgba(255,255,255,0.18);
-  border-radius: 999px;
-  background: rgba(255,255,255,0.05);
-  margin-bottom: 28px;
-  backdrop-filter: blur(8px);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-}
-.hero h1 {
-  font-size: clamp(46px, 7.4vw, 84px);
-  color: var(--white);
-  margin-bottom: 28px;
-  letter-spacing: -0.03em;
-  line-height: 1.02;
-}
-.hero h1 .line { display: block; }
-.hero h1 .line.accent {
-  background: linear-gradient(120deg, #ffffff 0%, #BFD4FF 45%, #60A5FA 60%, #ffffff 100%);
-  background-size: 220% auto;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-style: italic;
-  font-weight: 400;
-  animation: shimmer 9s linear infinite;
-}
-@keyframes shimmer {
-  0% { background-position: 0% center; }
-  100% { background-position: 200% center; }
-}
-.hero-divider {
-  width: 80px; height: 1px;
-  margin: 0 auto 28px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-}
-.hero-sub {
-  font-size: clamp(16px, 1.5vw, 19px);
-  color: var(--white-muted);
-  max-width: 640px;
-  margin: 0 auto 40px;
-}
-.hero-cta {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 48px;
-}
-.stat-pills {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.stat-pill {
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border);
-  color: var(--white);
-  padding: 10px 18px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-}
-
-/* ============================================================
-   TRUST STRIP / SECTORS
-   ============================================================ */
-.trust {
-  background: var(--blue-light);
-  padding: 64px 0;
-  text-align: center;
-  overflow: hidden;
-}
-.marquee {
-  overflow: hidden;
-  margin: 24px 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-}
-.marquee-track {
-  display: flex;
-  gap: 16px;
-  width: max-content;
-  animation: marquee 30s linear infinite;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.sector-pill {
-  background: var(--navy-card);
-  color: var(--white);
-  padding: 12px 24px;
-  border-radius: 999px;
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
-}
-.trust-foot {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-top: 8px;
-}
-
-/* ============================================================
-   SERVICES
-   ============================================================ */
-.services { background: var(--white); }
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.service-card {
-  background: var(--navy-card);
-  color: var(--white);
-  border-radius: var(--radius-card);
-  padding: 36px 32px;
-  border: 1px solid var(--navy-border);
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.service-card:hover { transform: translateY(-4px); border-color: var(--blue-accent); }
-.service-icon {
-  width: 56px; height: 56px;
-  border-radius: 12px;
-  background: rgba(37,99,235,0.15);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px;
-}
-.service-card h3 {
-  color: var(--white);
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-.service-card p {
-  color: var(--white-muted);
-  font-size: 15px;
-  line-height: 1.65;
-}
-
-/* CSS Icons */
-.icon-svg { width: 28px; height: 28px; stroke: var(--blue-accent); fill: none; stroke-width: 1.5; }
-
-/* ============================================================
-   FEATURE SECTIONS
-   ============================================================ */
-.feature {
-  padding: var(--section-py) 0;
-}
-.feature.alt { background: var(--blue-light); }
-.feature-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
-}
-.feature.reverse .feature-text { order: 2; }
-.feature.reverse .feature-visual { order: 1; }
-.feature-text h2 {
-  font-size: clamp(30px, 3.6vw, 44px);
-  margin-bottom: 20px;
-}
-.feature-text p {
-  color: var(--text-muted);
-  font-size: 16px;
-  margin-bottom: 24px;
-  max-width: 520px;
-}
-.feature-visual {
-  background: var(--navy);
-  border-radius: var(--radius-card);
-  aspect-ratio: 4/3;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--navy-border);
-}
-
-/* Funnel illustration */
-.illu-funnel { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; gap: 14px; padding: 40px; }
-.illu-funnel .bar {
-  height: 14px;
-  background: linear-gradient(90deg, var(--blue-accent), var(--navy-border));
-  border-radius: 4px;
-  opacity: 0.85;
-}
-.illu-funnel .bar:nth-child(1) { width: 90%; }
-.illu-funnel .bar:nth-child(2) { width: 75%; opacity: 0.75; }
-.illu-funnel .bar:nth-child(3) { width: 58%; opacity: 0.65; }
-.illu-funnel .bar:nth-child(4) { width: 42%; opacity: 0.85; background: var(--blue-accent); }
-.illu-funnel .bar:nth-child(5) { width: 25%; background: var(--blue-accent); }
-
-/* Podium illustration */
-.illu-podium { display: flex; align-items: flex-end; justify-content: center; height: 100%; gap: 16px; padding: 40px; }
-.illu-podium .col {
-  width: 70px;
-  background: linear-gradient(180deg, var(--blue-accent), var(--navy-border));
-  border-radius: 8px 8px 0 0;
-  position: relative;
-}
-.illu-podium .col::before {
-  content: attr(data-rank);
-  position: absolute;
-  top: -32px; left: 50%;
-  transform: translateX(-50%);
-  color: var(--white);
-  font-family: var(--font-serif);
-  font-size: 22px;
-}
-.illu-podium .col:nth-child(1) { height: 45%; opacity: 0.7; }
-.illu-podium .col:nth-child(2) { height: 75%; }
-.illu-podium .col:nth-child(3) { height: 55%; opacity: 0.8; }
-
-/* ============================================================
-   ABOUT
-   ============================================================ */
-.about { background: var(--navy); color: var(--white); }
-.about-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-}
-.founder-card, .value-card {
-  background: var(--navy-card);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--radius-card);
-  padding: 36px;
-}
-.founder-card { display: flex; flex-direction: column; }
-.avatar {
-  width: 72px; height: 72px;
-  border-radius: 50%;
-  background: var(--blue-accent);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--white);
-  margin-bottom: 24px;
-}
-.founder-card h3 {
-  color: var(--white);
-  font-size: 24px;
-  margin-bottom: 6px;
-}
-.founder-title {
-  color: var(--blue-accent);
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 20px;
-  font-family: var(--font-sans);
-}
-.founder-bio {
-  color: var(--white-muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-.value-stack { display: flex; flex-direction: column; gap: 24px; }
-.value-card h4 {
-  color: var(--white);
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.value-card p {
-  color: var(--white-muted);
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-/* ============================================================
-   TRACK RECORD
-   ============================================================ */
-.track { background: var(--white); }
-.metrics-bar {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-bottom: 56px;
-}
-.metric-card {
-  background: var(--blue-light);
-  border-radius: var(--radius-card);
-  padding: 32px;
-  text-align: center;
-}
-.metric-num {
-  font-family: var(--font-serif);
-  font-size: clamp(36px, 4vw, 48px);
-  font-weight: 600;
-  color: var(--navy);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.metric-label {
-  color: var(--text-muted);
-  font-size: 14px;
-  font-weight: 500;
-}
-.deals-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.deal-card {
-  background: var(--white);
-  border: 1px solid #E5E7EB;
-  border-radius: var(--radius-card);
-  padding: 28px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.deal-card:hover { border-color: var(--blue-accent); transform: translateY(-2px); }
-.deal-badge {
-  display: inline-block;
-  background: var(--blue-accent);
-  color: var(--white);
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  margin-bottom: 16px;
-}
-.deal-type {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-}
-.deal-meta {
-  color: var(--text-muted);
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-.deal-foot {
-  border-top: 1px solid #E5E7EB;
-  padding-top: 14px;
-  font-size: 12px;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-}
-
-/* ============================================================
-   CAREERS
-   ============================================================ */
-.careers { background: var(--navy-card); color: var(--white); }
-.careers .label, .careers .section-heading { }
-.careers-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-.role-card {
-  background: var(--navy);
-  border: 1px solid var(--navy-border);
-  border-radius: var(--radius-card);
-  padding: 36px;
-  display: flex;
-  flex-direction: column;
-}
-.role-card.featured { border-color: var(--blue-accent); }
-.role-card h3 {
-  color: var(--white);
-  font-size: 26px;
-  margin-bottom: 12px;
-}
-.role-card > p {
-  color: var(--white-muted);
-  font-size: 15px;
-  margin-bottom: 24px;
-}
-.role-card ul {
-  margin-bottom: 28px;
-  display: flex; flex-direction: column; gap: 10px;
-}
-.role-card li {
-  color: var(--white-muted);
-  font-size: 14px;
-  padding-left: 24px;
-  position: relative;
-}
-.role-card li::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--blue-accent);
-}
-.role-card .btn { margin-top: auto; }
-
-/* ============================================================
-   FAQ
-   ============================================================ */
-.faq { background: var(--white); }
-.faq-list {
-  max-width: 820px;
-  margin: 0 auto;
-  display: flex; flex-direction: column;
-  gap: 12px;
-}
-.faq-item {
-  border: 1px solid #E5E7EB;
-  border-radius: 12px;
-  background: var(--white);
-  overflow: hidden;
-  transition: border-color 0.2s;
-}
-.faq-item.open { border-color: var(--blue-accent); }
-.faq-q {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 22px 26px;
-  text-align: left;
-  font-family: var(--font-sans);
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--text-dark);
-}
-.faq-q .plus {
-  width: 24px; height: 24px;
-  position: relative;
-  flex-shrink: 0;
-  transition: transform 0.3s;
-}
-.faq-q .plus::before, .faq-q .plus::after {
-  content: '';
-  position: absolute;
-  background: var(--blue-accent);
-  border-radius: 2px;
-  top: 50%; left: 50%;
-}
-.faq-q .plus::before { width: 14px; height: 2px; transform: translate(-50%, -50%); }
-.faq-q .plus::after  { width: 2px; height: 14px; transform: translate(-50%, -50%); transition: transform 0.3s; }
-.faq-item.open .faq-q .plus::after { transform: translate(-50%, -50%) rotate(90deg); }
-.faq-a {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
-}
-.faq-a-inner {
-  padding: 0 26px 24px;
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-/* ============================================================
-   CLOSING CTA
-   ============================================================ */
-.closing {
-  background: var(--navy);
-  color: var(--white);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-.closing::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(37,99,235,0.25), transparent 55%),
-    radial-gradient(circle at 20% 80%, rgba(30,58,95,0.4), transparent 50%);
-  animation: heroPulse 12s ease-in-out infinite alternate;
-}
-.closing .container { position: relative; z-index: 1; }
-.closing h2 {
-  font-size: clamp(36px, 5vw, 60px);
-  color: var(--white);
-  margin-bottom: 20px;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.closing p {
-  color: var(--white-muted);
-  font-size: 18px;
-  max-width: 560px;
-  margin: 0 auto 36px;
-}
-.closing-cta {
-  display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
-}
-
-/* ============================================================
-   CONTACT
-   ============================================================ */
-.contact { background: var(--white); }
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 64px;
-  align-items: start;
-}
-.contact-form { display: flex; flex-direction: column; gap: 16px; }
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid #E5E7EB;
-  border-radius: 8px;
-  font-family: var(--font-sans);
-  font-size: 15px;
-  color: var(--text-dark);
-  background: var(--white);
-  transition: border-color 0.2s;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-color: var(--blue-accent);
-}
-.contact-form textarea { min-height: 140px; resize: vertical; }
-.contact-form .btn { align-self: flex-start; }
-
-.contact-info {
-  background: var(--blue-light);
-  padding: 36px;
-  border-radius: var(--radius-card);
-}
-.contact-info h3 {
-  font-size: 22px;
-  margin-bottom: 16px;
-}
-.contact-info p {
-  color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
-.footer {
-  background: var(--navy);
-  color: var(--white-muted);
-  padding: 40px 0 24px;
-  border-top: 1px solid var(--navy-border);
-}
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 14px; transition: color 0.2s; }
-.footer-links a:hover { color: var(--white); }
-.footer-social a {
-  display: inline-flex;
-  width: 36px; height: 36px;
-  align-items: center; justify-content: center;
-  border-radius: 8px;
-  border: 1px solid var(--navy-border);
-  color: var(--white-muted);
-  transition: all 0.2s;
-}
-.footer-social a:hover { color: var(--white); border-color: var(--blue-accent); }
-.footer-bottom {
-  max-width: var(--max-w);
-  margin: 24px auto 0;
-  padding: 16px 24px 0;
-  border-top: 1px solid var(--navy-border);
-  font-size: 13px;
-  color: var(--white-muted);
-  text-align: center;
-}
-
-/* ============================================================
-   ANIMATIONS
-   ============================================================ */
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 960px) {
-  .nav-links { display: none; }
-  .nav-right .btn-primary { display: none; }
-  .hamburger { display: inline-flex; }
-  .nav.menu-open .nav-links {
-    display: flex;
-    position: absolute;
-    top: 100%; left: 0; right: 0;
-    background: rgba(10,22,40,0.97);
-    backdrop-filter: blur(12px);
-    flex-direction: column;
-    padding: 24px;
-    gap: 18px;
-    border-top: 1px solid var(--navy-border);
+@media (max-width:880px){
+  .nav-links{
+    position:fixed;top:64px;left:0;right:0;
+    flex-direction:column;align-items:flex-start;gap:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:8px 28px 24px;
+    transform:translateY(-120%);transition:transform .35s ease;
   }
-  .nav.menu-open .nav-links a {
-    font-size: 18px;
-    padding: 8px 0;
-    color: var(--white);
-  }
-  .services-grid,
-  .deals-grid { grid-template-columns: repeat(2, 1fr); }
-  .feature-inner,
-  .about-grid,
-  .careers-grid,
-  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-  .feature.reverse .feature-text { order: 1; }
-  .feature.reverse .feature-visual { order: 2; }
-  .metrics-bar { grid-template-columns: 1fr; }
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{padding:16px 0;width:100%;border-bottom:1px solid var(--line-soft);font-size:15px}
+  .nav-links .btn{margin-top:14px;width:100%;justify-content:center}
+  .burger{display:block}
 }
-@media (max-width: 640px) {
-  .services-grid,
-  .deals-grid { grid-template-columns: 1fr; }
-  .hero { padding: 120px 20px 60px; }
-  .container { padding: 0 20px; }
-  .nav-inner { gap: 12px; }
-  .lang-toggle { font-size: 12px; }
-  .wordmark { font-size: 18px; gap: 8px; }
+
+/* =========== HERO =========== */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  padding:140px 0 80px;
+  overflow:hidden;
+  background:var(--bg);
 }
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%, rgba(30,58,138,0.06), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 10% 90%, rgba(30,58,138,0.05), transparent 60%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;
+  display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:center;
+}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr;gap:48px}}
+.hero h1{
+  font-family:var(--serif);
+  font-size:clamp(48px,7.2vw,104px);
+  line-height:0.98;
+  letter-spacing:-0.02em;
+  font-weight:500;
+  color:var(--ink);
+}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--blue)}
+.hero .lead{
+  margin-top:32px;max-width:520px;
+  font-size:17px;line-height:1.65;color:var(--ink-soft);
+  font-weight:300;
+}
+.hero-cta{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{
+  margin-top:64px;display:flex;gap:48px;flex-wrap:wrap;
+  padding-top:28px;border-top:1px solid var(--line);
+  max-width:520px;
+}
+.hero-meta div{font-size:12px;color:var(--ink-mute);letter-spacing:0.04em}
+.hero-meta strong{display:block;font-family:var(--serif);font-size:28px;color:var(--ink);font-weight:600;margin-bottom:4px}
+
+.hero-card{
+  position:relative;
+  background:var(--paper);
+  border:1px solid var(--line);
+  padding:40px;
+  border-radius:2px;
+  box-shadow:0 30px 80px -40px rgba(11,27,43,0.25);
+}
+.hero-card::before{
+  content:"";position:absolute;top:-1px;left:-1px;width:60px;height:60px;
+  border-top:1px solid var(--accent);border-left:1px solid var(--accent);
+}
+.hero-card::after{
+  content:"";position:absolute;bottom:-1px;right:-1px;width:60px;height:60px;
+  border-bottom:1px solid var(--accent);border-right:1px solid var(--accent);
+}
+.hero-card .quote{
+  font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;color:var(--ink);
+}
+.hero-card .quote-mark{
+  font-family:var(--serif);font-size:80px;line-height:0.6;color:var(--blue);opacity:.4;display:block;margin-bottom:8px;
+}
+.hero-card .cite{margin-top:24px;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mute)}
+.hero-card .cite b{display:block;color:var(--ink);font-weight:600;letter-spacing:0.04em;text-transform:none;font-size:14px;margin-bottom:4px;font-family:var(--serif)}
+
+.fade{opacity:0;transform:translateY(20px);transition:opacity 1s ease, transform 1s ease}
+.fade.in{opacity:1;transform:none}
+.fade-d1{transition-delay:.1s}.fade-d2{transition-delay:.2s}.fade-d3{transition-delay:.3s}.fade-d4{transition-delay:.4s}
+
+/* =========== SECTION =========== */
+section{padding:clamp(80px,12vw,140px) 0;position:relative}
+.section-head{display:grid;grid-template-columns:1fr 2fr;gap:60px;margin-bottom:72px}
+@media (max-width:880px){.section-head{grid-template-columns:1fr;gap:24px;margin-bottom:48px}}
+.section-head h2{
+  font-family:var(--serif);font-size:clamp(36px,4.6vw,56px);line-height:1.05;letter-spacing:-0.02em;font-weight:500;color:var(--ink);
+}
+.section-head h2 em{font-style:italic;color:var(--blue);font-weight:400}
+.section-head p{font-size:16px;color:var(--ink-soft);max-width:540px;font-weight:300;line-height:1.7}
+
+/* =========== EXPERTISE =========== */
+.expertise{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line)}
+@media (max-width:780px){.exp-grid{grid-template-columns:1fr}}
+.exp-item{
+  padding:48px 36px;
+  border-bottom:1px solid var(--line);
+  border-right:1px solid var(--line);
+  position:relative;cursor:default;
+  transition:background .3s ease;
+}
+.exp-item:nth-child(2n){border-right:0}
+@media (max-width:780px){.exp-item{border-right:0}}
+.exp-item:hover{background:#fff}
+.exp-num{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--blue);margin-bottom:24px;display:block}
+.exp-item h3{font-family:var(--serif);font-size:28px;font-weight:500;letter-spacing:-0.01em;margin-bottom:16px}
+.exp-item p{color:var(--ink-soft);font-size:15px;font-weight:300;line-height:1.7;max-width:440px}
+.exp-item .more{margin-top:20px;font-size:12px;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink-mute);display:inline-flex;gap:8px;align-items:center;opacity:0;transform:translateX(-8px);transition:.3s}
+.exp-item:hover .more{opacity:1;transform:none}
+
+/* =========== APPROACH =========== */
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+@media (max-width:880px){.approach-grid{grid-template-columns:1fr;gap:32px}}
+.approach-item{padding-top:32px;border-top:1px solid var(--ink)}
+.approach-item .step{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--blue);margin-bottom:16px}
+.approach-item h4{font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:12px;letter-spacing:-0.01em}
+.approach-item p{font-size:14.5px;color:var(--ink-soft);font-weight:300;line-height:1.7}
+
+/* =========== TRANSACTIONS =========== */
+.transactions{background:var(--navy);color:#fff}
+.transactions .section-head h2{color:#fff}
+.transactions .section-head h2 em{color:#9DB6F2}
+.transactions .section-head p{color:rgba(255,255,255,0.7)}
+.deals{border-top:1px solid rgba(255,255,255,0.15)}
+.deal{
+  display:grid;grid-template-columns:80px 1.4fr 1fr 1fr auto;gap:28px;align-items:center;
+  padding:28px 0;border-bottom:1px solid rgba(255,255,255,0.12);
+  transition:padding .3s ease;cursor:default;
+}
+.deal:hover{padding-left:12px}
+.deal .year{font-family:var(--serif);font-style:italic;font-size:18px;color:#9DB6F2}
+.deal .title{font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-0.01em}
+.deal .role{font-size:13px;color:rgba(255,255,255,0.65);letter-spacing:0.04em}
+.deal .sector{font-size:13px;color:rgba(255,255,255,0.65)}
+.deal .vol{font-size:13px;color:#fff;font-weight:500;text-align:right}
+@media (max-width:780px){
+  .deal{grid-template-columns:1fr;gap:6px;padding:24px 0}
+  .deal .vol{text-align:left}
+}
+
+/* =========== TEAM / ABOUT =========== */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media (max-width:880px){.about-grid{grid-template-columns:1fr;gap:48px}}
+.about-visual{
+  position:relative;aspect-ratio:4/5;background:linear-gradient(160deg,#1E3A8A 0%, #0B1B2B 100%);
+  display:flex;align-items:flex-end;padding:40px;color:#fff;overflow:hidden;
+}
+.about-visual::before{
+  content:"K&P";position:absolute;top:-20px;right:20px;
+  font-family:var(--serif);font-size:280px;font-style:italic;font-weight:500;
+  color:rgba(255,255,255,0.06);line-height:1;
+}
+.about-visual .badge{
+  position:relative;font-family:var(--serif);font-style:italic;font-size:20px;
+  border-top:1px solid rgba(255,255,255,0.3);padding-top:20px;
+}
+.about-visual .badge b{display:block;font-style:normal;font-size:14px;letter-spacing:0.2em;text-transform:uppercase;color:#9DB6F2;font-weight:500;margin-bottom:8px;font-family:var(--sans)}
+.about-text h2{font-family:var(--serif);font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.02em;font-weight:500;margin-bottom:28px}
+.about-text h2 em{font-style:italic;color:var(--blue)}
+.about-text p{color:var(--ink-soft);font-size:16px;font-weight:300;line-height:1.75;margin-bottom:20px}
+.values{margin-top:36px;display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.values div{padding-top:18px;border-top:1px solid var(--line)}
+.values b{font-family:var(--serif);font-size:18px;font-weight:600;display:block;margin-bottom:6px}
+.values span{font-size:13px;color:var(--ink-mute);font-weight:300}
+
+/* =========== CAREERS =========== */
+.careers{background:var(--paper);border-top:1px solid var(--line)}
+.careers-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+@media (max-width:880px){.careers-inner{grid-template-columns:1fr;gap:40px}}
+.careers h2{font-family:var(--serif);font-size:clamp(34px,4.2vw,52px);line-height:1.1;letter-spacing:-0.02em;font-weight:500;margin-bottom:24px}
+.careers h2 em{font-style:italic;color:var(--blue)}
+.careers p{color:var(--ink-soft);font-size:16px;font-weight:300;line-height:1.75;margin-bottom:28px;max-width:480px}
+.positions{display:flex;flex-direction:column;gap:14px}
+.position{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding:24px 28px;background:#fff;border:1px solid var(--line);
+  transition:all .25s ease;cursor:pointer;
+}
+.position:hover{border-color:var(--ink);transform:translateX(4px)}
+.position .role-name{font-family:var(--serif);font-size:20px;font-weight:500}
+.position .role-meta{font-size:12px;color:var(--ink-mute);letter-spacing:0.1em;text-transform:uppercase;margin-top:4px}
+.position .arr{font-family:var(--serif);font-size:24px;color:var(--blue)}
+
+/* =========== CONTACT =========== */
+.contact{background:var(--navy);color:#fff;text-align:left}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:end}
+@media (max-width:880px){.contact-grid{grid-template-columns:1fr;gap:48px}}
+.contact h2{font-family:var(--serif);font-size:clamp(44px,6.6vw,88px);line-height:1;letter-spacing:-0.02em;font-weight:500;margin-bottom:32px}
+.contact h2 em{font-style:italic;color:#9DB6F2;font-weight:400}
+.contact .lead{color:rgba(255,255,255,0.7);font-size:17px;font-weight:300;max-width:520px;margin-bottom:40px;line-height:1.7}
+.contact .btn{background:#fff;color:var(--navy);border-color:#fff}
+.contact .btn:hover{background:transparent;color:#fff}
+.contact-info{display:flex;flex-direction:column;gap:24px}
+.contact-info div{padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,0.15)}
+.contact-info small{display:block;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:#9DB6F2;margin-bottom:8px}
+.contact-info b{font-family:var(--serif);font-size:18px;font-weight:500;display:block;font-style:italic}
+
+/* =========== FOOTER =========== */
+footer{background:var(--navy);color:rgba(255,255,255,0.5);font-size:12.5px;padding:32px 0;border-top:1px solid rgba(255,255,255,0.1)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.foot a{color:rgba(255,255,255,0.6)}
+.foot a:hover{color:#fff}
+
+/* marquee credentials */
+.credentials{
+  padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--paper);overflow:hidden;
+}
+.marquee{display:flex;gap:64px;animation:marq 40s linear infinite;white-space:nowrap}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee span{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-mute);display:flex;align-items:center;gap:64px}
+.marquee span::after{content:"✦";color:var(--accent);font-size:10px}
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVIGATION
-     ============================================================ -->
-<nav class="nav" id="nav" aria-label="Hauptnavigation">
+<nav class="nav" id="nav">
   <div class="container nav-inner">
-    <a href="#top" class="wordmark" aria-label="Keinath und Partner — Startseite">
-      <span class="wm-text">Keinath<span class="wm-amp">&amp;</span>Partner</span>
-      <span class="wm-sub" data-de="M&amp;A BOUTIQUE" data-en="M&amp;A BOUTIQUE">M&amp;A BOUTIQUE</span>
-    </a>
-
-    <ul class="nav-links">
-      <li><a href="#top" data-de="Home" data-en="Home">Home</a></li>
-      <li><a href="#services" data-de="Tätigkeiten" data-en="Practice">Tätigkeiten</a></li>
-      <li><a href="#about" data-de="Über uns" data-en="About">Über uns</a></li>
-      <li><a href="#careers" data-de="Karriere" data-en="Careers">Karriere</a></li>
-    </ul>
-
-    <div class="nav-right">
-      <div class="lang-toggle" role="group" aria-label="Sprache wählen">
-        <button id="lang-de" class="active" aria-label="Deutsch">DE</button>
-        <span class="lang-sep">|</span>
-        <button id="lang-en" aria-label="English">EN</button>
-      </div>
-      <a href="#contact" class="btn btn-primary" data-de="Kontakt aufnehmen" data-en="Get in Touch">Kontakt aufnehmen</a>
-      <button class="hamburger" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
+    <a href="#home" class="brand">Keinath <span style="color:var(--blue);font-style:italic;font-weight:500">&</span> Partner <small style="margin-left:6px">Rechtsanwälte</small></a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#expertise">Tätigkeiten</a>
+      <a href="#about">Über uns</a>
+      <a href="#careers">Karriere</a>
+      <a href="#contact" class="btn">Kontakt aufnehmen <span class="arr">→</span></a>
     </div>
+    <button class="burger" id="burger" aria-label="Menü"><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<header class="hero on-dark" id="top">
-  <div class="hero-content">
-    <span class="label" data-de="M&amp;A BOUTIQUE MIT SITZ IN MÜNCHEN" data-en="M&amp;A BOUTIQUE BASED IN MUNICH">M&amp;A BOUTIQUE MIT SITZ IN MÜNCHEN</span>
-    <h1>
-      <span class="line" data-de="Präzise Beratung." data-en="Precise Counsel.">Präzise Beratung.</span>
-      <span class="line accent" data-de="Strategische Transaktionen." data-en="Strategic Transactions.">Strategische Transaktionen.</span>
-    </h1>
-    <div class="hero-divider" aria-hidden="true"></div>
-    <p class="hero-sub" data-de="Keinath &amp; Partner berät Unternehmen und Investoren bei komplexen M&amp;A-Transaktionen — mit juristischer Präzision und KI-gestützter Dealanalyse." data-en="Keinath &amp; Partner advises companies and investors on complex M&amp;A transactions — combining legal rigour with AI-driven deal intelligence.">
-      Keinath &amp; Partner berät Unternehmen und Investoren bei komplexen M&amp;A-Transaktionen — mit juristischer Präzision und KI-gestützter Dealanalyse.
-    </p>
-
-    <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary" data-de="Kontakt aufnehmen" data-en="Get in Touch">Kontakt aufnehmen</a>
-      <a href="#services" class="btn btn-outline" data-de="Tätigkeiten entdecken" data-en="Explore Practice">Tätigkeiten entdecken</a>
-    </div>
-
-    <div class="stat-pills">
-      <!-- PLACEHOLDER: replace [X] with actual transaction count -->
-      <span class="stat-pill" data-de="[X] Transaktionen" data-en="[X] Transactions">[X] Transaktionen</span>
-      <!-- PLACEHOLDER: replace [X] with actual deal volume -->
-      <span class="stat-pill" data-de="€[X]M+ Volumen" data-en="€[X]M+ Volume">€[X]M+ Volumen</span>
-      <span class="stat-pill" data-de="KI-gestützt" data-en="AI-Powered">KI-gestützt</span>
-    </div>
-  </div>
-</header>
-
-<!-- ============================================================
-     TRUST STRIP — SECTORS
-     ============================================================ -->
-<section class="trust">
-  <div class="container">
-    <span class="label" data-de="SEKTOREN · SECTORS" data-en="SECTORS · SEKTOREN">SEKTOREN · SECTORS</span>
-  </div>
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <!-- duplicated for seamless loop -->
-      <span class="sector-pill">Technology</span>
-      <span class="sector-pill">Industrials</span>
-      <span class="sector-pill">Healthcare</span>
-      <span class="sector-pill">Consumer</span>
-      <span class="sector-pill">Financial Services</span>
-      <span class="sector-pill">Business Services</span>
-      <span class="sector-pill">Technology</span>
-      <span class="sector-pill">Industrials</span>
-      <span class="sector-pill">Healthcare</span>
-      <span class="sector-pill">Consumer</span>
-      <span class="sector-pill">Financial Services</span>
-      <span class="sector-pill">Business Services</span>
-    </div>
-  </div>
-  <div class="container">
-    <p class="trust-foot" data-de="Branchenagnostische Beratung — wir folgen der besten Transaktion." data-en="Sector-agnostic — we follow the best transaction.">
-      Branchenagnostische Beratung — wir folgen der besten Transaktion.
-    </p>
-  </div>
-</section>
-
-<!-- ============================================================
-     SERVICES
-     ============================================================ -->
-<section class="services" id="services">
-  <div class="container">
-    <span class="label reveal" data-de="LEISTUNGEN · SERVICES" data-en="SERVICES · LEISTUNGEN">LEISTUNGEN · SERVICES</span>
-    <h2 class="section-heading reveal" data-de="Alles, was eine Transaktion braucht." data-en="Everything a transaction requires.">
-      Alles, was eine Transaktion braucht.
-    </h2>
-
-    <div class="services-grid">
-      <article class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">
-          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
-        </div>
-        <h3 data-de="Akquisitionsberatung" data-en="Buy-Side Advisory">Akquisitionsberatung</h3>
-        <p data-de="Wir identifizieren, bewerten und strukturieren Transaktionen auf der Käuferseite — vom ersten Target Screening bis zum Closing." data-en="We identify, evaluate, and structure buy-side transactions — from initial target screening through to closing.">
-          Wir identifizieren, bewerten und strukturieren Transaktionen auf der Käuferseite — vom ersten Target Screening bis zum Closing.
-        </p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">
-          <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="4 14 10 8 14 12 20 6"/><polyline points="15 6 20 6 20 11"/><line x1="4" y1="20" x2="20" y2="20"/></svg>
-        </div>
-        <h3 data-de="Unternehmensverkauf" data-en="Sell-Side Advisory">Unternehmensverkauf</h3>
-        <p data-de="Vollständige Prozesssteuerung auf der Verkäuferseite: Käuferansprache, Datenraum, Verhandlung, Signing und Closing." data-en="Full sell-side process management: buyer outreach, data room, negotiation, signing, and closing.">
-          Vollständige Prozesssteuerung auf der Verkäuferseite: Käuferansprache, Datenraum, Verhandlung, Signing und Closing.
-        </p>
-      </article>
-
-      <article class="service-card reveal">
-        <div class="service-icon" aria-hidden="true">
-          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="12" r="2.5"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><line x1="7.5" y1="7.5" x2="10.5" y2="10.5"/><line x1="16.5" y1="7.5" x2="13.5" y2="10.5"/><line x1="7.5" y1="16.5" x2="10.5" y2="13.5"/><line x1="16.5" y1="16.5" x2="13.5" y2="13.5"/></svg>
-        </div>
-        <h3 data-de="KI-gestützte Dealanalyse" data-en="AI Deal Intelligence">KI-gestützte Dealanalyse</h3>
-        <p data-de="Proprietäre Screening-Technologie wertet tausende potenzielle Targets je Mandat aus — und reduziert die Zeit bis zur Shortlist von Wochen auf Tage." data-en="Proprietary screening technology evaluates thousands of potential targets per mandate — reducing time-to-shortlist from weeks to days.">
-          Proprietäre Screening-Technologie wertet tausende potenzielle Targets je Mandat aus — und reduziert die Zeit bis zur Shortlist von Wochen auf Tage.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     FEATURE A — BUY-SIDE
-     ============================================================ -->
-<section class="feature">
-  <div class="container feature-inner">
-    <div class="feature-text reveal">
-      <span class="label" data-de="BUY-SIDE · KAUFSEITIG" data-en="BUY-SIDE · ACQUISITION">BUY-SIDE · KAUFSEITIG</span>
-      <h2 data-de="Von der Idee zur signierten Transaktion." data-en="From thesis to signed transaction.">
-        Von der Idee zur signierten Transaktion.
-      </h2>
-      <p data-de="Wir begleiten Käufer durch den gesamten Akquisitionsprozess: vom strukturierten Target Screening über die KI-gestützte Bewertungsanalyse bis zur LOI. Anschließend koordinieren wir die Due Diligence über alle Workstreams hinweg — kommerziell, finanziell, rechtlich und steuerlich. Den Abschluss bildet die SPA-Verhandlung bis zum Signing und Closing." data-en="We guide buyers through the full acquisition lifecycle: from structured target screening and AI-driven valuation analysis to the LOI. We then coordinate due diligence across all workstreams — commercial, financial, legal, and tax. The process concludes with SPA negotiation through to signing and closing.">
-        Wir begleiten Käufer durch den gesamten Akquisitionsprozess: vom strukturierten Target Screening über die KI-gestützte Bewertungsanalyse bis zur LOI. Anschließend koordinieren wir die Due Diligence über alle Workstreams hinweg — kommerziell, finanziell, rechtlich und steuerlich. Den Abschluss bildet die SPA-Verhandlung bis zum Signing und Closing.
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow fade">M&A Boutique · Sitz in München</span>
+      <h1 class="fade fade-d1" style="margin-top:28px">
+        Stille Hand,<br>
+        klare <em>Strategie.</em>
+      </h1>
+      <p class="lead fade fade-d2">
+        Keinath & Partner ist eine unabhängige Rechtsanwaltsboutique für nationale und grenzüberschreitende Unternehmenstransaktionen. Wir begleiten Gesellschafter, Vorstände und Investoren in den entscheidenden Momenten — mit Diskretion, juristischer Tiefe und einem unbestechlichen Blick für das Wesentliche.
       </p>
-      <a href="#contact" class="link-arrow" data-de="Mehr erfahren →" data-en="Learn more →">Mehr erfahren →</a>
-    </div>
-    <div class="feature-visual reveal" aria-hidden="true">
-      <div class="illu-funnel">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+      <div class="hero-cta fade fade-d3">
+        <a href="#contact" class="btn">Mandat besprechen <span class="arr">→</span></a>
+        <a href="#expertise" class="btn btn-ghost">Tätigkeitsfelder</a>
+      </div>
+      <div class="hero-meta fade fade-d4">
+        <div><strong>€ 4,8 Mrd.</strong>begleitetes Transaktionsvolumen</div>
+        <div><strong>120+</strong>Transaktionen seit 2014</div>
+        <div><strong>14</strong>Jurisdiktionen</div>
       </div>
     </div>
+    <aside class="hero-card fade fade-d3">
+      <span class="quote-mark">"</span>
+      <p class="quote">In M&A entscheidet nicht die Lautstärke, sondern die Präzision. Wir verhandeln dort, wo andere bereits unterschrieben hätten — und schweigen dort, wo es zählt.</p>
+      <div class="cite"><b>Dr. Maximilian Keinath</b>Managing Partner</div>
+    </aside>
   </div>
 </section>
 
-<!-- ============================================================
-     FEATURE B — SELL-SIDE
-     ============================================================ -->
-<section class="feature alt reverse">
-  <div class="container feature-inner">
-    <div class="feature-text reveal">
-      <span class="label" data-de="SELL-SIDE · VERKAUFSSEITIG" data-en="SELL-SIDE · DIVESTMENT">SELL-SIDE · VERKAUFSSEITIG</span>
-      <h2 data-de="Maximaler Erlös. Strukturierter Prozess." data-en="Maximum value. Structured process.">
-        Maximaler Erlös. Strukturierter Prozess.
-      </h2>
-      <p data-de="Auf der Verkäuferseite bereiten wir Mandant und Unternehmen umfassend vor und erstellen ein präzises Information Memorandum. Anschließend steuern wir den strukturierten Bieterprozess von der Käuferansprache über Management-Präsentationen bis zu den finalen Bids. Den Abschluss bildet die Verhandlung der Transaktionsdokumente bis zum Closing." data-en="On the sell-side, we prepare client and company comprehensively and draft a precise information memorandum. We then run a structured bidder process — from buyer outreach to management presentations and final bids. The mandate concludes with negotiation of transaction documents through to closing.">
-        Auf der Verkäuferseite bereiten wir Mandant und Unternehmen umfassend vor und erstellen ein präzises Information Memorandum. Anschließend steuern wir den strukturierten Bieterprozess von der Käuferansprache über Management-Präsentationen bis zu den finalen Bids. Den Abschluss bildet die Verhandlung der Transaktionsdokumente bis zum Closing.
-      </p>
-      <a href="#contact" class="link-arrow" data-de="Mehr erfahren →" data-en="Learn more →">Mehr erfahren →</a>
-    </div>
-    <div class="feature-visual reveal" aria-hidden="true">
-      <div class="illu-podium">
-        <div class="col" data-rank="2"></div>
-        <div class="col" data-rank="1"></div>
-        <div class="col" data-rank="3"></div>
-      </div>
-    </div>
+<!-- CREDENTIALS MARQUEE -->
+<div class="credentials" aria-hidden="true">
+  <div class="marquee">
+    <span>JUVE Handbuch 2024</span><span>Best Lawyers Germany</span><span>The Legal 500 EMEA</span><span>Chambers Europe</span><span>Handelsblatt — Deutschlands beste Anwälte</span><span>Deutsche Anwaltakademie</span>
+    <span>JUVE Handbuch 2024</span><span>Best Lawyers Germany</span><span>The Legal 500 EMEA</span><span>Chambers Europe</span><span>Handelsblatt — Deutschlands beste Anwälte</span><span>Deutsche Anwaltakademie</span>
   </div>
-</section>
+</div>
 
-<!-- ============================================================
-     ABOUT
-     ============================================================ -->
-<section class="about on-dark" id="about">
+<!-- EXPERTISE -->
+<section class="expertise" id="expertise">
   <div class="container">
-    <span class="label reveal" data-de="ÜBER UNS · ABOUT" data-en="ABOUT · ÜBER UNS">ÜBER UNS · ABOUT</span>
-    <h2 class="section-heading reveal" data-de="Rechtliche Präzision trifft Transaktionserfahrung." data-en="Legal precision meets transaction experience.">
-      Rechtliche Präzision trifft Transaktionserfahrung.
-    </h2>
-
-    <div class="about-grid">
-      <article class="founder-card reveal">
-        <div class="avatar" aria-hidden="true">PK</div>
-        <h3>Dr. Philipp Keinath, LL.M.</h3>
-        <div class="founder-title">Managing Partner · Columbia University</div>
-        <!-- PLACEHOLDER: replace with finalised founder biography -->
-        <p class="founder-bio" data-de="Dr. Philipp Keinath ist Gründer und Managing Partner von Keinath &amp; Partner. Vor der Gründung der Boutique war er als M&amp;A-Anwalt bei einer führenden internationalen Kanzlei tätig und beriet Mandanten bei nationalen und grenzüberschreitenden Unternehmenstransaktionen. Er hält einen LL.M. der Columbia University School of Law, New York." data-en="Dr. Philipp Keinath is the founder and Managing Partner of Keinath &amp; Partner. Prior to founding the boutique, he practised as an M&amp;A lawyer at a leading international law firm, advising clients on domestic and cross-border corporate transactions. He holds an LL.M. from Columbia University School of Law, New York.">
-          Dr. Philipp Keinath ist Gründer und Managing Partner von Keinath &amp; Partner. Vor der Gründung der Boutique war er als M&amp;A-Anwalt bei einer führenden internationalen Kanzlei tätig und beriet Mandanten bei nationalen und grenzüberschreitenden Unternehmenstransaktionen. Er hält einen LL.M. der Columbia University School of Law, New York.
-        </p>
-      </article>
-
-      <div class="value-stack">
-        <article class="value-card reveal">
-          <h4 data-de="Keine Interessenkonflikte" data-en="No Conflicts of Interest">Keine Interessenkonflikte</h4>
-          <p data-de="Wir arbeiten ausschließlich mandatsbezogen und exklusiv für unsere Mandanten." data-en="We work exclusively on a mandate basis, always on your side.">
-            Wir arbeiten ausschließlich mandatsbezogen und exklusiv für unsere Mandanten.
-          </p>
-        </article>
-        <article class="value-card reveal">
-          <h4 data-de="KI-Infrastruktur" data-en="AI Infrastructure">KI-Infrastruktur</h4>
-          <p data-de="Proprietäre Technologie zur Zielidentifikation und Bewertungsanalyse, entwickelt für den M&amp;A-Markt." data-en="Proprietary technology for target identification and valuation analysis, built for M&amp;A.">
-            Proprietäre Technologie zur Zielidentifikation und Bewertungsanalyse, entwickelt für den M&amp;A-Markt.
-          </p>
-        </article>
+    <div class="section-head">
+      <span class="eyebrow">Tätigkeiten</span>
+      <div>
+        <h2>Sechs Disziplinen.<br>Ein <em>kompromissloser Standard.</em></h2>
+        <p style="margin-top:24px">Wir konzentrieren uns ausschließlich auf transaktionsbezogenes Wirtschaftsrecht. Keine Generalpraxis, keine Streuverluste — sondern tiefe Spezialisierung dort, wo Eigentum, Kontrolle und Kapital den Besitzer wechseln.</p>
+      </div>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-item">
+        <span class="exp-num">— 01</span>
+        <h3>Mergers & Acquisitions</h3>
+        <p>Strukturierung, Verhandlung und Vollzug von Unternehmenskäufen, Carve-outs und Joint Ventures — vom Mittelstand bis zu Konzerntransaktionen.</p>
+        <span class="more">Mehr erfahren →</span>
+      </div>
+      <div class="exp-item">
+        <span class="exp-num">— 02</span>
+        <h3>Private Equity</h3>
+        <p>Beratung von Buy-out-Fonds, Family Offices und Managementteams bei Plattformakquisitionen, Add-ons und Exit-Strukturen.</p>
+        <span class="more">Mehr erfahren →</span>
+      </div>
+      <div class="exp-item">
+        <span class="exp-num">— 03</span>
+        <h3>Venture Capital</h3>
+        <p>Begleitung von Wachstumsfinanzierungen, Down-Rounds und Secondaries — auf Investoren- wie Founderseite.</p>
+        <span class="more">Mehr erfahren →</span>
+      </div>
+      <div class="exp-item">
+        <span class="exp-num">— 04</span>
+        <h3>Gesellschaftsrecht</h3>
+        <p>Komplexe Gesellschaftervereinbarungen, Umwandlungen, Restrukturierungen und Corporate Governance für Familienunternehmen.</p>
+        <span class="more">Mehr erfahren →</span>
+      </div>
+      <div class="exp-item">
+        <span class="exp-num">— 05</span>
+        <h3>Nachfolge & Family Business</h3>
+        <p>Strategische Begleitung von Unternehmensnachfolgen — generationsübergreifend, steueroptimiert, vertraulich.</p>
+        <span class="more">Mehr erfahren →</span>
+      </div>
+      <div class="exp-item">
+        <span class="exp-num">— 06</span>
+        <h3>Distressed M&A</h3>
+        <p>Erwerb und Veräußerung notleidender Unternehmen — in Eigenverwaltung, Insolvenzverfahren oder vorinsolvenzlicher Sanierung.</p>
+        <span class="more">Mehr erfahren →</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     TRACK RECORD
-     ============================================================ -->
-<section class="track" id="track">
+<!-- APPROACH -->
+<section>
   <div class="container">
-    <span class="label reveal" data-de="TRACK RECORD · REFERENZEN" data-en="TRACK RECORD · REFERENCES">TRACK RECORD · REFERENZEN</span>
-    <h2 class="section-heading reveal" data-de="Transaktionen mit Substanz." data-en="Transactions with substance.">
-      Transaktionen mit Substanz.
-    </h2>
-
-    <div class="metrics-bar">
-      <!-- PLACEHOLDER: replace [X] with actual transaction count -->
-      <div class="metric-card reveal">
-        <div class="metric-num">[X]</div>
-        <div class="metric-label" data-de="Transaktionen" data-en="Transactions">Transaktionen</div>
-      </div>
-      <!-- PLACEHOLDER: replace [X] with actual deal volume -->
-      <div class="metric-card reveal">
-        <div class="metric-num">€[X]M+</div>
-        <div class="metric-label" data-de="Volumen" data-en="Volume">Volumen</div>
-      </div>
-      <div class="metric-card reveal">
-        <div class="metric-num">6</div>
-        <div class="metric-label" data-de="Alle Branchen" data-en="All Sectors">Alle Branchen</div>
+    <div class="section-head">
+      <span class="eyebrow">Arbeitsweise</span>
+      <div>
+        <h2>Wie wir arbeiten — <em>und warum</em> es einen Unterschied macht.</h2>
       </div>
     </div>
-
-    <div class="deals-grid">
-      <!-- PLACEHOLDER: replace deal cards with real track record entries -->
-      <article class="deal-card reveal">
-        <span class="deal-badge">Technology</span>
-        <div class="deal-type" data-de="Sell-Side" data-en="Sell-Side">Sell-Side</div>
-        <div class="deal-meta">€20–50M · 2024</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
-      <article class="deal-card reveal">
-        <span class="deal-badge">Healthcare</span>
-        <div class="deal-type" data-de="Buy-Side" data-en="Buy-Side">Buy-Side</div>
-        <div class="deal-meta">€50–100M · 2024</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
-      <article class="deal-card reveal">
-        <span class="deal-badge">Industrials</span>
-        <div class="deal-type" data-de="Sell-Side" data-en="Sell-Side">Sell-Side</div>
-        <div class="deal-meta">€20–50M · 2023</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
-      <article class="deal-card reveal">
-        <span class="deal-badge">Consumer</span>
-        <div class="deal-type" data-de="Buy-Side" data-en="Buy-Side">Buy-Side</div>
-        <div class="deal-meta">€10–20M · 2023</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
-      <article class="deal-card reveal">
-        <span class="deal-badge">Financial Services</span>
-        <div class="deal-type" data-de="Sell-Side" data-en="Sell-Side">Sell-Side</div>
-        <div class="deal-meta">€50–100M · 2023</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
-      <article class="deal-card reveal">
-        <span class="deal-badge">Business Services</span>
-        <div class="deal-type" data-de="Buy-Side" data-en="Buy-Side">Buy-Side</div>
-        <div class="deal-meta">€20–50M · 2022</div>
-        <div class="deal-foot" data-de="Vertraulich · Confidential" data-en="Confidential">Vertraulich · Confidential</div>
-      </article>
+    <div class="approach-grid">
+      <div class="approach-item">
+        <div class="step">— Partner-led</div>
+        <h4>Beratung in Person.</h4>
+        <p>Jedes Mandat wird von einem Partner geführt. Kein Durchreichen an Associates, keine anonymen Teams — Sie wissen jederzeit, wer Ihr Mandat verantwortet.</p>
+      </div>
+      <div class="approach-item">
+        <div class="step">— Konfliktfrei</div>
+        <h4>Unabhängigkeit als Prinzip.</h4>
+        <p>Als inhabergeführte Boutique sind wir frei von Konzernverflechtungen und Interessenkonflikten. Wir wählen unsere Mandate — und stehen kompromisslos auf einer Seite.</p>
+      </div>
+      <div class="approach-item">
+        <div class="step">— Fee-aligned</div>
+        <h4>Wirtschaftlich gedacht.</h4>
+        <p>Festpreise, Caps oder Erfolgskomponenten — wir strukturieren Honorare so, dass unsere Interessen mit Ihren übereinstimmen. Transparent, fair, vorhersehbar.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     CAREERS
-     ============================================================ -->
-<section class="careers on-dark" id="careers">
+<!-- TRANSACTIONS -->
+<section class="transactions">
   <div class="container">
-    <span class="label reveal" data-de="KARRIERE · CAREERS" data-en="CAREERS · KARRIERE">KARRIERE · CAREERS</span>
-    <h2 class="section-heading reveal" data-de="Wir wachsen. Werden Sie Teil von Keinath &amp; Partner." data-en="We are growing. Join Keinath &amp; Partner.">
-      Wir wachsen. Werden Sie Teil von Keinath &amp; Partner.
-    </h2>
-
-    <div class="careers-grid">
-      <article class="role-card reveal">
-        <h3>M&amp;A Analyst</h3>
-        <p data-de="Einstiegsposition für ambitionierte Talente mit starkem analytischem Profil. Sie unterstützen alle Workstreams einer Transaktion — von Bewertung bis Closing." data-en="Entry-level position for ambitious talent with a strong analytical profile. You support all workstreams of a transaction — from valuation to closing.">
-          Einstiegsposition für ambitionierte Talente mit starkem analytischem Profil. Sie unterstützen alle Workstreams einer Transaktion — von Bewertung bis Closing.
-        </p>
-        <ul>
-          <li data-de="0–2 Jahre Erfahrung" data-en="0–2 years of experience">0–2 Jahre Erfahrung</li>
-          <li data-de="Starke Modellierungskenntnisse (Excel, DCF, LBO)" data-en="Strong financial modelling (Excel, DCF, LBO)">Starke Modellierungskenntnisse (Excel, DCF, LBO)</li>
-          <li data-de="Standort München" data-en="Munich-based">Standort München</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" data-de="Jetzt bewerben" data-en="Apply now">Jetzt bewerben</a>
-      </article>
-
-      <article class="role-card featured reveal">
-        <h3>Associate / Senior Associate</h3>
-        <p data-de="Eigenverantwortliche Steuerung von Workstreams und Mandantenkontakt. Sie führen Junior-Teammitglieder und treiben Transaktionen voran." data-en="Independent ownership of workstreams and direct client contact. You lead junior team members and drive transactions forward.">
-          Eigenverantwortliche Steuerung von Workstreams und Mandantenkontakt. Sie führen Junior-Teammitglieder und treiben Transaktionen voran.
-        </p>
-        <ul>
-          <li data-de="3–6 Jahre M&amp;A- oder Corporate-Law-Erfahrung" data-en="3–6 years M&amp;A or corporate law experience">3–6 Jahre M&amp;A- oder Corporate-Law-Erfahrung</li>
-          <li data-de="Deutsch und Englisch verhandlungssicher" data-en="Fluent German and English required">Deutsch und Englisch verhandlungssicher</li>
-          <li data-de="Standort München" data-en="Munich-based">Standort München</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" data-de="Jetzt bewerben" data-en="Apply now">Jetzt bewerben</a>
-      </article>
+    <div class="section-head">
+      <span class="eyebrow" style="color:#9DB6F2">Ausgewählte Transaktionen</span>
+      <div>
+        <h2>Was wir <em>begleitet haben.</em></h2>
+        <p style="margin-top:24px">Ein Auszug öffentlich kommunizierter Mandate. Vertraulichkeit ist Teil unseres Versprechens — der weitaus größere Teil unserer Arbeit findet jenseits der Pressemitteilungen statt.</p>
+      </div>
+    </div>
+    <div class="deals">
+      <div class="deal"><span class="year">2025</span><span class="title">Erwerb eines SaaS-Anbieters</span><span class="role">Käuferseite</span><span class="sector">Software / DACH</span><span class="vol">€ 180 Mio.</span></div>
+      <div class="deal"><span class="year">2024</span><span class="title">Carve-out Industrie­zulieferer</span><span class="role">Verkäuferseite</span><span class="sector">Automotive</span><span class="vol">€ 420 Mio.</span></div>
+      <div class="deal"><span class="year">2024</span><span class="title">Series-C Wachstums­finanzierung</span><span class="role">Founder Counsel</span><span class="sector">FinTech</span><span class="vol">€ 95 Mio.</span></div>
+      <div class="deal"><span class="year">2023</span><span class="title">Nachfolge­transaktion Familien­unternehmen</span><span class="role">Gesellschafter</span><span class="sector">Maschinenbau</span><span class="vol">vertraulich</span></div>
+      <div class="deal"><span class="year">2023</span><span class="title">Distressed Buy-out</span><span class="role">PE-Investor</span><span class="sector">Consumer Goods</span><span class="vol">€ 60 Mio.</span></div>
+      <div class="deal"><span class="year">2022</span><span class="title">Grenzüberschreitender Zusammen­schluss</span><span class="role">Lead Counsel DE</span><span class="sector">Healthcare</span><span class="vol">€ 1,1 Mrd.</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     FAQ
-     ============================================================ -->
-<section class="faq">
-  <div class="container">
-    <span class="label reveal">FAQ</span>
-    <h2 class="section-heading reveal" data-de="Häufige Fragen." data-en="Frequently asked questions.">
-      Häufige Fragen.
-    </h2>
-
-    <div class="faq-list">
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Für welche Unternehmen ist Keinath &amp; Partner geeignet?" data-en="Who is Keinath &amp; Partner for?">Für welche Unternehmen ist Keinath &amp; Partner geeignet?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Wir beraten mittelständische Unternehmen und institutionelle Investoren bei Transaktionen ab ca. €10M Unternehmenswert, branchenübergreifend." data-en="We advise mid-market companies and institutional investors on transactions from approximately €10M enterprise value, across all sectors.">Wir beraten mittelständische Unternehmen und institutionelle Investoren bei Transaktionen ab ca. €10M Unternehmenswert, branchenübergreifend.</div></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Wie läuft ein typisches Mandat ab?" data-en="How does a typical mandate work?">Wie läuft ein typisches Mandat ab?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Nach einem vertraulichen Erstgespräch erstellen wir eine Mandatsvereinbarung und starten mit einer strukturierten Analyse. Der gesamte Prozess ist transparent und termingebunden." data-en="After a confidential initial conversation, we draft a mandate agreement and begin with a structured analysis. The entire process is transparent and deadline-driven.">Nach einem vertraulichen Erstgespräch erstellen wir eine Mandatsvereinbarung und starten mit einer strukturierten Analyse. Der gesamte Prozess ist transparent und termingebunden.</div></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Wie unterscheidet sich Keinath &amp; Partner von klassischen M&amp;A-Beratern?" data-en="How does Keinath &amp; Partner differ from traditional M&amp;A advisors?">Wie unterscheidet sich Keinath &amp; Partner von klassischen M&amp;A-Beratern?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Wir verbinden juristische Transaktionskompetenz mit proprietärer KI-Infrastruktur. Das ermöglicht schnellere Zielidentifikation, präzisere Bewertungsanalysen und eine schlankere Prozessführung." data-en="We combine legal transaction expertise with proprietary AI infrastructure — enabling faster target identification, more precise valuation analysis, and leaner process management.">Wir verbinden juristische Transaktionskompetenz mit proprietärer KI-Infrastruktur. Das ermöglicht schnellere Zielidentifikation, präzisere Bewertungsanalysen und eine schlankere Prozessführung.</div></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Arbeiten Sie mit Exklusivmandaten?" data-en="Do you work on exclusive mandates?">Arbeiten Sie mit Exklusivmandaten?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Ja. Wir nehmen nur Mandate an, bei denen wir ausschließlich für die Interessen unseres Mandanten handeln — ohne Interessenkonflikte auf Käufer- oder Verkäuferseite." data-en="Yes. We only accept mandates where we act exclusively for our client's interests — with no conflicts on either side of the transaction.">Ja. Wir nehmen nur Mandate an, bei denen wir ausschließlich für die Interessen unseres Mandanten handeln — ohne Interessenkonflikte auf Käufer- oder Verkäuferseite.</div></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Wie schnell erhalten wir eine erste Rückmeldung?" data-en="How quickly will we hear back?">Wie schnell erhalten wir eine erste Rückmeldung?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Alle Anfragen werden innerhalb von 24 Stunden beantwortet." data-en="All inquiries are answered within 24 hours.">Alle Anfragen werden innerhalb von 24 Stunden beantwortet.</div></div>
-      </div>
-
-      <div class="faq-item reveal">
-        <button class="faq-q" aria-expanded="false">
-          <span data-de="Welche Sprachen werden verwendet?" data-en="Which languages do you work in?">Welche Sprachen werden verwendet?</span>
-          <span class="plus" aria-hidden="true"></span>
-        </button>
-        <div class="faq-a"><div class="faq-a-inner" data-de="Wir beraten auf Deutsch und Englisch. Transaktionsdokumente werden in beiden Sprachen erstellt." data-en="We advise in German and English. Transaction documents are prepared in both languages.">Wir beraten auf Deutsch und Englisch. Transaktionsdokumente werden in beiden Sprachen erstellt.</div></div>
+<!-- ABOUT -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual">
+      <div class="badge"><b>Est. 2014 · München</b>Maximilianstraße — im Zentrum der bayerischen Wirtschaft.</div>
+    </div>
+    <div class="about-text">
+      <span class="eyebrow" style="margin-bottom:24px;display:inline-flex">Über uns</span>
+      <h2 style="margin-top:24px">Eine Kanzlei für jene, die <em>verstanden werden wollen.</em></h2>
+      <p>Keinath & Partner wurde 2014 in München gegründet — von Anwälten, die aus internationalen Großkanzleien kamen und überzeugt waren, dass anspruchsvolle Transaktions­beratung in einer Boutique besser aufgehoben ist als in einer Fabrik.</p>
+      <p>Heute zählen wir Familienunternehmer, Private-Equity-Häuser und börsennotierte Konzerne zu unseren Mandanten. Was uns verbindet: der Anspruch, jedes Mandat als das wichtigste zu behandeln, das es gerade gibt.</p>
+      <div class="values">
+        <div><b>Diskretion</b><span>Vertraulichkeit ist nicht verhandelbar.</span></div>
+        <div><b>Präzision</b><span>Jedes Wort im Vertrag zählt.</span></div>
+        <div><b>Verfügbarkeit</b><span>In kritischen Phasen erreichbar — wirklich.</span></div>
+        <div><b>Augenhöhe</b><span>Berater, nicht Erfüllungs­gehilfen.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     CLOSING CTA
-     ============================================================ -->
-<section class="closing on-dark">
-  <div class="container">
-    <h2 data-de="Bereit für Ihre nächste Transaktion?" data-en="Ready for your next transaction?">Bereit für Ihre nächste Transaktion?</h2>
-    <p data-de="Sprechen Sie mit uns — vertraulich, unverbindlich und innerhalb von 24 Stunden." data-en="Talk to us — confidentially, without obligation, within 24 hours.">
-      Sprechen Sie mit uns — vertraulich, unverbindlich und innerhalb von 24 Stunden.
-    </p>
-    <div class="closing-cta">
-      <a href="#contact" class="btn btn-primary" data-de="Mandat anfragen" data-en="Request Mandate">Mandat anfragen</a>
-      <a href="#about" class="btn btn-outline" data-de="Mehr erfahren" data-en="Learn more">Mehr erfahren</a>
+<!-- CAREERS -->
+<section class="careers" id="careers">
+  <div class="container careers-inner">
+    <div>
+      <span class="eyebrow">Karriere</span>
+      <h2 style="margin-top:24px">Anwälte, die etwas <em>bewegen wollen.</em></h2>
+      <p>Bei uns arbeiten Sie vom ersten Tag an unmittelbar am Mandat — neben Partnern, mit voller Verantwortung und einem Lernfortschritt, den keine Großkanzlei in dieser Geschwindigkeit bietet.</p>
+      <a href="#contact" class="btn">Initiativbewerbung <span class="arr">→</span></a>
+    </div>
+    <div class="positions">
+      <div class="position">
+        <div><div class="role-name">Associate (m/w/d) M&A</div><div class="role-meta">München · ab sofort</div></div>
+        <span class="arr">→</span>
+      </div>
+      <div class="position">
+        <div><div class="role-name">Senior Associate Private Equity</div><div class="role-meta">München · ab sofort</div></div>
+        <span class="arr">→</span>
+      </div>
+      <div class="position">
+        <div><div class="role-name">Referendariat / Wahlstation</div><div class="role-meta">München · laufend</div></div>
+        <span class="arr">→</span>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     CONTACT
-     ============================================================ -->
+<!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="container">
-    <span class="label reveal" data-de="KONTAKT · CONTACT" data-en="CONTACT · KONTAKT">KONTAKT · CONTACT</span>
-    <h2 class="section-heading reveal" data-de="Sprechen Sie mit uns." data-en="Get in touch.">Sprechen Sie mit uns.</h2>
-
-    <div class="contact-grid">
-      <form class="contact-form reveal" onsubmit="event.preventDefault(); alert(currentLang==='de'?'Danke — wir melden uns innerhalb von 24 Stunden.':'Thank you — we will respond within 24 hours.'); this.reset();">
-        <input type="text" required data-de-placeholder="Name" data-en-placeholder="Name" placeholder="Name" aria-label="Name" />
-        <input type="text" data-de-placeholder="Unternehmen" data-en-placeholder="Company" placeholder="Unternehmen" aria-label="Unternehmen" />
-        <input type="email" required data-de-placeholder="E-Mail" data-en-placeholder="Email" placeholder="E-Mail" aria-label="E-Mail" />
-        <textarea required data-de-placeholder="Nachricht" data-en-placeholder="Message" placeholder="Nachricht" aria-label="Nachricht"></textarea>
-        <button type="submit" class="btn btn-primary" data-de="Anfrage senden" data-en="Send Inquiry">Anfrage senden</button>
-      </form>
-
-      <aside class="contact-info reveal">
-        <h3 data-de="Keinath &amp; Partner" data-en="Keinath &amp; Partner">Keinath &amp; Partner</h3>
-        <p>Möhlstraße 35<br/>81675 München</p>
-        <p data-de="Alle Anfragen werden innerhalb von 24 Stunden beantwortet." data-en="All inquiries are answered within 24 hours.">
-          Alle Anfragen werden innerhalb von 24 Stunden beantwortet.
-        </p>
-      </aside>
+  <div class="container contact-grid">
+    <div>
+      <span class="eyebrow" style="color:#9DB6F2">Kontakt aufnehmen</span>
+      <h2 style="margin-top:24px">Sprechen wir — <em>vertraulich.</em></h2>
+      <p class="lead">Jedes Mandat beginnt mit einem persönlichen Gespräch. Wir antworten in der Regel innerhalb von 24 Stunden — und immer von einem Partner.</p>
+      <a href="mailto:office@keinath-partner.de" class="btn">office@keinath-partner.de <span class="arr">→</span></a>
+    </div>
+    <div class="contact-info">
+      <div><small>Adresse</small><b>Maximilianstraße 35<br>80539 München</b></div>
+      <div><small>Telefon</small><b>+49 89 2154 8800</b></div>
+      <div><small>Sprechzeiten</small><b>Mo–Fr · 9–19 Uhr<br>nach Vereinbarung jederzeit</b></div>
     </div>
   </div>
 </section>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
-<footer class="footer">
-  <div class="container footer-inner">
-    <span class="wordmark">Keinath &amp; Partner</span>
-    <div class="footer-links">
-      <a href="#" data-de="Impressum" data-en="Imprint">Impressum</a>
-      <a href="#" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
-    </div>
-    <div class="footer-social">
-      <a href="#" aria-label="LinkedIn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.5H5.67v7.84h2.67zM7 9.34a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9V14c0-2.47-1.32-3.62-3.08-3.62a2.66 2.66 0 0 0-2.4 1.32V10.5h-2.67v7.84h2.67v-4.35c0-1.15.22-2.27 1.65-2.27 1.4 0 1.42 1.31 1.42 2.34v4.28h2.41z"/></svg>
-      </a>
+<footer>
+  <div class="container foot">
+    <div>© 2026 Keinath & Partner Rechtsanwälte PartG mbB · München</div>
+    <div style="display:flex;gap:24px">
+      <a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">Berufsrechtliche Hinweise</a>
     </div>
   </div>
-  <div class="footer-bottom">© 2025 Keinath &amp; Partner. All rights reserved.</div>
 </footer>
 
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
 <script>
-  /* ---------- Nav scroll state ---------- */
-  const nav = document.getElementById('nav');
-  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+const nav=document.getElementById('nav');
+const burger=document.getElementById('burger');
+const links=document.getElementById('navLinks');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20)});
+burger.addEventListener('click',()=>{burger.classList.toggle('open');links.classList.toggle('open')});
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{burger.classList.remove('open');links.classList.remove('open')}));
 
-  /* ---------- Mobile menu ---------- */
-  const hamburger = document.getElementById('hamburger');
-  hamburger.addEventListener('click', () => {
-    const open = nav.classList.toggle('menu-open');
-    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    hamburger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
-  });
-  document.querySelectorAll('.nav-links a').forEach(a =>
-    a.addEventListener('click', () => {
-      nav.classList.remove('menu-open');
-      hamburger.setAttribute('aria-expanded', 'false');
-    })
-  );
-
-  /* ---------- Language toggle ---------- */
-  let currentLang = 'de';
-  const deBtn = document.getElementById('lang-de');
-  const enBtn = document.getElementById('lang-en');
-
-  function setLang(lang) {
-    currentLang = lang;
-    document.documentElement.lang = lang;
-    deBtn.classList.toggle('active', lang === 'de');
-    enBtn.classList.toggle('active', lang === 'en');
-
-    document.querySelectorAll('[data-de], [data-en]').forEach(el => {
-      const val = el.getAttribute('data-' + lang);
-      if (val !== null) el.innerHTML = val;
-    });
-    document.querySelectorAll('[data-de-placeholder], [data-en-placeholder]').forEach(el => {
-      const val = el.getAttribute('data-' + lang + '-placeholder');
-      if (val !== null) el.setAttribute('placeholder', val);
-    });
-  }
-  deBtn.addEventListener('click', () => setLang('de'));
-  enBtn.addEventListener('click', () => setLang('en'));
-
-  /* ---------- FAQ accordion ---------- */
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const btn = item.querySelector('.faq-q');
-    const ans = item.querySelector('.faq-a');
-    btn.addEventListener('click', () => {
-      const open = item.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0';
-    });
-  });
-
-  /* ---------- Scroll reveal ---------- */
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
 </script>
-
 </body>
 </html>
