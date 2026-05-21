@@ -166,12 +166,49 @@ section { padding: var(--section-py) 0; }
   gap: 32px;
 }
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 600;
   color: var(--white);
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
+  transition: opacity 0.2s ease;
 }
+.wordmark:hover { opacity: 0.85; }
+.wordmark .monogram {
+  width: 34px; height: 34px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(201,168,76,0.45);
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #C9A84C;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(37,99,235,0.05));
+  box-shadow: 0 0 18px rgba(201,168,76,0.18);
+}
+.wordmark .wm-text { display: inline-flex; align-items: baseline; gap: 6px; }
+.wordmark .wm-amp {
+  font-style: italic;
+  color: #C9A84C;
+  font-weight: 500;
+}
+.wordmark .wm-sub {
+  display: none;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-left: 10px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.15);
+}
+@media (min-width: 720px) { .wordmark .wm-sub { display: inline-block; } }
 .nav-links {
   display: flex;
   gap: 32px;
