@@ -466,8 +466,22 @@
       <button data-set-lang="de" class="active">DE</button>
       <button data-set-lang="en">EN</button>
     </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+      <span class="bars"><span></span><span></span><span></span></span>
+    </button>
   </div>
 </nav>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
+  <ul>
+    <li><a href="#" data-menu-link>Home</a></li>
+    <li><a href="#expertise" data-menu-link><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></a></li>
+    <li><a href="#about" data-menu-link><span data-lang="de">Kanzlei</span><span data-lang="en">Firm</span></a></li>
+    <li><a href="#deals" data-menu-link><span data-lang="de">Referenzen</span><span data-lang="en">References</span></a></li>
+    <li><a href="#career" data-menu-link><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></a></li>
+    <li><a href="#contact" data-menu-link><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <header class="hero">
