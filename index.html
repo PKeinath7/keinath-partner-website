@@ -260,10 +260,11 @@ section { padding: var(--section-py) 0; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.28), transparent 50%),
-    radial-gradient(circle at 82% 72%, rgba(201,168,76,0.18), transparent 55%),
-    radial-gradient(circle at 50% 110%, rgba(37,99,235,0.18), transparent 60%);
+    radial-gradient(circle at 18% 28%, rgba(37,99,235,0.35), transparent 55%),
+    radial-gradient(circle at 82% 72%, rgba(96,165,250,0.22), transparent 55%),
+    radial-gradient(circle at 50% 110%, rgba(59,130,246,0.28), transparent 60%);
   animation: heroPulse 16s ease-in-out infinite alternate;
+  filter: blur(2px);
   pointer-events: none;
 }
 .hero::after {
