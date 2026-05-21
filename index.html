@@ -1408,11 +1408,17 @@ section { padding: var(--section-py) 0; }
   window.addEventListener('scroll', onScroll, { passive: true });
 
   /* ---------- Mobile menu ---------- */
-  document.getElementById('hamburger').addEventListener('click', () => {
-    nav.classList.toggle('menu-open');
+  const hamburger = document.getElementById('hamburger');
+  hamburger.addEventListener('click', () => {
+    const open = nav.classList.toggle('menu-open');
+    hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    hamburger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
   });
   document.querySelectorAll('.nav-links a').forEach(a =>
-    a.addEventListener('click', () => nav.classList.remove('menu-open'))
+    a.addEventListener('click', () => {
+      nav.classList.remove('menu-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    })
   );
 
   /* ---------- Language toggle ---------- */
