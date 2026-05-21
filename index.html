@@ -812,6 +812,25 @@
     b.addEventListener('click', ()=>setLang(b.dataset.setLang));
   });
   setLang('de');
+
+  // menu overlay
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('[data-menu-link]').forEach(a => {
+    a.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
 </script>
 </body>
 </html>
