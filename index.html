@@ -54,10 +54,15 @@
   .brand{display:flex;align-items:center;gap:14px;color:var(--pure)}
   .brand-mark{display:flex;flex-direction:column;line-height:1}
   .brand-name{
-    font-family:'Cormorant Garamond',serif;
-    font-size:26px;letter-spacing:.02em;font-weight:400;
+    font-family:'Inter',sans-serif;
+    font-size:18px;letter-spacing:.18em;font-weight:400;
+    text-transform:uppercase;
   }
-  .brand-name em{font-style:italic;font-weight:300;opacity:.85;margin:0 2px}
+  .brand-name .amp{
+    font-family:'Inter',sans-serif;font-weight:300;
+    font-size:.95em;margin:0 4px;color:var(--mist);
+    font-feature-settings:"ss01";
+  }
   .nav-links{display:flex;gap:38px;align-items:center}
   .nav-links a{
     font-size:11px;letter-spacing:.28em;text-transform:uppercase;
@@ -401,7 +406,7 @@
 <nav class="nav" id="nav">
   <a href="#" class="brand">
     <div class="brand-mark">
-      <span class="brand-name">Keinath <em>&amp;</em> Partner</span>
+      <span class="brand-name">Keinath<span class="amp">&amp;</span>Partner</span>
     </div>
   </a>
   <div class="nav-links">
@@ -412,7 +417,6 @@
     <a href="#contact"><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></a>
   </div>
   <div style="display:flex;align-items:center;gap:14px">
-    <a href="#contact" class="nav-cta"><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></a>
     <div class="lang-toggle">
       <button data-set-lang="de" class="active">DE</button>
       <button data-set-lang="en">EN</button>
@@ -473,14 +477,14 @@
     <p class="manifesto-text reveal" data-lang="en">
       In a transaction, Keinath is <span>performance-driven,</span> fast-thinking, always available — and guides every process with <span>diligence and clear structure</span> efficiently to closing.
     </p>
-    <div class="manifesto-sig reveal">— Dr. Philipp Keinath, LL.M. (Columbia)</div>
+    <div class="manifesto-sig reveal">Dr. Philipp Keinath, LL.M. (Columbia)</div>
   </div>
 </section>
 
 <!-- EXPERTISE / TÄTIGKEITEN -->
 <section class="expertise" id="expertise">
   <div class="wrap">
-    <div class="section-tag"><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></div>
+    <div class="section-tag" style="margin-bottom:96px"><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></div>
     <h2 class="section-title reveal" data-lang="de">Sechs Felder. <em>Eine</em> Disziplin.</h2>
     <h2 class="section-title reveal" data-lang="en">Six Fields. <em>One</em> Discipline.</h2>
     <p class="section-lead reveal" data-lang="de">Wir konzentrieren uns ausschließlich auf transaktionsnahe Beratung — und beherrschen sie auf höchstem Niveau.</p>
@@ -535,7 +539,7 @@
         <img src="/src/assets/partner2.jpg" alt="Dr. Philipp Keinath, LL.M. (Columbia)" loading="lazy" />
       </div>
       <div class="about-text">
-        <div class="section-tag"><span data-lang="de">Die Kanzlei</span><span data-lang="en">The Firm</span></div>
+        <div class="section-tag" style="margin-bottom:80px"><span data-lang="de">Die Kanzlei</span><span data-lang="en">The Firm</span></div>
         <h2 class="section-title" data-lang="de">Nah am Mandanten. <em>Schnell</em> in der Reaktion.</h2>
         <h2 class="section-title" data-lang="en">Close to the client. <em>Fast</em> in response.</h2>
 
@@ -568,11 +572,9 @@
 <!-- DEALS / REFERENZEN -->
 <section class="deals" id="deals">
   <div class="wrap">
-    <div class="section-tag"><span data-lang="de">Referenzen</span><span data-lang="en">References</span></div>
-    <h2 class="section-title reveal" data-lang="de">Selected <em>Deals</em>.</h2>
-    <h2 class="section-title reveal" data-lang="en">Selected <em>Deals</em>.</h2>
-    <p class="section-lead reveal" data-lang="de">Eine Auswahl an Transaktionen aus den vergangenen Jahren.</p>
-    <p class="section-lead reveal" data-lang="en">A selection of transactions from recent years.</p>
+    <div class="section-tag" style="margin-bottom:96px"><span data-lang="de">Referenzen</span><span data-lang="en">References</span></div>
+    <h2 class="section-title reveal" data-lang="de">Ausgewählte <em>Transaktionen</em>.</h2>
+    <h2 class="section-title reveal" data-lang="en">Selected <em>Transactions</em>.</h2>
 
     <div class="deal-list">
       <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Verkauf eines Industrieautomatisierers</span><span data-lang="en">Sale of an industrial automation group</span></div><div class="deal-meta">Sell-Side · DACH</div><div class="deal-meta"><span data-lang="de">PE-Investor</span><span data-lang="en">PE Investor</span></div><div class="deal-vol">€ 420 Mio.</div></div>
@@ -620,7 +622,7 @@
 <!-- KARRIERE -->
 <section class="career" id="career">
   <div class="wrap">
-    <div class="section-tag"><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></div>
+    <div class="section-tag" style="margin-bottom:96px"><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></div>
     <h2 class="section-title reveal" data-lang="de">Anwälte, die <em>gewinnen</em> wollen.</h2>
     <h2 class="section-title reveal" data-lang="en">Lawyers who <em>want to win</em>.</h2>
     <p class="section-lead reveal" data-lang="de">Wir suchen Persönlichkeiten, die juristische Exzellenz mit unternehmerischem Denken verbinden — und Verantwortung vom ersten Tag an übernehmen wollen.</p>
@@ -675,11 +677,6 @@
           <p style="margin-top:12px">+49 89 20 80 47 — 0</p>
           <p>kontakt@keinath-partner.de</p>
         </div>
-
-        <a href="tel:+498920804799" class="contact-cta">
-          <div class="small">Direct Line · 24/7</div>
-          <div class="big">+49 89 20 80 47 — 99</div>
-        </a>
       </div>
 
       <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent=document.documentElement.lang==='en'?'Thank you — we will be in touch.':'Vielen Dank — wir melden uns.'">
@@ -702,7 +699,7 @@
         <div class="full">
           <label><span data-lang="de">Anliegen</span><span data-lang="en">Topic</span></label>
           <select>
-            <option disabled selected><span>— </span><span data-lang-text-de="Auswahl treffen" data-lang-text-en="Please select">Auswahl treffen</span></option>
+            <option disabled selected data-lang-text-de="Auswahl treffen" data-lang-text-en="Please select">Auswahl treffen</option>
             <option>M&amp;A · Buy-Side</option>
             <option>Private Equity</option>
             <option>M&amp;A · Sell-Side</option>
@@ -728,6 +725,7 @@
     <div>© 2026 Keinath Rechtsanwaltsgesellschaft mbH</div>
     <div>
       <a href="#"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a>
+      <a href="#"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
     </div>
   </div>
 </footer>
