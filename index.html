@@ -63,19 +63,6 @@
     font-size:.95em;margin:0 4px;color:var(--mist);
     font-feature-settings:"ss01";
   }
-  .nav-links{display:flex;gap:38px;align-items:center}
-  .nav-links a{
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--ink);opacity:.78;transition:opacity .3s;
-  }
-  .nav-links a:hover{opacity:1}
-  .nav-cta{
-    border:1px solid var(--mist);
-    padding:11px 22px;border-radius:999px;
-    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--pure);transition:all .35s;
-  }
-  .nav-cta:hover{background:var(--pure);color:var(--abyss)}
   .lang-toggle{
     display:flex;gap:0;margin-left:8px;
     border:1px solid var(--line);border-radius:999px;overflow:hidden;
@@ -87,7 +74,6 @@
     transition:all .3s;
   }
   .lang-toggle button.active{background:var(--pure);color:var(--abyss)}
-  @media(max-width:900px){.nav-links{display:none}}
 
   /* ---------- HAMBURGER / MENU ---------- */
   .menu-btn{
@@ -454,13 +440,6 @@
       <span class="brand-name">Keinath<span class="amp">&amp;</span>Partner</span>
     </div>
   </a>
-  <div class="nav-links">
-    <a href="#expertise"><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></a>
-    <a href="#about"><span data-lang="de">Kanzlei</span><span data-lang="en">Firm</span></a>
-    <a href="#deals"><span data-lang="de">Referenzen</span><span data-lang="en">References</span></a>
-    <a href="#career"><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></a>
-    <a href="#contact"><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></a>
-  </div>
   <div style="display:flex;align-items:center;gap:14px">
     <div class="lang-toggle">
       <button data-set-lang="de" class="active">DE</button>
