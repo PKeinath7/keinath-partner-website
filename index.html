@@ -63,6 +63,7 @@
     font-size:18px;letter-spacing:.18em;font-weight:400;
     text-transform:uppercase;
   }
+  @media(max-width:720px){.brand-name{font-size:14px;letter-spacing:.12em}}
   .brand-name .amp{
     font-family:'Inter',sans-serif;font-weight:300;
     font-size:.95em;margin:0 4px;color:var(--mist);
@@ -206,9 +207,14 @@
   @media(max-width:720px){.kpi{padding:60px 0}}
   .kpi .wrap{overflow:hidden}
   .kpi-grid{display:flex;gap:80px;animation:kpiScroll 28s linear infinite;white-space:nowrap}
-  @media(max-width:720px){.kpi-grid{gap:48px;animation:kpiScroll 14s linear infinite}}
+  @media(max-width:720px){
+    .kpi-grid{
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:32px;animation:none;white-space:normal;
+    }
+  }
   .kpi-item{border-left:1px solid var(--line);padding-left:24px;flex-shrink:0;min-width:280px}
-  @media(max-width:720px){.kpi-item{min-width:240px;padding-left:16px}}
+  @media(max-width:720px){.kpi-item{min-width:auto;padding-left:16px;border-left:1px solid var(--line)}}
   .kpi-title{
     font-family:'Cormorant Garamond',serif;
     font-size:18px;line-height:1;color:var(--pure);font-weight:400;
@@ -356,12 +362,24 @@
     text-transform:uppercase;color:var(--soft);margin-bottom:52px;font-weight:400;
   }
   .marquee{display:flex;gap:96px;animation:scroll 28s linear infinite;white-space:nowrap}
-  @media(max-width:720px){.marquee{gap:48px;animation:scroll 20s linear infinite}}
+  @media(max-width:720px){
+    .marquee{
+      display:grid;grid-template-columns:1fr 1fr;gap:24px;
+      animation:none;white-space:normal;
+      padding:0 0;
+    }
+  }
   .marquee span{
     font-family:'Cormorant Garamond',serif;font-style:italic;
     font-size:30px;color:var(--mist);opacity:.75;
   }
+  @media(max-width:720px){
+    .marquee span{font-size:16px;line-height:1.4}
+  }
   .marquee span::before{content:"◆";color:var(--pure);margin-right:96px;font-size:10px;vertical-align:middle;opacity:.4}
+  @media(max-width:720px){
+    .marquee span::before{content:"";margin-right:0}
+  }
   @keyframes scroll{to{transform:translateX(-50%)}}
 
   /* ---------- TESTIMONIAL ---------- */
