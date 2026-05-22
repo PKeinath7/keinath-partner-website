@@ -2,20 +2,20 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-<title>Keinath &amp; Partner — M&amp;A Boutique</title>
-<meta name="description" content="Keinath &amp; Partner — diskrete M&amp;A-Boutique. Strategische Begleitung bei Unternehmenstransaktionen, Carve-outs und Nachfolgeregelungen.">
+<title>Keinath & Partner — M&A Boutique München</title>
+<meta name="description" content="Keinath Rechtsanwaltsgesellschaft mbH — M&A-Boutique mit Sitz in München. Leistungsstark, reaktionsschnell, vertrauensvoll." />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --abyss:#03111F;        /* deepest navy, near-black */
-    --deep:#06243F;         /* deep sea */
-    --sea:#0B3B66;          /* royal sea blue */
-    --tide:#1A5A8A;         /* mid tide */
-    --mist:#A9C4DC;         /* foam */
-    --ink:#EAF1F8;          /* primary text (off-white) */
+    --abyss:#03111F;
+    --deep:#06243F;
+    --sea:#0B3B66;
+    --tide:#1A5A8A;
+    --mist:#A9C4DC;
+    --ink:#EAF1F8;
     --pure:#FFFFFF;
     --line:rgba(255,255,255,.14);
     --soft:rgba(255,255,255,.62);
@@ -54,28 +54,71 @@
   .brand{display:flex;align-items:center;gap:14px;color:var(--pure)}
   .brand-mark{display:flex;flex-direction:column;line-height:1}
   .brand-name{
+    font-family:'Inter',sans-serif;
+    font-size:18px;letter-spacing:.18em;font-weight:400;
+    text-transform:uppercase;
+  }
+  .brand-name .amp{
+    font-family:'Inter',sans-serif;font-weight:300;
+    font-size:.95em;margin:0 4px;color:var(--mist);
+    font-feature-settings:"ss01";
+  }
+  .lang-toggle{
+    display:flex;gap:0;margin-left:8px;
+    border:1px solid var(--line);border-radius:999px;overflow:hidden;
+  }
+  .lang-toggle button{
+    background:transparent;border:none;cursor:pointer;
+    padding:8px 14px;font-size:10px;letter-spacing:.24em;
+    color:var(--soft);font-family:inherit;text-transform:uppercase;
+    transition:all .3s;
+  }
+  .lang-toggle button.active{background:var(--pure);color:var(--abyss)}
+
+  /* ---------- HAMBURGER / MENU ---------- */
+  .menu-btn{
+    background:transparent;border:1px solid var(--line);
+    width:46px;height:46px;border-radius:999px;
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;transition:all .3s;padding:0;
+  }
+  .menu-btn:hover{border-color:var(--mist);background:rgba(255,255,255,.04)}
+  .menu-btn .bars{display:flex;flex-direction:column;gap:5px;width:18px}
+  .menu-btn .bars span{
+    display:block;height:1px;background:var(--pure);
+    transition:transform .35s ease, opacity .35s ease;
+  }
+  .menu-btn .bars span:nth-child(1){width:100%}
+  .menu-btn .bars span:nth-child(2){width:70%;margin-left:auto}
+  .menu-btn .bars span:nth-child(3){width:100%}
+  body.menu-open .menu-btn .bars span:nth-child(1){transform:translateY(6px) rotate(45deg);width:100%}
+  body.menu-open .menu-btn .bars span:nth-child(2){opacity:0}
+  body.menu-open .menu-btn .bars span:nth-child(3){transform:translateY(-6px) rotate(-45deg);width:100%}
+
+  .menu-overlay{
+    position:fixed;inset:0;z-index:49;
+    background:rgba(3,17,31,.96);backdrop-filter:blur(20px);
+    display:flex;align-items:center;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .5s ease;
+  }
+  body.menu-open .menu-overlay{opacity:1;pointer-events:auto}
+  .menu-overlay ul{list-style:none;text-align:center}
+  .menu-overlay li{margin:18px 0;overflow:hidden}
+  .menu-overlay a{
     font-family:'Cormorant Garamond',serif;
-    font-size:24px;letter-spacing:.02em;font-weight:400;
+    font-size:clamp(36px,6vw,68px);font-weight:300;
+    color:var(--pure);letter-spacing:-.01em;line-height:1;
+    display:inline-block;transition:color .3s;
+    transform:translateY(40px);opacity:0;transition:transform .6s ease, opacity .6s ease, color .3s;
   }
-  .brand-name em{font-style:italic;font-weight:300;opacity:.85;margin:0 2px}
-  .brand-sub{
-    font-size:9px;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--soft);margin-top:6px;font-weight:400;
-  }
-  .nav-links{display:flex;gap:38px;align-items:center}
-  .nav-links a{
-    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
-    color:var(--ink);opacity:.78;transition:opacity .3s;
-  }
-  .nav-links a:hover{opacity:1}
-  .nav-cta{
-    border:1px solid var(--mist);
-    padding:11px 22px;border-radius:999px;
-    font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-    color:var(--pure);transition:all .35s;
-  }
-  .nav-cta:hover{background:var(--pure);color:var(--abyss)}
-  @media(max-width:900px){.nav-links{display:none}}
+  body.menu-open .menu-overlay a{transform:translateY(0);opacity:1}
+  body.menu-open .menu-overlay li:nth-child(1) a{transition-delay:.08s}
+  body.menu-open .menu-overlay li:nth-child(2) a{transition-delay:.14s}
+  body.menu-open .menu-overlay li:nth-child(3) a{transition-delay:.2s}
+  body.menu-open .menu-overlay li:nth-child(4) a{transition-delay:.26s}
+  body.menu-open .menu-overlay li:nth-child(5) a{transition-delay:.32s}
+  body.menu-open .menu-overlay li:nth-child(6) a{transition-delay:.38s}
+  .menu-overlay a:hover{color:var(--mist);font-style:italic}
 
   /* ---------- HERO ---------- */
   .hero{
@@ -105,7 +148,6 @@
     color:var(--mist);margin-bottom:38px;
     opacity:0;animation:fadeIn .9s .3s forwards;
   }
-  .hero-tag::before{content:"";width:48px;height:1px;background:var(--mist)}
   .hero-title{
     font-family:'Cormorant Garamond',serif;
     font-weight:300;
@@ -117,8 +159,7 @@
   .hero-title .line{display:block;overflow:hidden}
   .hero-title .word{display:inline-block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(.2,.7,.2,1) forwards}
   .hero-title em{font-style:italic;font-weight:300;color:var(--mist)}
-  .w1{animation-delay:.5s}.w2{animation-delay:.62s}.w3{animation-delay:.74s}
-  .w4{animation-delay:.9s}.w5{animation-delay:1.02s}.w6{animation-delay:1.14s}
+  .w1{animation-delay:.5s}.w2{animation-delay:.72s}.w3{animation-delay:.94s}
   @keyframes rise{to{transform:translateY(0)}}
   @keyframes fadeIn{to{opacity:1}}
 
@@ -128,7 +169,7 @@
     opacity:0;animation:fadeIn 1s 1.6s forwards;
   }
   .hero-lead{
-    max-width:440px;color:var(--ink);opacity:.82;
+    max-width:520px;color:var(--ink);opacity:.85;
     font-size:16px;line-height:1.7;font-weight:300;
   }
   .hero-scroll{
@@ -160,30 +201,33 @@
   }
 
   /* ---------- SECTION ---------- */
-  section{padding:140px 0;position:relative}
+  section{padding:160px 0;position:relative}
+  @media(max-width:720px){section{padding:96px 0}}
   .section-tag{
     display:inline-flex;align-items:center;gap:14px;
     font-size:10px;letter-spacing:.42em;text-transform:uppercase;
-    color:var(--mist);margin-bottom:32px;
+    color:var(--mist);margin-bottom:56px;
   }
-  .section-tag::before{content:"";width:36px;height:1px;background:var(--mist)}
   .section-title{
     font-family:'Cormorant Garamond',serif;
     font-weight:300;font-size:clamp(36px,5vw,68px);
     line-height:1.08;letter-spacing:-.01em;color:var(--pure);
-    max-width:880px;margin-bottom:24px;
+    max-width:880px;margin-bottom:32px;
   }
   .section-title em{font-style:italic;color:var(--mist)}
-  .section-lead{max-width:620px;color:var(--soft);font-size:16px;line-height:1.75}
+  .section-lead{max-width:680px;color:var(--soft);font-size:16px;line-height:1.75;margin-bottom:24px}
+  .section-block{margin-top:96px}
+  @media(max-width:720px){.section-block{margin-top:64px}}
 
   /* ---------- MANIFESTO ---------- */
   .manifesto{background:var(--abyss);text-align:center;padding:160px 0}
+  .manifesto.border{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
   .manifesto-text{
     font-family:'Cormorant Garamond',serif;
     font-weight:300;font-style:italic;
     font-size:clamp(28px,3.4vw,46px);
     line-height:1.35;color:var(--pure);
-    max-width:980px;margin:0 auto;letter-spacing:-.005em;
+    max-width:1040px;margin:0 auto;letter-spacing:-.005em;
   }
   .manifesto-text span{color:var(--mist)}
   .manifesto-sig{
@@ -193,9 +237,9 @@
 
   /* ---------- EXPERTISE ---------- */
   .expertise{background:linear-gradient(180deg,var(--abyss),var(--deep))}
-  .exp-grid{margin-top:80px;border-top:1px solid var(--line)}
+  .exp-grid{margin-top:96px;border-top:1px solid var(--line)}
   .exp-row{
-    display:grid;grid-template-columns:80px 1fr 1fr 60px;
+    display:grid;grid-template-columns:120px 1fr 1fr;
     gap:40px;align-items:center;
     padding:38px 24px;border-bottom:1px solid var(--line);
     position:relative;overflow:hidden;
@@ -209,14 +253,19 @@
   .exp-row:hover *{color:var(--abyss)!important;position:relative;z-index:1}
   .exp-row:hover{padding-left:40px}
   .exp-row > *{position:relative;z-index:1;transition:color .4s}
-  .exp-num{font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--mist);font-style:italic}
-  .exp-name{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--pure);font-weight:400;letter-spacing:-.005em}
+  .exp-num{
+    font-family:'Cormorant Garamond',serif;
+    font-size:44px;line-height:1;color:var(--mist);font-style:italic;
+    font-weight:300;letter-spacing:-.02em;
+  }
+  .exp-name{font-family:'Cormorant Garamond',serif;font-size:32px;color:var(--pure);font-weight:400;letter-spacing:-.005em;line-height:1}
   .exp-desc{color:var(--soft);font-size:14px;line-height:1.65}
-  .exp-arrow{font-size:20px;color:var(--mist);text-align:right}
+  .exp-arrow{display:none}
   @media(max-width:820px){
-    .exp-row{grid-template-columns:60px 1fr;gap:18px;padding:28px 16px}
+    .exp-row{grid-template-columns:80px 1fr;gap:18px;padding:28px 16px}
     .exp-desc,.exp-arrow{display:none}
     .exp-name{font-size:24px}
+    .exp-num{font-size:42px}
   }
 
   /* ---------- ABOUT (split) ---------- */
@@ -240,7 +289,7 @@
 
   /* ---------- DEALS ---------- */
   .deals{background:var(--abyss)}
-  .deal-list{margin-top:80px}
+  .deal-list{}
   .deal{
     display:grid;grid-template-columns:90px 1.4fr 1fr 1fr auto;
     gap:40px;padding:34px 0;border-bottom:1px solid var(--line);
@@ -283,13 +332,41 @@
   .testimonial-text{
     font-family:'Cormorant Garamond',serif;font-weight:300;
     font-size:clamp(28px,3vw,42px);line-height:1.45;color:var(--pure);
-    max-width:980px;margin:0 auto;
+    max-width:1040px;margin:0 auto;
   }
   .testimonial-text::before,.testimonial-text::after{
     content:"";display:block;width:60px;height:1px;background:var(--mist);margin:0 auto 40px;
   }
   .testimonial-text::after{margin:40px auto 0}
   .testimonial-author{margin-top:36px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--mist)}
+
+  /* ---------- CAREER ---------- */
+  .career{background:var(--deep)}
+  .career-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  @media(max-width:900px){.career-grid{grid-template-columns:1fr;gap:48px}}
+  .career-card{
+    border:1px solid var(--line);padding:48px;
+    background:rgba(255,255,255,.02);transition:all .4s;
+  }
+  .career-card:hover{background:rgba(255,255,255,.04);border-color:var(--mist)}
+  .career-card h3{
+    font-family:'Cormorant Garamond',serif;font-weight:400;
+    font-size:30px;color:var(--pure);margin-bottom:16px;letter-spacing:-.005em;
+  }
+  .career-card p{color:var(--soft);font-size:15px;line-height:1.75;margin-bottom:18px}
+  .career-card ul{list-style:none;margin:18px 0 24px}
+  .career-card li{
+    color:var(--ink);font-size:14px;padding:8px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .career-card li::before{content:"— ";color:var(--mist)}
+  .career-card a{
+    display:inline-block;margin-top:8px;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--pure);border-bottom:1px solid var(--mist);padding-bottom:4px;
+    transition:all .3s;
+  }
+  .career-card a:hover{border-color:var(--pure)}
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--abyss);padding-bottom:60px}
@@ -323,6 +400,7 @@
     color:var(--pure);font-family:inherit;font-size:16px;font-weight:300;
     transition:border-color .3s;
   }
+  .contact-form select option{background:var(--deep);color:var(--pure)}
   .contact-form input:focus,.contact-form textarea:focus,.contact-form select:focus{
     outline:none;border-bottom-color:var(--pure);
   }
@@ -339,9 +417,7 @@
   /* ---------- FOOTER ---------- */
   footer{
     border-top:1px solid var(--line);padding:48px 0;
-    display:flex;justify-content:space-between;align-items:center;
     color:var(--soft);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-    flex-wrap:wrap;gap:20px;
   }
   footer a{margin-left:24px;opacity:.7;transition:opacity .3s}
   footer a:hover{opacity:1}
@@ -349,50 +425,68 @@
   /* reveal on scroll */
   .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s}
   .reveal.in{opacity:1;transform:translateY(0)}
+
+  /* language visibility */
+  [data-lang]{display:none}
+  html[lang="de"] [data-lang="de"]{display:initial}
+  html[lang="en"] [data-lang="en"]{display:initial}
+  html[lang="de"] .block[data-lang="de"], html[lang="en"] .block[data-lang="en"]{display:block}
+  html[lang="de"] .inflex[data-lang="de"], html[lang="en"] .inflex[data-lang="en"]{display:inline-flex}
 </style>
-  <meta property="og:title" content="Keinath &amp; Partner — M&amp;A Boutique">
-  <meta name="twitter:title" content="Keinath &amp; Partner — M&amp;A Boutique">
-  <meta property="og:description" content="Keinath &amp; Partner — diskrete M&amp;A-Boutique. Strategische Begleitung bei Unternehmenstransaktionen, Carve-outs und Nachfolgeregelungen.">
-  <meta name="twitter:description" content="Keinath &amp; Partner — diskrete M&amp;A-Boutique. Strategische Begleitung bei Unternehmenstransaktionen, Carve-outs und Nachfolgeregelungen.">
-  <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f8a125fd-c389-4f64-9e8c-7b771fd1337a/id-preview-0e58a305--a966337b-8ccf-4954-bde5-d32d07294649.lovable.app-1779393597192.png">
-  <meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f8a125fd-c389-4f64-9e8c-7b771fd1337a/id-preview-0e58a305--a966337b-8ccf-4954-bde5-d32d07294649.lovable.app-1779393597192.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="og:type" content="website">
 </head>
 <body>
 
 <nav class="nav" id="nav">
   <a href="#" class="brand">
     <div class="brand-mark">
-      <span class="brand-name">Keinath <em>&amp;</em> Partner</span>
-      <span class="brand-sub">M&amp;A · Corporate · Private</span>
+      <span class="brand-name">Keinath<span class="amp">&amp;</span>Partner</span>
     </div>
   </a>
-  <div class="nav-links">
-    <a href="#expertise">Expertise</a>
-    <a href="#about">Kanzlei</a>
-    <a href="#deals">Mandate</a>
-    <a href="#press">Presse</a>
-    <a href="#contact">Kontakt</a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <div class="lang-toggle">
+      <button data-set-lang="de" class="active">DE</button>
+      <button data-set-lang="en">EN</button>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
+      <span class="bars"><span></span><span></span><span></span></span>
+    </button>
   </div>
-  <a href="#contact" class="nav-cta">Vertraulich sprechen</a>
 </nav>
+
+<div class="menu-overlay" id="menuOverlay" role="dialog" aria-modal="true">
+  <ul>
+    <li><a href="#" data-menu-link>Home</a></li>
+    <li><a href="#expertise" data-menu-link><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></a></li>
+    <li><a href="#about" data-menu-link><span data-lang="de">Kanzlei</span><span data-lang="en">Firm</span></a></li>
+    <li><a href="#deals" data-menu-link><span data-lang="de">Referenzen</span><span data-lang="en">References</span></a></li>
+    <li><a href="#career" data-menu-link><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></a></li>
+    <li><a href="#contact" data-menu-link><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></a></li>
+  </ul>
+</div>
 
 <!-- HERO -->
 <header class="hero">
   <div class="hero-bg"></div>
   <div class="wrap hero-content">
-    <div class="hero-tag">Mergers · Acquisitions · Nachfolge</div>
-    <h1 class="hero-title">
-      <span class="line"><span class="word w1">Tiefe</span> <span class="word w2"><em>Wasser.</em></span></span>
-      <span class="line"><span class="word w3">Ruhige</span> <span class="word w4">Hand.</span></span>
-      <span class="line"><span class="word w5"><em>Klare</em></span> <span class="word w6">Linie.</span></span>
+    <div class="hero-tag">
+      <span data-lang="de">M&amp;A-Boutique mit Sitz in München</span>
+      <span data-lang="en">M&amp;A Boutique based in Munich</span>
+    </div>
+    <h1 class="hero-title" data-lang="de">
+      <span class="line"><span class="word w1">Leistung.</span></span>
+      <span class="line"><span class="word w2"><em>Reaktion.</em></span></span>
+      <span class="line"><span class="word w3">Vertrauen.</span></span>
+    </h1>
+    <h1 class="hero-title" data-lang="en">
+      <span class="line"><span class="word w1">Performance.</span></span>
+      <span class="line"><span class="word w2"><em>Response.</em></span></span>
+      <span class="line"><span class="word w3">Trust.</span></span>
     </h1>
     <div class="hero-foot">
       <p class="hero-lead">
-        Eine Boutique für Eigentümer, Family Offices und Geschäftsführer, die ihre wichtigste Transaktion nicht der Lautstärke einer Großkanzlei überlassen wollen.
+        <span data-lang="de">Eine Rechtsanwaltskanzlei, die eng an Ihrer Seite arbeitet — reaktionsschnell, persönlich verbunden und auf Vertrauen gegründet. Schlanke Strukturen statt anonymer Großkanzlei: direkter Zugang zum Partner, der Ihre Transaktion beginnt, leitet und abschließt.</span>
+        <span data-lang="en">A law firm that works closely at your side — responsive, personally connected and built on trust. Lean structures instead of an anonymous large firm: direct access to the partner who starts, leads and closes your transaction.</span>
       </p>
-      <a href="#contact" class="nav-cta">Erstgespräch vereinbaren →</a>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
@@ -402,40 +496,73 @@
 <section class="kpi" style="padding:64px 0">
   <div class="wrap">
     <div class="kpi-grid">
-      <div class="kpi-item"><div class="kpi-num">3,4<em>Mrd</em></div><div class="kpi-label">Transaktionsvolumen</div></div>
-      <div class="kpi-item"><div class="kpi-num">180<em>+</em></div><div class="kpi-label">Abgeschlossene Deals</div></div>
-      <div class="kpi-item"><div class="kpi-num">22</div><div class="kpi-label">Jahre Spezialisierung</div></div>
-      <div class="kpi-item"><div class="kpi-num">14</div><div class="kpi-label">Jurisdiktionen</div></div>
+      <div class="kpi-item"><div class="kpi-num">3,4<em>Mrd</em></div><div class="kpi-label"><span data-lang="de">Transaktionsvolumen</span><span data-lang="en">Deal Volume</span></div></div>
+      <div class="kpi-item"><div class="kpi-num">180<em>+</em></div><div class="kpi-label"><span data-lang="de">Abgeschlossene Deals</span><span data-lang="en">Closed Deals</span></div></div>
+      <div class="kpi-item"><div class="kpi-num">22</div><div class="kpi-label"><span data-lang="de">Jahre Spezialisierung</span><span data-lang="en">Years of Focus</span></div></div>
+      <div class="kpi-item"><div class="kpi-num">14</div><div class="kpi-label"><span data-lang="de">Jurisdiktionen</span><span data-lang="en">Jurisdictions</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- MANIFESTO -->
-<section class="manifesto">
+<section class="manifesto border">
   <div class="wrap">
-    <p class="manifesto-text reveal">
-      „Eine Transaktion ist kein Sprint, sondern <span>eine Navigation.</span>
-      Wir lesen Strömungen, halten Kurs und führen Sie sicher an Land —
-      <span>auch wenn die See rau wird.</span>"
+    <p class="manifesto-text reveal" data-lang="de">
+      Bei einer Transaktion ist Keinath <span>leistungsorientiert,</span> schnell im Denken, jederzeit erreichbar — und führt jeden Prozess mit <span>Achtsamkeit und klarer Struktur</span> effizient ans Ziel.
     </p>
-    <div class="manifesto-sig reveal">— Dr. Maximilian Keinath, Managing Partner</div>
+    <p class="manifesto-text reveal" data-lang="en">
+      In a transaction, Keinath is <span>performance-driven,</span> fast-thinking, always available — and guides every process with <span>diligence and clear structure</span> efficiently to closing.
+    </p>
+    <div class="manifesto-sig reveal">Dr. Philipp Keinath, LL.M. (Columbia)</div>
   </div>
 </section>
 
-<!-- EXPERTISE -->
+<!-- EXPERTISE / TÄTIGKEITEN -->
 <section class="expertise" id="expertise">
-  <div class="wrap">
-    <div class="section-tag">Expertise</div>
-    <h2 class="section-title reveal">Sechs Felder. <em>Eine</em> Disziplin.</h2>
-    <p class="section-lead reveal">Wir konzentrieren uns ausschließlich auf transaktionsnahe Beratung — und beherrschen sie auf höchstem Niveau.</p>
+    <div class="expertise my-0" style="padding-left:24px;padding-right:24px">
+      <div class="section-tag" style="display:block;margin-bottom:32px"><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></div>
+      <h2 class="section-title reveal block" data-lang="de">Sechs Felder. <span style="font-style:normal;color:inherit">Eine</span> Disziplin.</h2>
+      <h2 class="section-title reveal block" data-lang="en">Six Fields. <span style="font-style:normal;color:inherit">One</span> Discipline.</h2>
+    <p class="section-lead reveal block" data-lang="de" style="margin-top:28px">Wir konzentrieren uns ausschließlich auf transaktionsnahe Beratung — und beherrschen sie auf höchstem Niveau.</p>
+    <p class="section-lead reveal block" data-lang="en" style="margin-top:28px">We focus exclusively on transactional advice — and master it at the highest level.</p>
 
     <div class="exp-grid">
-      <div class="exp-row"><div class="exp-num">01</div><div class="exp-name">M&amp;A · Sell-Side</div><div class="exp-desc">Strukturierte Verkaufsprozesse, Bieterverfahren und diskrete Direktansprachen für Eigentümer und Family Offices.</div><div class="exp-arrow">→</div></div>
-      <div class="exp-row"><div class="exp-num">02</div><div class="exp-name">M&amp;A · Buy-Side</div><div class="exp-desc">Build-up-Strategien, Add-on-Akquisitionen und Carve-outs für Strategen und Private-Equity-Investoren.</div><div class="exp-arrow">→</div></div>
-      <div class="exp-row"><div class="exp-num">03</div><div class="exp-name">Unternehmensnachfolge</div><div class="exp-desc">Generationenübergänge, MBO/MBI-Strukturen und steueroptimierte Übertragungen.</div><div class="exp-arrow">→</div></div>
-      <div class="exp-row"><div class="exp-num">04</div><div class="exp-name">Private Equity</div><div class="exp-desc">Begleitung von Fonds und Portfoliogesellschaften über den gesamten Investmentzyklus.</div><div class="exp-arrow">→</div></div>
-      <div class="exp-row"><div class="exp-num">05</div><div class="exp-name">Joint Ventures</div><div class="exp-desc">Strategische Allianzen, Cross-Border-Strukturen und Governance-Architekturen.</div><div class="exp-arrow">→</div></div>
-      <div class="exp-row"><div class="exp-num">06</div><div class="exp-name">Restrukturierung</div><div class="exp-desc">Distressed M&amp;A, Refinanzierungen und transaktionale Sanierung.</div><div class="exp-arrow">→</div></div>
+      <div class="exp-row">
+        <div class="exp-num">01</div>
+        <div class="exp-name">M&amp;A · Buy-Side</div>
+        <div class="exp-desc"><span data-lang="de">Build-up-Strategien, Add-on-Akquisitionen und Carve-outs für Strategen und Private-Equity-Investoren.</span><span data-lang="en">Build-up strategies, add-on acquisitions and carve-outs for strategic buyers and private equity.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-num">02</div>
+        <div class="exp-name">Private Equity</div>
+        <div class="exp-desc"><span data-lang="de">Begleitung von Fonds und Portfoliogesellschaften über den gesamten Investmentzyklus.</span><span data-lang="en">Advising funds and portfolio companies throughout the full investment cycle.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-num">03</div>
+        <div class="exp-name">M&amp;A · Sell-Side</div>
+        <div class="exp-desc"><span data-lang="de">Strukturierte Verkaufsprozesse, Bieterverfahren und diskrete Direktansprachen für Eigentümer und Family Offices.</span><span data-lang="en">Structured sale processes, auctions and discreet direct approaches for owners and family offices.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-num">04</div>
+        <div class="exp-name"><span data-lang="de">Unternehmensnachfolge</span><span data-lang="en">Succession</span></div>
+        <div class="exp-desc"><span data-lang="de">Generationenübergänge, MBO/MBI-Strukturen und steueroptimierte Übertragungen.</span><span data-lang="en">Generational transitions, MBO/MBI structures and tax-optimised transfers.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-num">05</div>
+        <div class="exp-name">Joint Ventures</div>
+        <div class="exp-desc"><span data-lang="de">Strategische Allianzen, Cross-Border-Strukturen und Governance-Architekturen.</span><span data-lang="en">Strategic alliances, cross-border structures and governance architecture.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
+      <div class="exp-row">
+        <div class="exp-num">06</div>
+        <div class="exp-name"><span data-lang="de">Restrukturierung</span><span data-lang="en">Restructuring</span></div>
+        <div class="exp-desc"><span data-lang="de">Distressed M&amp;A, Refinanzierungen und transaktionale Sanierung.</span><span data-lang="en">Distressed M&amp;A, refinancings and transactional restructuring.</span></div>
+        <div class="exp-arrow">→</div>
+      </div>
     </div>
   </div>
 </section>
@@ -445,45 +572,60 @@
   <div class="wrap">
     <div class="about-grid">
       <div class="about-img reveal">
-        <img src="/src/assets/partner2.jpg" alt="Dr. Maximilian Keinath, Managing Partner" loading="lazy" />
+        <img src="/src/assets/partner2.jpg" alt="Dr. Philipp Keinath, LL.M. (Columbia)" loading="lazy" />
       </div>
       <div class="about-text">
-        <div class="section-tag">Die Kanzlei</div>
-        <h2 class="section-title">Diskretion ist <em>keine Haltung</em>. Sie ist Methode.</h2>
-        <p>Keinath &amp; Partner wurde 2003 mit einer einzigen Überzeugung gegründet: Unternehmenstransaktionen erfordern Konzentration, nicht Eskalation. Wir arbeiten in kleinen, partnergeführten Teams — jeder Mandant erhält den Partner, der den Deal beginnt, leitet und abschließt.</p>
-        <p>Unsere Mandanten sind Eigentümer mittelständischer Champions, internationale Family Offices und ausgewählte Private-Equity-Häuser. Sie kommen zu uns, weil sie die wichtigste Transaktion ihres Lebens nicht delegieren möchten.</p>
-        <p>Wir publizieren nicht. Wir kommunizieren nicht. Wir liefern.</p>
+        <div class="section-tag"><span data-lang="de">Die Kanzlei</span><span data-lang="en">The Firm</span></div>
+        <h2 class="section-title" data-lang="de">Nah am Mandanten.<br><em>Schnell</em> in der Reaktion.</h2>
+        <h2 class="section-title" data-lang="en">Close to the client.<br><em>Fast</em> in response.</h2>
 
-        <blockquote class="about-quote">
-          „Ein guter M&amp;A-Anwalt schließt Deals. Ein großartiger schützt Beziehungen — über den Deal hinaus."
-        </blockquote>
-        <div class="about-sig">Dr. Maximilian Keinath · Managing Partner</div>
+        <div data-lang="de">
+          <p>Keinath Rechtsanwaltsgesellschaft mbH ist eine Münchner M&amp;A-Boutique. Wir verstehen uns als Partner unserer Mandanten — nicht als Apparat. Persönliche Verbundenheit, kompromisslose Erreichbarkeit und gegenseitiges Vertrauen sind die Grundlage jedes Mandats.</p>
+          <p>Unsere schlanke Struktur ist Programm: Statt vielschichtiger Hierarchien einer Großkanzlei arbeitet jeder Mandant direkt mit dem Partner, der den Deal verantwortet. Entscheidungen fallen schnell. Antworten kommen in Stunden, nicht in Tagen.</p>
+          <p>Was uns prägt: ein Anspruch an Leistung, der aus dem Leistungssport stammt. Disziplin, Konzentration und der Wille, jede Transaktion zum bestmöglichen Ergebnis zu führen.</p>
+
+          <blockquote class="about-quote">
+            „Vertrauen ist die wertvollste Währung in einer Transaktion — und sie wird in jedem einzelnen Schritt verdient."
+          </blockquote>
+          <div class="about-sig">Dr. Philipp Keinath, LL.M. (Columbia)</div>
+        </div>
+
+        <div data-lang="en">
+          <p>Keinath Rechtsanwaltsgesellschaft mbH is a Munich-based M&amp;A boutique. We see ourselves as partners to our clients — not as an apparatus. Personal connection, uncompromising availability and mutual trust are the foundation of every mandate.</p>
+          <p>Our lean structure is deliberate: instead of the layered hierarchies of a large firm, every client works directly with the partner who owns the deal. Decisions are made quickly. Answers come in hours, not days.</p>
+          <p>What defines us: an approach to performance shaped by competitive sport. Discipline, focus and the will to bring every transaction to the best possible outcome.</p>
+
+          <blockquote class="about-quote">
+            "Trust is the most valuable currency in a transaction — and it is earned in every single step."
+          </blockquote>
+          <div class="about-sig">Dr. Philipp Keinath, LL.M. (Columbia)</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DEALS -->
+<!-- DEALS / REFERENZEN -->
 <section class="deals" id="deals">
   <div class="wrap">
-    <div class="section-tag">Mandate</div>
-    <h2 class="section-title reveal">Eine Auswahl — <em>auf Wunsch des Mandanten</em>.</h2>
-    <p class="section-lead reveal">Vertraulichkeit ist Grundsatz. Folgende Mandate dürfen wir nennen.</p>
+    <div class="section-tag"><span data-lang="de">Referenzen</span><span data-lang="en">References</span></div>
+    <h2 class="section-title reveal" data-lang="de">Ausgewählte<br><em>Transaktionen</em>.</h2>
+    <h2 class="section-title reveal" data-lang="en">Selected<br><em>Transactions</em>.</h2>
 
-    <div class="deal-list">
-      <div class="deal"><div class="deal-year">2024</div><div class="deal-name">Verkauf eines Industrieautomatisierers</div><div class="deal-meta">Sell-Side · DACH</div><div class="deal-meta">PE-Investor</div><div class="deal-vol">€ 420 Mio.</div></div>
-      <div class="deal"><div class="deal-year">2024</div><div class="deal-name">Carve-out Mobility-Sparte</div><div class="deal-meta">Buy-Side · DE/FR</div><div class="deal-meta">Stratege</div><div class="deal-vol">€ 280 Mio.</div></div>
-      <div class="deal"><div class="deal-year">2023</div><div class="deal-name">Nachfolge Familienunternehmen</div><div class="deal-meta">MBO · Süddeutschland</div><div class="deal-meta">Management</div><div class="deal-vol">€ 95 Mio.</div></div>
-      <div class="deal"><div class="deal-year">2023</div><div class="deal-name">Add-on im Healthcare-Sektor</div><div class="deal-meta">Buy-Side · CH/AT</div><div class="deal-meta">PE-Portfolio</div><div class="deal-vol">€ 140 Mio.</div></div>
-      <div class="deal"><div class="deal-year">2022</div><div class="deal-name">Joint Venture Energietransition</div><div class="deal-meta">JV · Europa</div><div class="deal-meta">Konsortium</div><div class="deal-vol">€ 610 Mio.</div></div>
-      <div class="deal"><div class="deal-year">2022</div><div class="deal-name">Distressed Acquisition Maschinenbau</div><div class="deal-meta">Restrukturierung</div><div class="deal-vol" style="color:var(--soft)">Vertraulich</div><div class="deal-vol"></div></div>
+    <div class="deal-list section-block">
+      <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Verkauf eines Industrieautomatisierers</span><span data-lang="en">Sale of an industrial automation group</span></div><div class="deal-meta">Sell-Side · DACH</div><div class="deal-meta"><span data-lang="de">PE-Investor</span><span data-lang="en">PE Investor</span></div><div class="deal-vol">€ 420 Mio.</div></div>
+      <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Carve-out Mobility-Sparte</span><span data-lang="en">Carve-out mobility division</span></div><div class="deal-meta">Buy-Side · DE/FR</div><div class="deal-meta"><span data-lang="de">Stratege</span><span data-lang="en">Strategic</span></div><div class="deal-vol">€ 280 Mio.</div></div>
+      <div class="deal"><div class="deal-year">2023</div><div class="deal-name"><span data-lang="de">Nachfolge Familienunternehmen</span><span data-lang="en">Family business succession</span></div><div class="deal-meta">MBO · <span data-lang="de">Süddeutschland</span><span data-lang="en">Southern Germany</span></div><div class="deal-meta">Management</div><div class="deal-vol">€ 95 Mio.</div></div>
+      <div class="deal"><div class="deal-year">2023</div><div class="deal-name"><span data-lang="de">Add-on im Healthcare-Sektor</span><span data-lang="en">Healthcare add-on</span></div><div class="deal-meta">Buy-Side · CH/AT</div><div class="deal-meta">PE-Portfolio</div><div class="deal-vol">€ 140 Mio.</div></div>
+      <div class="deal"><div class="deal-year">2022</div><div class="deal-name"><span data-lang="de">Joint Venture Energietransition</span><span data-lang="en">Energy transition joint venture</span></div><div class="deal-meta">JV · <span data-lang="de">Europa</span><span data-lang="en">Europe</span></div><div class="deal-meta"><span data-lang="de">Konsortium</span><span data-lang="en">Consortium</span></div><div class="deal-vol">€ 610 Mio.</div></div>
+      <div class="deal"><div class="deal-year">2022</div><div class="deal-name"><span data-lang="de">Distressed Acquisition Maschinenbau</span><span data-lang="en">Distressed acquisition machinery</span></div><div class="deal-meta"><span data-lang="de">Restrukturierung</span><span data-lang="en">Restructuring</span></div><div class="deal-meta"></div><div class="deal-vol"><span data-lang="de">Vertraulich</span><span data-lang="en">Confidential</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- PRESS marquee -->
-<section class="press" id="press" style="padding:80px 0">
-  <div class="press-label">Anerkennungen</div>
+<!-- MARQUEE -->
+<section class="press" style="padding:80px 0">
+  <div class="press-label"><span data-lang="de">Anerkennungen</span><span data-lang="en">Recognition</span></div>
   <div class="marquee">
     <span>JUVE — Kanzlei des Jahres M&amp;A Mid-Cap</span>
     <span>The Legal 500 — Tier 1 M&amp;A</span>
@@ -503,74 +645,111 @@
 <!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="wrap">
-    <p class="testimonial-text reveal">
-      Keinath &amp; Partner verbinden die Schlagkraft einer internationalen Großkanzlei mit der Diskretion und Verbundenheit, die wir von einer Boutique erwarten dürfen.
+    <p class="testimonial-text reveal" data-lang="de">
+      Keinath &amp; Partner schöpfen das volle Potenzial im Zusammenspiel aus präziser rechtlicher Bewertung und intelligentem Einsatz von KI — analytisch scharf, technisch souverän, menschlich nah.
     </p>
-    <div class="testimonial-author">Vorstandsvorsitzender · DAX-Familienunternehmen</div>
+    <p class="testimonial-text reveal" data-lang="en">
+      Keinath &amp; Partner unlock the full potential at the intersection of precise legal judgement and the intelligent use of AI — analytically sharp, technically sovereign, personally close.
+    </p>
+    <div class="testimonial-author"><span data-lang="de">Vorstandsvorsitzender · DAX-Familienunternehmen</span><span data-lang="en">Chairman · DAX family-owned group</span></div>
+  </div>
+</section>
+
+<!-- KARRIERE -->
+<section class="career" id="career">
+  <div class="wrap">
+    <div class="section-tag"><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></div>
+    <h2 class="section-title reveal" data-lang="de">Anwälte, die <em>gewinnen</em> wollen.</h2>
+    <h2 class="section-title reveal" data-lang="en">Lawyers who <em>want to win</em>.</h2>
+    <p class="section-lead reveal" data-lang="de">Wir suchen Persönlichkeiten, die juristische Exzellenz mit unternehmerischem Denken verbinden — und Verantwortung vom ersten Tag an übernehmen wollen.</p>
+    <p class="section-lead reveal" data-lang="en">We look for individuals who combine legal excellence with entrepreneurial thinking — and who want to take responsibility from day one.</p>
+
+    <div class="career-grid section-block">
+      <div class="career-card">
+        <h3><span data-lang="de">Rechtsanwältin / Rechtsanwalt (m/w/d)</span><span data-lang="en">Associate (M&amp;A)</span></h3>
+        <p data-lang="de">Für ambitionierte Berufsträger mit Schwerpunkt M&amp;A, Corporate oder Private Equity. Direkte Mandatsverantwortung, internationale Transaktionen, partnerschaftliche Zusammenarbeit.</p>
+        <p data-lang="en">For ambitious lawyers with a focus on M&amp;A, corporate or private equity. Direct mandate responsibility, international transactions, partner-led collaboration.</p>
+        <ul>
+          <li data-lang="de">Volljurist:in, beide Examina überdurchschnittlich</li>
+          <li data-lang="de">LL.M. oder Promotion willkommen</li>
+          <li data-lang="de">Verhandlungssicheres Englisch</li>
+          <li data-lang="en">Fully qualified lawyer, both exams above average</li>
+          <li data-lang="en">LL.M. or doctorate welcome</li>
+          <li data-lang="en">Fluent in English and German</li>
+        </ul>
+        <a href="#contact"><span data-lang="de">Jetzt bewerben →</span><span data-lang="en">Apply now →</span></a>
+      </div>
+      <div class="career-card">
+        <h3><span data-lang="de">Referendariat &amp; Praktika</span><span data-lang="en">Trainee &amp; Internship</span></h3>
+        <p data-lang="de">Wahlstation, Anwaltsstation oder wissenschaftliche Mitarbeit: tiefe Einblicke in echte Transaktionen, enge Begleitung durch Partner, faire Vergütung.</p>
+        <p data-lang="en">Elective station, attorney rotation or research positions: deep insight into live transactions, close mentoring by partners, fair compensation.</p>
+        <ul>
+          <li data-lang="de">Strukturierte Begleitung im Deal-Team</li>
+          <li data-lang="de">Eigene Verantwortung von Tag eins</li>
+          <li data-lang="de">Perspektive auf Festanstellung</li>
+          <li data-lang="en">Structured integration in the deal team</li>
+          <li data-lang="en">Real responsibility from day one</li>
+          <li data-lang="en">Pathway to a permanent role</li>
+        </ul>
+        <a href="#contact"><span data-lang="de">Initiativ bewerben →</span><span data-lang="en">Reach out →</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <div class="section-tag">Kontakt</div>
-    <h2 class="section-title reveal">Ein Gespräch genügt — <em>der Rest ergibt sich</em>.</h2>
+    <div class="section-tag"><span data-lang="de">Kontakt</span><span data-lang="en">Contact</span></div>
+    <h2 class="section-title reveal" data-lang="de">Schreiben Sie uns — <em>der Rest folgt schnell</em>.</h2>
+    <h2 class="section-title reveal" data-lang="en">Write to us — <em>the rest follows quickly</em>.</h2>
 
-    <div class="contact-grid" style="margin-top:80px">
+    <div class="contact-grid section-block">
       <div class="contact-info">
         <div class="contact-block">
-          <h4>München</h4>
-          <p><strong>Maximilianstraße 12</strong></p>
-          <p>80539 München · Deutschland</p>
-          <p style="margin-top:12px">+49 89 20 80 47 — 0</p>
-          <p>muenchen@keinath-partner.de</p>
+          <h4><span data-lang="de">München</span><span data-lang="en">Munich</span></h4>
+          <p><strong>Möhlstraße 35</strong></p>
+          <p>81675 · <span data-lang="de">Deutschland</span><span data-lang="en">Germany</span></p>
+          <p style="margin-top:12px">kontakt@keinath.legal</p>
         </div>
-        <div class="contact-block">
-          <h4>Zürich</h4>
-          <p><strong>Bahnhofstrasse 32</strong></p>
-          <p>8001 Zürich · Schweiz</p>
-          <p style="margin-top:12px">+41 44 215 30 — 0</p>
-        </div>
-
-        <a href="tel:+498920804799" class="contact-cta">
-          <div class="small">Emergency M&amp;A · 24/7</div>
-          <div class="big">+49 89 20 80 47 — 99</div>
-        </a>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Vielen Dank — wir melden uns.'">
+      <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent=document.documentElement.lang==='en'?'Thank you — we will be in touch.':'Vielen Dank — wir melden uns.'">
         <div>
-          <label>Vorname</label>
+          <label><span data-lang="de">Vorname</span><span data-lang="en">First name</span></label>
           <input type="text" required />
         </div>
         <div>
-          <label>Nachname</label>
+          <label><span data-lang="de">Nachname</span><span data-lang="en">Last name</span></label>
           <input type="text" required />
         </div>
         <div>
-          <label>Unternehmen</label>
+          <label><span data-lang="de">Unternehmen</span><span data-lang="en">Company</span></label>
           <input type="text" />
         </div>
         <div>
-          <label>E-Mail</label>
+          <label><span data-lang="de">E-Mail</span><span data-lang="en">Email</span></label>
           <input type="email" required />
         </div>
         <div class="full">
-          <label>Anliegen</label>
+          <label><span data-lang="de">Anliegen</span><span data-lang="en">Topic</span></label>
           <select>
-            <option>M&amp;A · Sell-Side</option>
+            <option disabled selected data-lang-text-de="Auswahl treffen" data-lang-text-en="Please select">Auswahl treffen</option>
             <option>M&amp;A · Buy-Side</option>
-            <option>Nachfolge</option>
+            <option>Private Equity</option>
+            <option>M&amp;A · Sell-Side</option>
+            <option data-lang-text-de="Nachfolge" data-lang-text-en="Succession">Nachfolge</option>
             <option>Joint Venture</option>
-            <option>Restrukturierung</option>
-            <option>Sonstiges</option>
+            <option data-lang-text-de="Restrukturierung" data-lang-text-en="Restructuring">Restrukturierung</option>
+            <option data-lang-text-de="Karriere" data-lang-text-en="Careers">Karriere</option>
+            <option data-lang-text-de="Sonstiges" data-lang-text-en="Other">Sonstiges</option>
           </select>
         </div>
         <div class="full">
-          <label>Nachricht (vertraulich)</label>
+          <label><span data-lang="de">Nachricht (vertraulich)</span><span data-lang="en">Message (confidential)</span></label>
           <textarea rows="3"></textarea>
         </div>
-        <button type="submit">Vertraulich senden</button>
+        <button type="submit"><span data-lang="de">Vertraulich senden</span><span data-lang="en">Send confidentially</span></button>
       </form>
     </div>
   </div>
@@ -578,11 +757,10 @@
 
 <footer>
   <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;width:100%;flex-wrap:wrap;gap:20px">
-    <div>© 2026 Keinath &amp; Partner Rechtsanwälte PartG mbB</div>
+    <div>© 2026 Keinath Rechtsanwaltsgesellschaft mbH</div>
     <div>
-      <a href="#">Impressum</a>
-      <a href="#">Datenschutz</a>
-      <a href="#">AGB</a>
+      <a href="#"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a>
+      <a href="#"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
     </div>
   </div>
 </footer>
@@ -598,6 +776,41 @@
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: .12 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // language toggle
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(b=>{
+      b.classList.toggle('active', b.dataset.setLang===lang);
+    });
+    // select options with bilingual data attributes
+    document.querySelectorAll('option[data-lang-text-de]').forEach(o=>{
+      o.textContent = lang==='en' ? o.dataset.langTextEn : o.dataset.langTextDe;
+    });
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.addEventListener('click', ()=>setLang(b.dataset.setLang));
+  });
+  setLang('de');
+
+  // menu overlay
+  const menuBtn = document.getElementById('menuBtn');
+  menuBtn.addEventListener('click', () => {
+    const open = document.body.classList.toggle('menu-open');
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('[data-menu-link]').forEach(a => {
+    a.addEventListener('click', () => {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded','false');
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.body.classList.remove('menu-open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }
+  });
 </script>
 </body>
 </html>
