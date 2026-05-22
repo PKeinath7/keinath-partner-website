@@ -409,6 +409,7 @@
   .career-card{
     border:1px solid var(--line);padding:56px;
     background:rgba(255,255,255,.01);transition:all .4s ease;
+    display:flex;flex-direction:column;
   }
   .career-card:hover{background:rgba(255,255,255,.05);border-color:var(--pure);transform:translateY(-4px)}
   .career-card h3{
@@ -421,11 +422,11 @@
   .career-card li{
     color:var(--ink);font-size:14px;padding:8px 0;
     border-bottom:1px solid var(--line);
-    line-height:1.4;
+    display:flex;gap:8px;align-items:flex-start;
   }
-  .career-card li::before{content:"- ";color:var(--mist);margin-right:4px;display:inline-block;width:8px;line-height:1.4;vertical-align:baseline}
+  .career-card li::before{content:"- ";color:var(--mist);flex-shrink:0;margin-top:1px}
   .career-card a{
-    display:inline-block;margin-top:8px;
+    display:inline-block;margin-top:auto;
     font-size:11px;letter-spacing:.32em;text-transform:uppercase;
     color:var(--pure);border-bottom:1px solid var(--mist);padding-bottom:4px;
     transition:all .3s;
