@@ -421,8 +421,9 @@
   .career-card li{
     color:var(--ink);font-size:14px;padding:8px 0;
     border-bottom:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;
   }
-  .career-card li::before{content:"— ";color:var(--mist)}
+  .career-card li::before{content:"–";color:var(--mist);flex-shrink:0}
   .career-card a{
     display:inline-block;margin-top:8px;
     font-size:11px;letter-spacing:.32em;text-transform:uppercase;
