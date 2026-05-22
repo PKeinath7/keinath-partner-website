@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Datenschutz — Keinath & Partner</title>
+<meta name="description" content="Datenschutzerklärung der Keinath Rechtsanwaltsgesellschaft mbH — M&A-Kanzlei München." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#03111F" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --abyss:#03111F;
+    --deep:#06243F;
+    --sea:#0B3B66;
+    --tide:#1A5A8A;
+    --mist:#A9C4DC;
+    --ink:#EAF1F8;
+    --pure:#FFFFFF;
+    --line:rgba(255,255,255,.14);
+    --soft:rgba(255,255,255,.62);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--abyss);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1380px;margin:0 auto;padding:0 48px;width:100%}
+  @media(max-width:720px){.wrap{padding:0 24px}}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:32px 48px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:all .4s ease;
+    background:rgba(3,17,31,.8);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  @media(max-width:720px){.nav{padding:20px 24px}}
+  .brand{display:flex;align-items:center;gap:14px;color:var(--pure)}
+  .brand-name{
+    font-family:'Inter',sans-serif;
+    font-size:18px;letter-spacing:.18em;font-weight:400;
+    text-transform:uppercase;
+  }
+  .brand-name .amp{
+    font-family:'Inter',sans-serif;font-weight:300;
+    font-size:.95em;margin:0 4px;color:var(--mist);
+  }
+  .lang-toggle{
+    display:flex;gap:0;
+    border:1px solid var(--line);border-radius:999px;overflow:hidden;
+  }
+  .lang-toggle button{
+    background:transparent;border:none;cursor:pointer;
+    padding:8px 14px;font-size:10px;letter-spacing:.24em;
+    color:var(--soft);font-family:inherit;text-transform:uppercase;
+    transition:all .3s;
+  }
+  .lang-toggle button.active{background:var(--pure);color:var(--abyss)}
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-header{
+    padding:200px 0 80px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, var(--deep), var(--abyss));
+  }
+  @media(max-width:720px){.page-header{padding:140px 0 60px}}
+  @media(max-width:520px){.page-header{padding:100px 0 40px}}
+  .page-tag{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:12px;letter-spacing:.36em;text-transform:uppercase;
+    color:var(--mist);margin-bottom:32px;
+  }
+  .page-title{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;font-size:clamp(48px,6vw,84px);
+    line-height:1.1;letter-spacing:-.01em;color:var(--pure);
+  }
+  @media(max-width:520px){.page-title{font-size:clamp(32px,7vw,48px)}}
+  .back-link{
+    display:flex;align-items:center;gap:10px;width:fit-content;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--mist);margin-bottom:48px;
+    transition:color .3s, gap .3s;
+  }
+  .back-link:hover{color:var(--pure);gap:14px}
+  .back-link::before{content:"←";font-size:14px}
+
+  /* ---------- CONTENT ---------- */
+  main{flex:1}
+  .content{padding:100px 0 140px;max-width:880px}
+  @media(max-width:720px){.content{padding:60px 0 80px}}
+  .content h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:28px;color:var(--pure);
+    margin-top:56px;margin-bottom:20px;letter-spacing:-.005em;
+  }
+  @media(max-width:520px){.content h2{font-size:22px;margin-top:40px;margin-bottom:16px}}
+  .content h2:first-child{margin-top:0}
+  .content h3{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:21px;color:var(--pure);
+    margin-top:36px;margin-bottom:14px;letter-spacing:-.005em;
+  }
+  @media(max-width:520px){.content h3{font-size:18px;margin-top:28px;margin-bottom:12px}}
+  .content p{
+    color:var(--ink);opacity:.9;
+    font-size:15.5px;line-height:1.85;letter-spacing:.2px;
+    margin-bottom:18px;
+  }
+  @media(max-width:520px){.content p{font-size:14px;line-height:1.75;margin-bottom:14px}}
+  .content strong{color:var(--pure);font-weight:400}
+  .content a{color:var(--mist);border-bottom:1px solid transparent;transition:border-color .3s}
+  .content a:hover{border-color:var(--mist)}
+  .content ul{list-style:none;margin:14px 0 22px;padding:0}
+  .content ul li{
+    padding:6px 0;color:var(--ink);opacity:.9;
+    font-size:15.5px;line-height:1.7;
+  }
+  .content ul li::before{content:"— ";color:var(--mist);margin-right:8px}
+
+  .info-block{
+    border-left:2px solid var(--mist);
+    padding:8px 0 8px 28px;margin:24px 0;
+  }
+  .info-block p{margin-bottom:6px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);padding:64px 0;
+    color:var(--soft);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  @media(max-width:520px){footer{padding:40px 0}}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;width:100%;flex-wrap:wrap;gap:20px}
+  footer a{margin-left:32px;opacity:.6;transition:opacity .3s, color .3s}
+  footer a:hover{opacity:1;color:var(--pure)}
+
+  /* language visibility — revert restores correct block/inline per element type */
+  [data-lang]{display:none}
+  html[lang="de"] [data-lang="de"], html[lang="en"] [data-lang="en"]{display:revert}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="brand-name">Keinath<span class="amp">&amp;</span>Partner</span>
+  </a>
+  <div class="lang-toggle">
+    <button data-set-lang="de" class="active">DE</button>
+    <button data-set-lang="en">EN</button>
+  </div>
+</nav>
+
+<main>
+  <header class="page-header">
+    <div class="wrap">
+      <a href="/" class="back-link"><span data-lang="de">Zurück zur Startseite</span><span data-lang="en">Back to home</span></a>
+      <div class="page-tag"><span data-lang="de">Rechtliches</span><span data-lang="en">Legal</span></div>
+      <h1 class="page-title" data-lang="de">Datenschutz</h1>
+      <h1 class="page-title" data-lang="en">Privacy Policy</h1>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="content">
+      <div data-lang="de" class="block">
+        <h2>1. Verantwortlicher</h2>
+        <p>Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO):</p>
+        <div class="info-block">
+          <p><strong>Keinath Rechtsanwaltsgesellschaft mbH</strong></p>
+          <p>Möhlstraße 35, 81675 München, Deutschland</p>
+          <p>E-Mail: <a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+        </div>
+
+        <h2>2. Erhebung und Verarbeitung personenbezogener Daten</h2>
+        <h3>Beim Besuch der Website</h3>
+        <p>Beim Aufruf unserer Website werden durch den von Ihnen verwendeten Browser automatisch Informationen an den Server unserer Website gesendet und temporär in einem sogenannten Logfile gespeichert. Folgende Daten werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:</p>
+        <ul>
+          <li>IP-Adresse des anfragenden Rechners</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>Name und URL der abgerufenen Datei</li>
+          <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
+          <li>Verwendeter Browser und ggf. das Betriebssystem Ihres Rechners</li>
+        </ul>
+        <p>Die genannten Daten werden zur Gewährleistung eines reibungslosen Verbindungsaufbaus, der komfortablen Nutzung sowie zur Auswertung der Systemsicherheit und -stabilität verarbeitet. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <h3>Bei Kontaktaufnahme</h3>
+        <p>Bei Kontaktaufnahme mit uns über das Kontaktformular oder per E-Mail werden Ihre Angaben zur Bearbeitung der Anfrage und für den Fall von Anschlussfragen gespeichert. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Mandatsverhältnisses) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).</p>
+
+        <h2>3. Weitergabe von Daten</h2>
+        <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte zu anderen als den nachfolgend aufgeführten Zwecken findet nicht statt. Wir geben Ihre persönlichen Daten nur an Dritte weiter, wenn:</p>
+        <ul>
+          <li>Sie Ihre ausdrückliche Einwilligung dazu erteilt haben (Art. 6 Abs. 1 lit. a DSGVO)</li>
+          <li>die Weitergabe zur Erfüllung eines Mandatsverhältnisses erforderlich ist (Art. 6 Abs. 1 lit. b DSGVO)</li>
+          <li>eine gesetzliche Verpflichtung zur Weitergabe besteht (Art. 6 Abs. 1 lit. c DSGVO)</li>
+        </ul>
+
+        <h2>4. Cookies</h2>
+        <p>Diese Website verwendet keine Tracking-Cookies und keine Analyse-Tools wie Google Analytics. Technisch notwendige Cookies können verwendet werden, um die Funktionalität der Website sicherzustellen (z.&nbsp;B. Sprachpräferenz). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+
+        <h2>5. Ihre Rechte</h2>
+        <p>Sie haben gegenüber uns folgende Rechte hinsichtlich der Sie betreffenden personenbezogenen Daten:</p>
+        <ul>
+          <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
+          <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+          <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+          <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Recht auf Widerspruch (Art. 21 DSGVO)</li>
+          <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+        </ul>
+        <p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch uns zu beschweren.</p>
+
+        <h2>6. Speicherdauer</h2>
+        <p>Personenbezogene Daten werden nur so lange gespeichert, wie es zur Erreichung des jeweiligen Verarbeitungszwecks erforderlich ist oder gesetzliche Aufbewahrungsfristen dies vorschreiben. Anwaltliche Mandatsakten unterliegen einer Aufbewahrungspflicht von sechs Jahren gemäß § 50 BRAO.</p>
+
+        <h2>7. Datensicherheit</h2>
+        <p>Wir setzen geeignete technische und organisatorische Sicherheitsmaßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, teilweisen oder vollständigen Verlust, Zerstörung oder gegen den unbefugten Zugriff Dritter zu schützen. Die Übertragung erfolgt über eine verschlüsselte HTTPS-Verbindung.</p>
+
+        <h2>8. Kontakt für Datenschutzfragen</h2>
+        <p>Bei Fragen zur Erhebung, Verarbeitung oder Nutzung Ihrer personenbezogenen Daten, bei Auskünften, Berichtigung, Sperrung oder Löschung von Daten wenden Sie sich bitte an:</p>
+        <p><a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+
+        <h2>9. Aktualität dieser Datenschutzerklärung</h2>
+        <p>Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Mai 2026. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern.</p>
+      </div>
+
+      <div data-lang="en" class="block">
+        <h2>1. Controller</h2>
+        <p>Controller within the meaning of the General Data Protection Regulation (GDPR):</p>
+        <div class="info-block">
+          <p><strong>Keinath Rechtsanwaltsgesellschaft mbH</strong></p>
+          <p>Möhlstraße 35, 81675 Munich, Germany</p>
+          <p>Email: <a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+        </div>
+
+        <h2>2. Collection and Processing of Personal Data</h2>
+        <h3>When Visiting the Website</h3>
+        <p>When you access our website, your browser automatically transmits information to our website's server, which is temporarily stored in a so-called log file. The following data is collected without your involvement and stored until automated deletion:</p>
+        <ul>
+          <li>IP address of the requesting computer</li>
+          <li>Date and time of access</li>
+          <li>Name and URL of the retrieved file</li>
+          <li>Website from which the access was made (referrer URL)</li>
+          <li>Browser used and, if applicable, operating system</li>
+        </ul>
+        <p>The data mentioned is processed to ensure a smooth connection setup, comfortable use, and to evaluate system security and stability. The legal basis is Art. 6 (1) lit. f GDPR.</p>
+
+        <h3>When Contacting Us</h3>
+        <p>When contacting us via the contact form or by email, your information will be stored for the purpose of processing the request and for any follow-up questions. The legal basis is Art. 6 (1) lit. b GDPR (initiation of a mandate relationship) and Art. 6 (1) lit. f GDPR (legitimate interest in responding to inquiries).</p>
+
+        <h2>3. Disclosure of Data</h2>
+        <p>Your personal data will not be transmitted to third parties for purposes other than those listed below. We only pass on your personal data to third parties if:</p>
+        <ul>
+          <li>You have given your express consent (Art. 6 (1) lit. a GDPR)</li>
+          <li>Disclosure is necessary for the fulfilment of a mandate relationship (Art. 6 (1) lit. b GDPR)</li>
+          <li>There is a legal obligation to disclose (Art. 6 (1) lit. c GDPR)</li>
+        </ul>
+
+        <h2>4. Cookies</h2>
+        <p>This website does not use tracking cookies or analysis tools such as Google Analytics. Technically necessary cookies may be used to ensure the functionality of the website (e.g., language preference). The legal basis is Art. 6 (1) lit. f GDPR.</p>
+
+        <h2>5. Your Rights</h2>
+        <p>You have the following rights regarding the personal data concerning you:</p>
+        <ul>
+          <li>Right to information (Art. 15 GDPR)</li>
+          <li>Right to rectification (Art. 16 GDPR)</li>
+          <li>Right to erasure (Art. 17 GDPR)</li>
+          <li>Right to restriction of processing (Art. 18 GDPR)</li>
+          <li>Right to object (Art. 21 GDPR)</li>
+          <li>Right to data portability (Art. 20 GDPR)</li>
+        </ul>
+        <p>You also have the right to complain to a data protection supervisory authority about our processing of your personal data.</p>
+
+        <h2>6. Storage Period</h2>
+        <p>Personal data is only stored for as long as it is necessary to achieve the respective processing purpose or as required by statutory retention periods. Attorney mandate files are subject to a retention obligation of six years pursuant to § 50 BRAO.</p>
+
+        <h2>7. Data Security</h2>
+        <p>We use appropriate technical and organisational security measures to protect your data against accidental or intentional manipulation, partial or complete loss, destruction, or unauthorised access by third parties. Transmission is via an encrypted HTTPS connection.</p>
+
+        <h2>8. Contact for Privacy Questions</h2>
+        <p>For questions about the collection, processing, or use of your personal data, for information, correction, blocking, or deletion of data, please contact:</p>
+        <p><a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+
+        <h2>9. Validity of this Privacy Policy</h2>
+        <p>This privacy policy is currently valid and dates from May 2026. Due to the further development of our website or due to changed legal requirements, it may become necessary to change this privacy policy.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Keinath Rechtsanwaltsgesellschaft mbH</div>
+    <div>
+      <a href="/impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a>
+      <a href="/datenschutz.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(b=>{
+      b.classList.toggle('active', b.dataset.setLang===lang);
+    });
+    try{localStorage.setItem('lang', lang)}catch(e){}
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.addEventListener('click', ()=>setLang(b.dataset.setLang));
+  });
+  let savedLang = 'de';
+  try{savedLang = localStorage.getItem('lang') || 'de'}catch(e){}
+  setLang(savedLang);
+</script>
+</body>
+</html>

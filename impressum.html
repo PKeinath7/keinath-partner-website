@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<title>Impressum — Keinath & Partner</title>
+<meta name="description" content="Impressum der Keinath Rechtsanwaltsgesellschaft mbH — M&A-Kanzlei München." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#03111F" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --abyss:#03111F;
+    --deep:#06243F;
+    --sea:#0B3B66;
+    --tide:#1A5A8A;
+    --mist:#A9C4DC;
+    --ink:#EAF1F8;
+    --pure:#FFFFFF;
+    --line:rgba(255,255,255,.14);
+    --soft:rgba(255,255,255,.62);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--abyss);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    min-height:100vh;
+    display:flex;flex-direction:column;
+  }
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:1380px;margin:0 auto;padding:0 48px;width:100%}
+  @media(max-width:720px){.wrap{padding:0 24px}}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:32px 48px;
+    display:flex;align-items:center;justify-content:space-between;
+    transition:all .4s ease;
+    background:rgba(3,17,31,.8);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line);
+  }
+  @media(max-width:720px){.nav{padding:20px 24px}}
+  .brand{display:flex;align-items:center;gap:14px;color:var(--pure)}
+  .brand-name{
+    font-family:'Inter',sans-serif;
+    font-size:18px;letter-spacing:.18em;font-weight:400;
+    text-transform:uppercase;
+  }
+  .brand-name .amp{
+    font-family:'Inter',sans-serif;font-weight:300;
+    font-size:.95em;margin:0 4px;color:var(--mist);
+  }
+  .lang-toggle{
+    display:flex;gap:0;
+    border:1px solid var(--line);border-radius:999px;overflow:hidden;
+  }
+  .lang-toggle button{
+    background:transparent;border:none;cursor:pointer;
+    padding:8px 14px;font-size:10px;letter-spacing:.24em;
+    color:var(--soft);font-family:inherit;text-transform:uppercase;
+    transition:all .3s;
+  }
+  .lang-toggle button.active{background:var(--pure);color:var(--abyss)}
+
+  /* ---------- PAGE HEADER ---------- */
+  .page-header{
+    padding:200px 0 80px;
+    border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg, var(--deep), var(--abyss));
+  }
+  @media(max-width:720px){.page-header{padding:140px 0 60px}}
+  @media(max-width:520px){.page-header{padding:100px 0 40px}}
+  .page-tag{
+    display:inline-flex;align-items:center;gap:14px;
+    font-size:12px;letter-spacing:.36em;text-transform:uppercase;
+    color:var(--mist);margin-bottom:32px;
+  }
+  .page-title{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;font-size:clamp(48px,6vw,84px);
+    line-height:1.1;letter-spacing:-.01em;color:var(--pure);
+  }
+  @media(max-width:520px){.page-title{font-size:clamp(32px,7vw,48px)}}
+  .back-link{
+    display:flex;align-items:center;gap:10px;width:fit-content;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--mist);margin-bottom:48px;
+    transition:color .3s, gap .3s;
+  }
+  .back-link:hover{color:var(--pure);gap:14px}
+  .back-link::before{content:"←";font-size:14px}
+
+  /* ---------- CONTENT ---------- */
+  main{flex:1}
+  .content{padding:100px 0 140px;max-width:880px}
+  @media(max-width:720px){.content{padding:60px 0 80px}}
+  .content h2{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:400;font-size:28px;color:var(--pure);
+    margin-top:56px;margin-bottom:20px;letter-spacing:-.005em;
+  }
+  @media(max-width:520px){.content h2{font-size:22px;margin-top:40px;margin-bottom:16px}}
+  .content h2:first-child{margin-top:0}
+  .content p{
+    color:var(--ink);opacity:.9;
+    font-size:15.5px;line-height:1.85;letter-spacing:.2px;
+    margin-bottom:20px;
+  }
+  @media(max-width:520px){.content p{font-size:14px;line-height:1.75;margin-bottom:16px}}
+  .content strong{color:var(--pure);font-weight:400}
+  .content a{color:var(--mist);border-bottom:1px solid transparent;transition:border-color .3s}
+  .content a:hover{border-color:var(--mist)}
+  .content ul{list-style:none;margin:16px 0 24px;padding:0}
+  .content ul li{
+    padding:8px 0;color:var(--ink);opacity:.9;
+    font-size:15.5px;line-height:1.7;
+  }
+  .content ul li::before{content:"— ";color:var(--mist);margin-right:8px}
+
+  .info-block{
+    border-left:2px solid var(--mist);
+    padding:8px 0 8px 28px;margin:32px 0;
+  }
+  .info-block p{margin-bottom:8px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);padding:64px 0;
+    color:var(--soft);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  @media(max-width:520px){footer{padding:40px 0}}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;width:100%;flex-wrap:wrap;gap:20px}
+  footer a{margin-left:32px;opacity:.6;transition:opacity .3s, color .3s}
+  footer a:hover{opacity:1;color:var(--pure)}
+
+  /* language visibility — revert restores correct block/inline per element type */
+  [data-lang]{display:none}
+  html[lang="de"] [data-lang="de"], html[lang="en"] [data-lang="en"]{display:revert}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="brand">
+    <span class="brand-name">Keinath<span class="amp">&amp;</span>Partner</span>
+  </a>
+  <div class="lang-toggle">
+    <button data-set-lang="de" class="active">DE</button>
+    <button data-set-lang="en">EN</button>
+  </div>
+</nav>
+
+<main>
+  <header class="page-header">
+    <div class="wrap">
+      <a href="/" class="back-link"><span data-lang="de">Zurück zur Startseite</span><span data-lang="en">Back to home</span></a>
+      <div class="page-tag"><span data-lang="de">Rechtliches</span><span data-lang="en">Legal</span></div>
+      <h1 class="page-title" data-lang="de">Impressum</h1>
+      <h1 class="page-title" data-lang="en">Imprint</h1>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="content">
+      <div data-lang="de" class="block">
+        <h2>Anbieter</h2>
+        <div class="info-block">
+          <p><strong>Keinath Rechtsanwaltsgesellschaft mbH</strong></p>
+          <p>Möhlstraße 35</p>
+          <p>81675 München</p>
+          <p>Deutschland</p>
+        </div>
+
+        <h2>Kontakt</h2>
+        <p><strong>E-Mail:</strong> <a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+
+        <h2>Vertretungsberechtigter Geschäftsführer</h2>
+        <p>Dr. Philipp Keinath, LL.M. (Columbia)</p>
+
+        <h2>Handelsregister</h2>
+        <p>Amtsgericht München, HRB 311693</p>
+
+        <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+        <p><strong>Berufsbezeichnung:</strong> Rechtsanwalt (verliehen in der Bundesrepublik Deutschland)</p>
+        <p><strong>Zuständige Aufsichts- und Zulassungsbehörde:</strong></p>
+        <div class="info-block">
+          <p>Rechtsanwaltskammer München</p>
+          <p>Tal 33, 80331 München</p>
+          <p><a href="https://www.rak-muenchen.de" target="_blank" rel="noopener">www.rak-muenchen.de</a></p>
+        </div>
+
+        <h2>Berufsrechtliche Regelungen</h2>
+        <ul>
+          <li>Bundesrechtsanwaltsordnung (BRAO)</li>
+          <li>Berufsordnung der Rechtsanwälte (BORA)</li>
+          <li>Fachanwaltsordnung (FAO)</li>
+          <li>Rechtsanwaltsvergütungsgesetz (RVG)</li>
+          <li>Berufsregeln der Rechtsanwälte der Europäischen Union (CCBE)</li>
+        </ul>
+        <p>Die berufsrechtlichen Regelungen sind unter <a href="https://www.brak.de" target="_blank" rel="noopener">www.brak.de</a> einsehbar.</p>
+
+        <h2>Berufshaftpflichtversicherung</h2>
+        <div class="info-block">
+          <p>R+V Allgemeine Versicherung AG</p>
+          <p>Mittlerer Pfad 24, 70499 Stuttgart</p>
+          <p><a href="https://www.ruv.de" target="_blank" rel="noopener">www.ruv.de</a></p>
+        </div>
+
+        <h2>Umsatzsteuer-ID</h2>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz: wird nachgereicht.</p>
+
+        <h2>Streitschlichtung</h2>
+        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+        <h2>Haftungsausschluss</h2>
+        <p>Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.</p>
+      </div>
+
+      <div data-lang="en" class="block">
+        <h2>Provider</h2>
+        <div class="info-block">
+          <p><strong>Keinath Rechtsanwaltsgesellschaft mbH</strong></p>
+          <p>Möhlstraße 35</p>
+          <p>81675 Munich</p>
+          <p>Germany</p>
+        </div>
+
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:kontakt@keinath.legal">kontakt@keinath.legal</a></p>
+
+        <h2>Authorised Managing Director</h2>
+        <p>Dr. Philipp Keinath, LL.M. (Columbia)</p>
+
+        <h2>Commercial Register</h2>
+        <p>District Court Munich, HRB 311693</p>
+
+        <h2>Professional Title and Regulations</h2>
+        <p><strong>Professional Title:</strong> Attorney at Law (admitted in the Federal Republic of Germany)</p>
+        <p><strong>Competent Supervisory and Admission Authority:</strong></p>
+        <div class="info-block">
+          <p>Munich Bar Association (Rechtsanwaltskammer München)</p>
+          <p>Tal 33, 80331 Munich, Germany</p>
+          <p><a href="https://www.rak-muenchen.de" target="_blank" rel="noopener">www.rak-muenchen.de</a></p>
+        </div>
+
+        <h2>Professional Regulations</h2>
+        <ul>
+          <li>Federal Lawyers' Act (BRAO)</li>
+          <li>Professional Code for Lawyers (BORA)</li>
+          <li>Specialist Lawyers' Regulations (FAO)</li>
+          <li>Lawyers' Remuneration Act (RVG)</li>
+          <li>Code of Conduct for European Lawyers (CCBE)</li>
+        </ul>
+        <p>The professional regulations are available at <a href="https://www.brak.de" target="_blank" rel="noopener">www.brak.de</a>.</p>
+
+        <h2>Professional Liability Insurance</h2>
+        <div class="info-block">
+          <p>R+V Allgemeine Versicherung AG</p>
+          <p>Mittlerer Pfad 24, 70499 Stuttgart, Germany</p>
+          <p><a href="https://www.ruv.de" target="_blank" rel="noopener">www.ruv.de</a></p>
+        </div>
+
+        <h2>VAT ID</h2>
+        <p>VAT Identification Number pursuant to § 27a Value Added Tax Act: to be provided.</p>
+
+        <h2>Dispute Resolution</h2>
+        <p>The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a></p>
+        <p>We are not willing or obligated to participate in dispute resolution proceedings before a consumer arbitration board.</p>
+
+        <h2>Disclaimer</h2>
+        <p>The content of this website has been compiled with the utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of the content. As a service provider, we are responsible for our own content on these pages in accordance with general law pursuant to § 7 (1) TMG.</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© 2026 Keinath Rechtsanwaltsgesellschaft mbH</div>
+    <div>
+      <a href="/impressum.html"><span data-lang="de">Impressum</span><span data-lang="en">Imprint</span></a>
+      <a href="/datenschutz.html"><span data-lang="de">Datenschutz</span><span data-lang="en">Privacy</span></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-toggle button').forEach(b=>{
+      b.classList.toggle('active', b.dataset.setLang===lang);
+    });
+    try{localStorage.setItem('lang', lang)}catch(e){}
+  }
+  document.querySelectorAll('.lang-toggle button').forEach(b=>{
+    b.addEventListener('click', ()=>setLang(b.dataset.setLang));
+  });
+  let savedLang = 'de';
+  try{savedLang = localStorage.getItem('lang') || 'de'}catch(e){}
+  setLang(savedLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm run *)",
+      "Bash(pkill -f \"vite preview\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Fix mobile text cutoff in expertise section *)",
+      "Bash(git config *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
