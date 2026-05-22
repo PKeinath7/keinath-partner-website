@@ -12,7 +12,8 @@
       "Bash(git commit -m 'Simplify contact section heading for better mobile display *)",
       "Bash(git commit -m 'Update career section: Apply Now button and heading alignment *)",
       "Bash(git commit -m 'Update contact heading: '\\\\''Write to us'\\\\'' to '\\\\''Write us'\\\\'' *)",
-      "Bash(git commit -m 'Revert contact heading: '\\\\''Write us'\\\\'' back to '\\\\''Write to us'\\\\'' *)"
+      "Bash(git commit -m 'Revert contact heading: '\\\\''Write us'\\\\'' back to '\\\\''Write to us'\\\\'' *)",
+      "Bash(git commit -m 'Replace recognition marquee with second KPI banner *)"
     ]
   }
 }
