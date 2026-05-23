@@ -29,7 +29,8 @@
       "Bash(xxd)",
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\phili\\\\OneDrive - Keinath Rechtsanwaltsgesellschaft mbH\\\\Dokumente\\\\Lovable Website\" -Recurse -File)",
       "Bash(Select-Object FullName)",
-      "PowerShell(head -60)"
+      "PowerShell(head -60)",
+      "mcp__Claude_in_Chrome__javascript_tool"
     ]
   }
 }
