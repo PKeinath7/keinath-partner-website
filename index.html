@@ -2,11 +2,11 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8" />
-<title>Keinath & Partner — M&A-Kanzlei München</title>
-<meta name="description" content="Keinath Rechtsanwaltsgesellschaft mbH — M&A-Kanzlei mit Sitz in München. Leistungsstark, reaktionsschnell, vertrauensvoll." />
+<title>Keinath & Partner – M&A-Kanzlei München</title>
+<meta name="description" content="Keinath Rechtsanwaltsgesellschaft mbH – M&A-Kanzlei mit Sitz in München. Leistungsstark, reaktionsschnell, vertrauensvoll." />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#03111F" />
-<meta property="og:title" content="Keinath & Partner — M&A-Kanzlei München" />
+<meta property="og:title" content="Keinath & Partner – M&A-Kanzlei München" />
 <meta property="og:description" content="M&A-Kanzlei mit Sitz in München. Leistung. Reaktion. Vertrauen." />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="de_DE" />
@@ -204,7 +204,7 @@
     padding:80px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     overflow:hidden;
   }
-  @media(max-width:720px){.kpi{padding:60px 0}}
+  @media(max-width:720px){.kpi{padding:60px 0;display:none}}
   .kpi .wrap{overflow:hidden}
   .kpi-grid{display:flex;gap:80px;animation:kpiScroll 56s linear infinite;white-space:nowrap}
   @media(max-width:720px){
@@ -557,6 +557,10 @@
   @media(max-width:720px) {
     .splash {
       padding-left: 24px;
+      justify-content: center;
+    }
+    .splash-logo {
+      margin-left: 0;
     }
     .splash-logo-text {
       font-size: clamp(32px, 10vw, 64px);
@@ -575,7 +579,7 @@
   .reveal{opacity:0;transform:translateY(40px);transition:opacity 1s,transform 1s}
   .reveal.in{opacity:1;transform:translateY(0)}
 
-  /* language visibility — revert restores correct block/inline per element type */
+  /* language visibility – revert restores correct block/inline per element type */
   [data-lang]{display:none!important}
   html[lang="de"] [data-lang="de"], html[lang="en"] [data-lang="en"]{display:revert!important}
 
@@ -742,7 +746,7 @@
         <h2 class="section-title" data-lang="en">Close. Thoughtful. Responsive.</h2>
 
         <div data-lang="de">
-          <p>Keinath & Partner ist eine Münchner M&A-Boutique. Wir verstehen uns als Partner unserer Mandanten — nicht als Institution. Persönliche Verbundenheit, kompromisslose Leistungsbereitschaft und gegenseitiges Vertrauen sind die Grundlage jedes Mandats.</p>
+          <p>Keinath & Partner ist eine Münchner M&A-Boutique. Wir verstehen uns als Partner unserer Mandanten – nicht als Institution. Persönliche Verbundenheit, kompromisslose Leistungsbereitschaft und gegenseitiges Vertrauen sind die Grundlage jedes Mandats.</p>
           <p>Unsere schlanke Struktur ist Programm: Statt vielschichtiger Hierarchien einer Großkanzlei arbeitet jeder Mandant unmittelbar mit dem verantwortlichen Partner zusammen, der modernste KI-Technologie unterstützend einsetzt.</p>
           <p>Wir sind reaktionsschnell, arbeiten effizient und mit einem Vergütungsmodell, in dem Sie sich wiederfinden.</p>
           <p>Was uns prägt: ein Anspruch an Leistung, der aus dem Leistungssport stammt. Disziplin, Konzentration und der Wille, jede Transaktion zum bestmöglichen Ergebnis zu führen.</p>
@@ -754,7 +758,7 @@
         </div>
 
         <div data-lang="en">
-          <p>Keinath & Partner is a Munich-based M&A boutique. We see ourselves as partners to our clients — not as an institution. Personal connection, uncompromising commitment and mutual trust are the foundation of every mandate.</p>
+          <p>Keinath & Partner is a Munich-based M&A boutique. We see ourselves as partners to our clients – not as an institution. Personal connection, uncompromising commitment and mutual trust are the foundation of every mandate.</p>
           <p>Our lean structure is deliberate: instead of the layered hierarchies of a large firm, every client works directly with the responsible partner who uses state-of-the-art AI technology in a supportive capacity.</p>
           <p>We are responsive, work efficiently and with a fee model that fits your needs.</p>
           <p>What defines us: an approach to performance shaped by competitive sport. Discipline, focus and the will to bring every transaction to the best possible outcome.</p>
@@ -826,7 +830,7 @@
     <div class="section-tag"><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></div>
     <h2 class="section-title reveal" data-lang="de">Persönlichkeiten mit Gewinnermentalität.</h2>
     <h2 class="section-title reveal" data-lang="en">Lawyers who want to win.</h2>
-    <p class="section-lead reveal" data-lang="de">Wir suchen Persönlichkeiten, die juristische Exzellenz mit unternehmerischem Denken verbinden — und Verantwortung vom ersten Tag an übernehmen wollen.</p>
+    <p class="section-lead reveal" data-lang="de">Wir suchen Persönlichkeiten, die juristische Exzellenz mit unternehmerischem Denken verbinden – und Verantwortung vom ersten Tag an übernehmen wollen.</p>
     <p class="section-lead reveal" data-lang="en">We look for individuals who combine legal excellence with entrepreneurial thinking – and who want to take responsibility from day one.</p>
 
     <div class="career-grid section-block">
@@ -880,7 +884,7 @@
         </div>
       </div>
 
-      <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent=document.documentElement.lang==='en'?'Thank you — we will be in touch.':'Vielen Dank — wir melden uns.'">
+      <form class="contact-form" onsubmit="event.preventDefault();this.querySelector('button').textContent=document.documentElement.lang==='en'?'Thank you – we will be in touch.':'Vielen Dank – wir melden uns.'">
         <div>
           <label><span data-lang="de">Vorname</span><span data-lang="en">First name</span></label>
           <input type="text" required />
