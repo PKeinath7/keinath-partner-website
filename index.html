@@ -45,12 +45,12 @@
   /* ---------- NAV ---------- */
   .nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
-    padding:32px 48px;
+    padding:32px 48px 32px 96px;
     display:flex;align-items:center;justify-content:space-between;
     transition:all .4s ease;
   }
   .nav.scrolled{
-    padding:18px 48px;
+    padding:18px 48px 18px 96px;
     background:rgba(3,17,31,.8);
     backdrop-filter:blur(20px);
     border-bottom:1px solid var(--line);
@@ -152,7 +152,7 @@
     50%{background-position:center 2%}
   }
 
-  .hero-content{position:relative;z-index:2;width:100%;max-width:none;margin:0}
+  .hero-content{position:relative;z-index:2;width:100%}
   .hero-tag{
     display:inline-flex;align-items:center;gap:14px;
     font-family:'Cormorant Garamond',serif;
