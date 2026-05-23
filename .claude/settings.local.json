@@ -13,7 +13,13 @@
       "Bash(git commit -m 'Update career section: Apply Now button and heading alignment *)",
       "Bash(git commit -m 'Update contact heading: '\\\\''Write to us'\\\\'' to '\\\\''Write us'\\\\'' *)",
       "Bash(git commit -m 'Revert contact heading: '\\\\''Write us'\\\\'' back to '\\\\''Write to us'\\\\'' *)",
-      "Bash(git commit -m 'Replace recognition marquee with second KPI banner *)"
+      "Bash(git commit -m 'Replace recognition marquee with second KPI banner *)",
+      "mcp__Claude_in_Chrome__switch_browser",
+      "Bash(grep \".deal-meta,.deal-vol{display:none}\" dist/index.html)",
+      "Bash(git commit --amend -m ' *)",
+      "Bash(git commit *)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__Claude_in_Chrome__select_browser"
     ]
   }
 }
