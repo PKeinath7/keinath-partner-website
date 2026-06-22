@@ -109,7 +109,7 @@
   }
   body.menu-open .menu-overlay{opacity:1;pointer-events:auto}
   .menu-overlay ul{list-style:none;text-align:center}
-  .menu-overlay li{margin:18px 0;overflow:hidden}
+  .menu-overlay li{margin:18px 0;overflow:hidden;padding-bottom:6px}
   .menu-overlay a{
     font-family:'Cormorant Garamond',serif;
     font-size:clamp(36px,6vw,68px);font-weight:300;
@@ -124,6 +124,7 @@
   body.menu-open .menu-overlay li:nth-child(4) a{transition-delay:.26s}
   body.menu-open .menu-overlay li:nth-child(5) a{transition-delay:.32s}
   body.menu-open .menu-overlay li:nth-child(6) a{transition-delay:.38s}
+  body.menu-open .menu-overlay li:nth-child(7) a{transition-delay:.44s}
   .menu-overlay a:hover{color:var(--mist);font-style:italic}
 
   /* ---------- HERO ---------- */
@@ -327,6 +328,8 @@
     font-size:22px;color:var(--pure);line-height:1.5;
   }
   .about-sig{margin-top:28px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mist)}
+  .about-credentials{display:flex;flex-wrap:wrap;gap:10px;margin:32px 0 0}
+  .about-credentials span{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mist);border:1px solid rgba(255,255,255,.15);padding:6px 14px;white-space:nowrap}
   .about-text .section-tag{display:block;margin-bottom:28px}
   .deals .section-tag{display:block;margin-bottom:28px}
   .career .section-tag{display:block;margin-bottom:28px}
@@ -447,6 +450,14 @@
     font-size:15px;letter-spacing:.06em;text-transform:none;
     color:var(--pure);margin-bottom:12px;font-weight:400;
   }
+  .btn-cta{
+    display:inline-block;margin-top:36px;
+    padding:14px 32px;border:1px solid var(--mist);
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--pure);text-decoration:none;
+    transition:background .3s,border-color .3s,color .3s;
+  }
+  .btn-cta:hover{background:var(--pure);color:var(--abyss);border-color:var(--pure)}
   .contact-cta{
     display:block;background:var(--sea);
     padding:56px;border:1px solid var(--mist);
@@ -624,6 +635,7 @@
   <ul>
     <li><a href="#" data-menu-link>Home</a></li>
     <li><a href="#expertise" data-menu-link><span data-lang="de">Tätigkeiten</span><span data-lang="en">Practice</span></a></li>
+    <li><a href="#ki" data-menu-link><span data-lang="de">Einsatz von KI</span><span data-lang="en">Use of AI</span></a></li>
     <li><a href="#about" data-menu-link><span data-lang="de">Kanzlei</span><span data-lang="en">Firm</span></a></li>
     <li><a href="#deals" data-menu-link><span data-lang="de">Referenzen</span><span data-lang="en">References</span></a></li>
     <li><a href="#career" data-menu-link><span data-lang="de">Karriere</span><span data-lang="en">Careers</span></a></li>
@@ -654,6 +666,7 @@
         <span data-lang="de">Eine Rechtsanwaltskanzlei, die eng an Ihrer Seite arbeitet – reaktionsschnell, persönlich verbunden und auf Vertrauen gegründet. Schlanke Strukturen statt anonymer Großkanzlei: direkter Zugang zum Partner, der Ihre Transaktion beginnt, leitet und abschließt.</span>
         <span data-lang="en">A law firm that works closely at your side – responsive, personally connected and built on trust. Lean structures instead of an anonymous large firm: direct access to the partner who starts, leads and closes your transaction.</span>
       </p>
+      <a href="#contact" class="btn-cta"><span data-lang="de">Kontakt aufnehmen</span><span data-lang="en">Get in touch</span></a>
     </div>
   </div>
   <div class="hero-scroll">Scroll</div>
@@ -741,6 +754,29 @@
   </div>
 </section>
 
+<!-- KI -->
+<section class="about" id="ki">
+  <div class="wrap">
+    <div class="about-text" style="max-width:780px">
+      <div class="section-tag"><span data-lang="de">Innovation</span><span data-lang="en">Innovation</span></div>
+      <h2 class="section-title reveal" data-lang="de">Einsatz von KI in der Transaktionspraxis.</h2>
+      <h2 class="section-title reveal" data-lang="en">Use of AI in Transaction Practice.</h2>
+      <div data-lang="de">
+        <p style="margin-top:28px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">Wir setzen modernste KI-gestützte Werkzeuge gezielt ein, um die Qualität und Effizienz unserer Beratungsleistungen zu steigern – ohne dabei auf die persönliche Urteilskraft und juristische Expertise unserer Anwälte zu verzichten.</p>
+        <p style="margin-top:20px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">KI unterstützt uns bei der Analyse großer Dokumentenmengen im Rahmen der Due Diligence, bei der Vertragsprüfung sowie bei der Recherche komplexer Rechtsfragen. Dadurch gewinnen unsere Mandanten Zeit und Kosteneffizienz – bei gleichbleibend hoher Beratungsqualität.</p>
+        <p style="margin-top:20px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">Der Einsatz von KI erfolgt stets verantwortungsvoll: Alle KI-gestützten Ergebnisse werden von unseren Anwälten sorgfältig geprüft und bewertet. Datenschutz und Vertraulichkeit haben dabei höchste Priorität.</p>
+        <a href="#contact" class="btn-cta" data-lang="de">Mehr erfahren – Kontakt aufnehmen →</a>
+      </div>
+      <div data-lang="en">
+        <p style="margin-top:28px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">We deploy state-of-the-art AI-powered tools to enhance the quality and efficiency of our advisory services — without replacing the personal judgment and legal expertise of our attorneys.</p>
+        <p style="margin-top:20px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">AI assists us in analyzing large volumes of documents during due diligence, reviewing contracts, and researching complex legal questions. This translates into time and cost savings for our clients — with consistently high advisory quality.</p>
+        <p style="margin-top:20px;line-height:1.9;font-size:16px;font-weight:300;color:var(--ink)">AI is always used responsibly: all AI-generated results are carefully reviewed and assessed by our attorneys. Data protection and confidentiality remain our highest priorities.</p>
+        <a href="#contact" class="btn-cta" data-lang="en">Learn more – get in touch →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ABOUT -->
 <section class="about" id="about">
   <div class="wrap">
@@ -755,26 +791,30 @@
 
         <div data-lang="de">
           <p>Keinath & Partner ist eine Münchner M&A-Kanzlei. Wir verstehen uns als Partner unserer Mandanten – nicht als Institution. Persönliche Verbundenheit, kompromisslose Leistungsbereitschaft und gegenseitiges Vertrauen sind die Grundlage jedes Mandats.</p>
-          <p>Unsere schlanke Struktur ist Programm: Statt vielschichtiger Hierarchien einer Großkanzlei arbeitet jeder Mandant unmittelbar mit dem verantwortlichen Partner zusammen, der modernste KI-Technologie unterstützend einsetzt.</p>
-          <p>Wir sind reaktionsschnell, arbeiten effizient und mit einem Vergütungsmodell, in dem Sie sich wiederfinden.</p>
+          <p>Dr. Philipp Keinath bringt die Erfahrung aus internationalen Spitzenkanzleien mit – darunter <strong>Kirkland & Ellis</strong>, einer der weltweit führenden M&A- und Private-Equity-Kanzleien. Dieses Handwerk der Großkanzlei verbindet Keinath & Partner mit der Agilität und Direktheit einer Boutique: Sie erhalten erstklassige transaktionale Expertise – ohne die Anonymität einer Institution.</p>
+          <p>Unsere schlanke Struktur ist Programm: Statt vielschichtiger Hierarchien arbeitet jeder Mandant unmittelbar mit dem verantwortlichen Partner zusammen, der modernste KI-Technologie unterstützend einsetzt.</p>
           <p>Was uns prägt: ein Anspruch an Leistung, der aus dem Leistungssport stammt. Disziplin, Konzentration und der Wille, jede Transaktion zum bestmöglichen Ergebnis zu führen.</p>
+
 
           <blockquote class="about-quote">
             Vertrauen ist die wertvollste Währung in einer Transaktion – und sie wird in jedem einzelnen Schritt verdient.
           </blockquote>
           <div class="about-sig">Dr. Philipp Keinath, LL.M. (Columbia)</div>
+          <div data-lang="de" style="margin-top:48px"><a href="#contact" class="btn-cta">Jetzt Kontakt aufnehmen →</a></div>
         </div>
 
         <div data-lang="en">
           <p>Keinath & Partner is a Munich-based M&A boutique. We see ourselves as partners to our clients – not as an institution. Personal connection, uncompromising commitment and mutual trust are the foundation of every mandate.</p>
+          <p>Dr. Philipp Keinath brings experience from leading international law firms – including <strong>Kirkland & Ellis</strong>, one of the world's premier M&A and private equity practices. Keinath & Partner combines this large-firm expertise with the agility and directness of a boutique: clients receive top-tier transactional counsel – without the anonymity of a large institution.</p>
           <p>Our lean structure is deliberate: instead of the layered hierarchies of a large firm, every client works directly with the responsible partner who uses state-of-the-art AI technology in a supportive capacity.</p>
-          <p>We are responsive, work efficiently and with a fee model that fits your needs.</p>
           <p>What defines us: an approach to performance shaped by competitive sport. Discipline, focus and the will to bring every transaction to the best possible outcome.</p>
+
 
           <blockquote class="about-quote">
             Trust is the most valuable currency in a transaction – and it is earned in every single step.
           </blockquote>
           <div class="about-sig">Dr. Philipp Keinath, LL.M. (Columbia)</div>
+          <div data-lang="en" style="margin-top:48px"><a href="#contact" class="btn-cta">Get in touch →</a></div>
         </div>
       </div>
     </div>
@@ -799,6 +839,7 @@
       <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Erwerb eines Glasfasernetzbetreibers</span><span data-lang="en">Acquisition of a fiber network operator</span></div><div class="deal-meta">Buy-Side</div><div class="deal-meta"><span data-lang="de">PE-Investor</span><span data-lang="en">PE Investor</span></div><div class="deal-vol">€ 610 Mio.</div></div>
       <div class="deal"><div class="deal-year">2024</div><div class="deal-name"><span data-lang="de">Erwerb eines Venture Capital Fonds</span><span data-lang="en">Acquisition of a venture capital fund</span></div><div class="deal-meta">Buy-Side</div><div class="deal-meta"><span data-lang="de">PE-Investor (US)</span><span data-lang="en">PE Investor (US)</span></div><div class="deal-vol"><span data-lang="de">Vertraulich</span><span data-lang="en">Confidential</span></div></div>
     </div>
+    <a href="#contact" class="btn-cta"><span data-lang="de">Pitch Deck anfordern →</span><span data-lang="en">Request pitch deck →</span></a>
   </div>
 </section>
 
