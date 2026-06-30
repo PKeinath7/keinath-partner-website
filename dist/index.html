@@ -407,16 +407,34 @@
     background-image:linear-gradient(rgba(3,17,31,.9),rgba(3,17,31,.95)),url('/assets/boardroom2-OebAmxoS.jpg');
     background-size:cover;background-position:center;background-attachment:fixed;
   }
+  .testimonial-slider{position:relative;max-width:1040px;margin:0 auto}
+  .testimonial-track{overflow:hidden}
+  .testimonial-slide{display:none}
+  .testimonial-slide.active{display:block}
   .testimonial-text{
     font-family:'Cormorant Garamond',serif;font-weight:300;
     font-size:clamp(28px,3vw,42px);line-height:1.5;color:var(--pure);
-    max-width:1040px;margin:0 auto;letter-spacing:-.005em;
+    letter-spacing:-.005em;
   }
   .testimonial-text::before,.testimonial-text::after{
     content:"";display:block;width:60px;height:1px;background:var(--mist);margin:0 auto 48px;
   }
   .testimonial-text::after{margin:48px auto 0}
   .testimonial-author{margin-top:36px;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--mist)}
+  .testimonial-nav{display:flex;align-items:center;justify-content:center;gap:32px;margin-top:48px}
+  .testimonial-btn{
+    background:none;border:1px solid var(--line);color:var(--mist);
+    width:48px;height:48px;border-radius:50%;cursor:pointer;
+    font-size:18px;display:flex;align-items:center;justify-content:center;
+    transition:border-color .3s,color .3s;flex-shrink:0;
+  }
+  .testimonial-btn:hover{border-color:var(--pure);color:var(--pure)}
+  .testimonial-dots{display:flex;gap:10px}
+  .testimonial-dot{
+    width:6px;height:6px;border-radius:50%;background:var(--mist);
+    opacity:.4;cursor:pointer;transition:opacity .3s;border:none;padding:0;
+  }
+  .testimonial-dot.active{opacity:1;background:var(--pure)}
 
   /* ---------- CAREER ---------- */
   .career{background:var(--deep)}
@@ -860,13 +878,30 @@
 <!-- TESTIMONIAL -->
 <section class="testimonial">
   <div class="wrap">
-    <p class="testimonial-text reveal" data-lang="de">
-      Keinath &amp; Partner schöpfen das volle Potenzial im Zusammenspiel aus präziser rechtlicher Bewertung und intelligentem Einsatz von KI – analytisch scharf, technisch souverän, menschlich nah.
-    </p>
-    <p class="testimonial-text reveal" data-lang="en">
-      Keinath &amp; Partner unlock the full potential at the intersection of precise legal judgement and the intelligent use of AI – analytically sharp, technically sovereign, personally close.
-    </p>
-    <div class="testimonial-author"><span data-lang="de">Managing Partner - Private Equity Fonds</span><span data-lang="en">Managing Partner - Private Equity Fund</span></div>
+    <div class="testimonial-slider">
+      <div class="testimonial-track">
+        <div class="testimonial-slide active">
+          <p class="testimonial-text" data-lang="de">Keinath &amp; Partner schöpfen das volle Potenzial im Zusammenspiel aus präziser rechtlicher Bewertung und intelligentem Einsatz von KI – analytisch scharf, technisch souverän, menschlich nah.</p>
+          <p class="testimonial-text" data-lang="en">Keinath &amp; Partner unlock the full potential at the intersection of precise legal judgement and the intelligent use of AI – analytically sharp, technically sovereign, personally close.</p>
+          <div class="testimonial-author"><span data-lang="de">Managing Partner – Private Equity Fonds</span><span data-lang="en">Managing Partner – Private Equity Fund</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-text" data-lang="de">Hier können Sie ein zweites Zitat einfügen.</p>
+          <p class="testimonial-text" data-lang="en">You can add a second quote here.</p>
+          <div class="testimonial-author"><span data-lang="de">Titel – Unternehmen</span><span data-lang="en">Title – Company</span></div>
+        </div>
+        <div class="testimonial-slide">
+          <p class="testimonial-text" data-lang="de">Hier können Sie ein drittes Zitat einfügen.</p>
+          <p class="testimonial-text" data-lang="en">You can add a third quote here.</p>
+          <div class="testimonial-author"><span data-lang="de">Titel – Unternehmen</span><span data-lang="en">Title – Company</span></div>
+        </div>
+      </div>
+      <div class="testimonial-nav">
+        <button class="testimonial-btn" id="tPrev">&#8592;</button>
+        <div class="testimonial-dots" id="tDots"></div>
+        <button class="testimonial-btn" id="tNext">&#8594;</button>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1012,6 +1047,28 @@
       document.body.classList.remove('splash-active');
     }, 3000);
   }
+
+  // Testimonial slider
+  (function(){
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dotsEl = document.getElementById('tDots');
+    let current = 0;
+    slides.forEach((_,i)=>{
+      const d = document.createElement('button');
+      d.className='testimonial-dot'+(i===0?' active':'');
+      d.addEventListener('click',()=>go(i));
+      dotsEl.appendChild(d);
+    });
+    function go(n){
+      slides[current].classList.remove('active');
+      dotsEl.children[current].classList.remove('active');
+      current=(n+slides.length)%slides.length;
+      slides[current].classList.add('active');
+      dotsEl.children[current].classList.add('active');
+    }
+    document.getElementById('tPrev').addEventListener('click',()=>go(current-1));
+    document.getElementById('tNext').addEventListener('click',()=>go(current+1));
+  })();
 </script>
 </body>
 </html>
