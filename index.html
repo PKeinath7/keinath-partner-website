@@ -125,8 +125,10 @@
   body.menu-open .menu-overlay li:nth-child(5) a{transition-delay:.32s}
   body.menu-open .menu-overlay li:nth-child(6) a{transition-delay:.38s}
   body.menu-open .menu-overlay li:nth-child(7) a{transition-delay:.44s}
-  .menu-overlay a{transition:color .15s, transform .15s, letter-spacing .15s}
-  .menu-overlay a:hover{color:var(--pure);transform:scale(1.08) translateX(6px);letter-spacing:.06em}
+  .menu-overlay a{transition:color .2s;position:relative}
+  .menu-overlay a::after{content:'';position:absolute;left:0;bottom:-4px;width:0;height:1px;background:var(--pure);transition:width .3s ease}
+  .menu-overlay a:hover{color:var(--pure)}
+  .menu-overlay a:hover::after{width:100%}
 
   /* ---------- HERO ---------- */
   .hero{
