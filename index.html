@@ -600,7 +600,7 @@
 </head>
 <body>
 
-<div class="splash" id="splash">
+<div class="splash" id="splash" style="display:none">
   <div class="splash-content">
     <div class="splash-logo">
       <span class="splash-logo-text">Keinath<span class="amp">&amp;</span>Partner</span>
@@ -941,6 +941,12 @@
 </footer>
 
 <script>
+  // show splash only on first visit per session
+  const splash = document.getElementById('splash');
+  if (!sessionStorage.getItem('splashShown')) {
+    splash.style.display = '';
+    sessionStorage.setItem('splashShown', '1');
+  }
   // nav scroll state
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
