@@ -941,11 +941,12 @@
 </footer>
 
 <script>
-  // show splash only on first visit per session
+  // skip splash only when navigating back from impressum/datenschutz
   const splash = document.getElementById('splash');
-  if (!sessionStorage.getItem('splashShown')) {
+  if (sessionStorage.getItem('fromSubpage')) {
+    sessionStorage.removeItem('fromSubpage');
+  } else {
     splash.style.display = '';
-    sessionStorage.setItem('splashShown', '1');
   }
   // nav scroll state
   const nav = document.getElementById('nav');

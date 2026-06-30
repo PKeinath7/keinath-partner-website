@@ -310,6 +310,7 @@
   let savedLang = 'de';
   try{savedLang = localStorage.getItem('lang') || 'de'}catch(e){}
   setLang(savedLang);
+  sessionStorage.setItem('fromSubpage', '1');
 </script>
 </body>
 </html>
