@@ -596,11 +596,13 @@
   [data-lang]{display:none!important}
   html[lang="de"] [data-lang="de"], html[lang="en"] [data-lang="en"]{display:revert!important}
 
+  .no-splash #splash{display:none!important}
 </style>
+<script>if(sessionStorage.getItem('fromSubpage')){document.documentElement.classList.add('no-splash');sessionStorage.removeItem('fromSubpage');}</script>
 </head>
 <body>
 
-<div class="splash" id="splash" style="display:none">
+<div class="splash" id="splash">
   <div class="splash-content">
     <div class="splash-logo">
       <span class="splash-logo-text">Keinath<span class="amp">&amp;</span>Partner</span>
@@ -941,13 +943,6 @@
 </footer>
 
 <script>
-  // skip splash only when navigating back from impressum/datenschutz
-  const splash = document.getElementById('splash');
-  if (sessionStorage.getItem('fromSubpage')) {
-    sessionStorage.removeItem('fromSubpage');
-  } else {
-    splash.style.display = '';
-  }
   // nav scroll state
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
